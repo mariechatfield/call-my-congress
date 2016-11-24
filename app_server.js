@@ -49,7 +49,9 @@ function getDistricts(geography) {
     const number = address.geographies['115th Congressional Districts'][0].BASENAME;
     const state = address.addressComponents.state;
 
-    return { number, state };
+    const id = `${state}-${number}`;
+
+    return { number, state, id };
   });
 }
 
@@ -82,15 +84,39 @@ function getSenators(district) {
   });
 }
 
-app.get('/lookup', (req, res) => {
+function buildCongress(district) {
+  return Promise.all([
+    getRepresentatives(district),
+    getSenators(district),
+    Promise.resolve(district)
+  ])
+  .then(congress => {
+    const representatives = congress[0].representatives;
+    const senators = congress[1].senators;
+    const district = congress[2];
+
+    return { representatives, senators, district };
+  });
+}
+
+app.get('/lookup/district-from-address', (req, res) => {
   try {
     getDistricts(req.query)
-      .then(district => Promise.all([getRepresentatives(district), getSenators(district)]))
-      .then(congress => {
-        const representatives = congress[0].representatives;
-        const senators = congress[1].senators;
-        res.send(JSON.stringify({ representatives, senators }));
-      })
+      .then(district => res.send(JSON.stringify(district)))
+      .catch(err => res.status(500).send(err));
+  } catch (err) {
+    res.status(500).send('Something went wrong!');
+  }
+});
+
+app.get('/lookup/congress-from-district', (req, res) => {
+  try {
+    const districtID = req.query.id;
+    const stateNumberPattern = /^([a-zA-z]{2})-([0-9]+)$/;
+    const [, state, number] = districtID.match(stateNumberPattern);
+
+    buildCongress({ state, number })
+      .then(congress => res.send(JSON.stringify(congress)))
       .catch(err => res.status(500).send(err));
   } catch (err) {
     res.status(500).send('Something went wrong!');
