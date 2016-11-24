@@ -1,7 +1,7 @@
-import Ember from 'ember';
 import $ from 'jquery';
+import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.Component.extend({
   street: null,
   zip: null,
 
@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
       $.ajax(`/lookup/district-from-address?street=${street}&zip=${zip}`)
         .then(result => {
           const district = JSON.parse(result);
-          this.transitionToRoute('district', district.id);
+          this.get('router').transitionTo('district', district.id);
         });
     }
   }
