@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
+    "start": "node app_server.js",
     "test": "ember test"
   },
   "repository": "",
