@@ -1,14 +1,20 @@
 export default {
   general: {
-    search: 'Find My Congress',
-    back: 'Search Again',
     phone: 'Phone',
-    twitter: 'Twitter',
-    permalink: 'Permanent Link to This Page'
+    twitter: 'Twitter'
   },
 
   format: {
     name: '{{title}} {{firstName}} {{lastName}}'
+  },
+
+  lookupCongress: {
+    search: 'Find My Congress'
+  },
+
+  displayCongress: {
+    back: 'Search Again',
+    permalink: 'Permanent Link to This Page'
   },
 
   geography: {
@@ -19,10 +25,6 @@ export default {
   },
 
   congress: {
-    representative: 'Representative',
-    representatives: 'Representatives',
-    senator: 'Senator',
-    senators: 'Senators',
     partyAffiliation: 'Party Affiliation',
     votingRecord: 'Voting Record',
     govTrack: 'GovTrack Record'
