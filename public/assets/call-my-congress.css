@@ -7,20 +7,52 @@
   --padding--default: 8px;
   --padding--medium: calc(4 * var(--padding--default));
   --padding--large: calc(6 * var(--padding--default));
+  --padding--footer-size: 200px;
+
+  --margin--override-default: calc(0px - var(--padding--default));
+}
+
+/* Set up header and sticky footer at bottom of page. */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
   font-family: "Merriweather", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  padding: 0 0 var(--padding--footer-size);
+  min-height: 100%;
 }
 
 .header {
-  margin: calc(0px - var(--padding--default));
+  margin: var(--margin--override-default);
   padding: var(--padding--default);
   text-align: center;
   color: var(--color-white);
   background-color: var(--color-red);
   font-family: "Merriweather", serif;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: var(--margin--override-default);
+  padding: var(--padding--medium);
+  color: var(--color-white);
+  background-color: var(--color-blue--dark);
+}
+
+/* Adjust spacing on base elements. */
 
 .header__title {
   margin-top: 2rem;
