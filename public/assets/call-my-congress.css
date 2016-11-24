@@ -50,6 +50,7 @@ body {
   padding: var(--padding--medium);
   color: var(--color-white);
   background-color: var(--color-blue--dark);
+  font-size: 0.8em;
 }
 
 /* Adjust spacing on base elements. */
