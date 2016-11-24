@@ -1,12 +1,11 @@
 <div>
-  State: {{congress.district.state}} District: {{congress.district.number}}
+  {{t "geography.state"}}: {{congress.district.state}} {{t "geography.district"}}: {{congress.district.number}}
 </div>
 
 <div>
-  num reps: {{congress.representatives.length}}
   {{#each congress.representatives as |representative key|}}
     <div>
-    <strong>representative {{key}}</strong>
+    <strong>{{t "congress.representative"}}: {{key}}</strong>
     {{representative.phone}}
     {{representative.title}} {{representative.person.firstname}} {{representative.person.lastname}} ({{representative.party}})
     </div>
@@ -14,14 +13,13 @@
 </div>
 
 <div>
-  num senators: {{congress.senators.length}}
   {{#each congress.senators as |senator key|}}
     <div>
-    <strong>senator {{key}}</strong>
+    <strong>{{t "congress.senator"}}: {{key}}</strong>
     {{senator.phone}}
     {{senator.title}} {{senator.person.firstname}} {{senator.person.lastname}} ({{senator.party}})
     </div>
   {{/each}}
 </div>
 
-<button {{action "returnHome"}}>Back</button>
+<button {{action "returnHome"}}>{{t "general.back"}}</button>
