@@ -10,9 +10,8 @@ export default Ember.Component.extend({
 
     const street = encodeURI(this.get('street'));
     const zip = this.get('zip');
-    $.ajax(`/lookup/district-from-address?street=${street}&zip=${zip}`)
-      .then(result => {
-        const district = JSON.parse(result);
+    $.getJSON(`/lookup/district-from-address?street=${street}&zip=${zip}`)
+      .then(district => {
         this.get('router').transitionTo('district', district.id);
       });
   }
