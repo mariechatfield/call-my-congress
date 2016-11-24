@@ -1,0 +1,32 @@
+<div class="u-full-width">
+  <h5>{{t "format.name" title=congressperson.title
+                        firstName=congressperson.person.firstname
+                        lastName=congressperson.person.lastname}}</h5>
+</div>
+
+<table class="u-full-width">
+  <tbody>
+    <tr>
+      <td><strong>{{t "general.phone"}}</strong></td>
+      <td>
+       <a href="tel:{{congressperson.phone}}">{{congressperson.phone}}</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>{{t "general.twitter"}}</strong></td>
+      <td>
+        <a href="https://twitter.com/{{congressperson.person.twitterid}}" target="_blank">{{congressperson.person.twitterid}}</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>{{t "congress.partyAffiliation"}}</strong></td>
+      <td>{{congressperson.party}}</td>
+    </tr>
+    <tr>
+      <td><strong>{{t "congress.votingRecord"}}</strong></td>
+      <td>
+        <a href="{{congressperson.person.link}}" target="_blank">{{t "congress.govTrack"}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

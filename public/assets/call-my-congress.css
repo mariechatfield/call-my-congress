@@ -1,0 +1,70 @@
+:root {
+  --color-blue: #0E4287;
+  --color-blue--dark: #0B3266;
+  --color-red: #960200;
+  --color-white: #F7F4F3;
+
+  --padding--default: 8px;
+  --padding--medium: calc(4 * var(--padding--default));
+  --padding--large: calc(6 * var(--padding--default));
+}
+
+body {
+  font-family: "Merriweather", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+  margin: calc(0px - var(--padding--default));
+  padding: var(--padding--default);
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-red);
+  font-family: "Merriweather", serif;
+}
+
+.header__title {
+  margin-top: 2rem;
+}
+
+.container {
+  margin-top: var(--padding--medium);
+}
+
+.columns,
+.row {
+  margin-top: var(--padding--default);
+}
+
+.row--extra-space {
+  padding-top: var(--padding--large);
+}
+
+.display-congressperson {
+  padding-top: var(--padding--large);
+}
+
+/* Override default skeleton.css button colors. */
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: var(--color-white);
+  background-color: var(--color-blue--dark);
+  border-color: var(--color-blue--dark);
+}

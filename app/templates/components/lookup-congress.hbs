@@ -1,7 +1,25 @@
-{{input value=street}}
+<form>
+   <div class="row">
+    <div class="six columns">
+      <label for="addressInput">{{t "geography.address"}}</label>
+      {{input value=street
+              placeholder="1600 Pennsylvania Ave"
+              id="addressInput"
+              class="u-full-width"}}
+    </div>
+    <div class="six columns">
+      <label for="zipCodeInput">{{t "geography.zipCode"}}</label>
+      {{input value=zip
+              placeholder="20500"
+              id="zipCodeInput"
+              class="u-full-width"
+              type="number"}}
+    </div>
+  </div>
 
-{{input value=zip}}
-
-<div>
-  <button {{action "lookupGeography"}}>{{t "general.click"}}</button>
-</div>
+  <div class="row">
+    {{input value=(t "general.search")
+            class="button-primary"
+            type="submit"}}
+  </div>
+</form>

@@ -1,25 +1,28 @@
-<div>
-  {{t "geography.state"}}: {{congress.district.state}} {{t "geography.district"}}: {{congress.district.number}}
+<div class="row">
+  <div class="one-half column"><strong>{{t "geography.state"}}</strong></div>
+  <div class="one-half column">{{congress.district.state}}</div>
 </div>
 
-<div>
-  {{#each congress.representatives as |representative key|}}
-    <div>
-    <strong>{{t "congress.representative"}}: {{key}}</strong>
-    {{representative.phone}}
-    {{representative.title}} {{representative.person.firstname}} {{representative.person.lastname}} ({{representative.party}})
-    </div>
-  {{/each}}
+<div class="row">
+  <div class="one-half column"><strong>{{t "geography.district"}}</strong></div>
+  <div class="one-half column">{{congress.district.number}}</div>
 </div>
 
-<div>
-  {{#each congress.senators as |senator key|}}
-    <div>
-    <strong>{{t "congress.senator"}}: {{key}}</strong>
-    {{senator.phone}}
-    {{senator.title}} {{senator.person.firstname}} {{senator.person.lastname}} ({{senator.party}})
-    </div>
-  {{/each}}
+<div class="row">
+  <div class="one-half column"><strong>{{t "general.permalink"}}</strong></div>
+  <div class="one-half column">
+    <a href="{{permalink}}">{{permalink}}</a>
+  </div>
 </div>
 
-<button {{action "returnHome"}}>{{t "general.back"}}</button>
+{{#each congress.representatives as |representative|}}
+  {{display-congressperson congressperson=representative}}
+{{/each}}
+
+{{#each congress.senators as |senator|}}
+  {{display-congressperson congressperson=senator}}
+{{/each}}
+
+<div class="row--extra-space">
+  <button class="button-primary u-full-width" {{action "returnHome"}}>{{t "general.back"}}</button>
+</div>

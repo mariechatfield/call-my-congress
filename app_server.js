@@ -100,9 +100,11 @@ function buildCongress(district) {
 }
 
 app.get('/lookup/district-from-address', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+
   try {
     getDistricts(req.query)
-      .then(district => res.send(JSON.stringify(district)))
+      .then(district => res.send(district))
       .catch(err => res.status(500).send(err));
   } catch (err) {
     res.status(500).send('Something went wrong!');
@@ -110,13 +112,15 @@ app.get('/lookup/district-from-address', (req, res) => {
 });
 
 app.get('/lookup/congress-from-district', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+
   try {
     const districtID = req.query.id;
     const stateNumberPattern = /^([a-zA-z]{2})-([0-9]+)$/;
     const [, state, number] = districtID.match(stateNumberPattern);
 
-    buildCongress({ state, number })
-      .then(congress => res.send(JSON.stringify(congress)))
+    buildCongress({ state, number, id: districtID })
+      .then(congress => res.send(congress))
       .catch(err => res.status(500).send(err));
   } catch (err) {
     res.status(500).send('Something went wrong!');
