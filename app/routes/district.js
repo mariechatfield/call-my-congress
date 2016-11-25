@@ -3,6 +3,6 @@ import $ from 'jquery';
 
 export default Ember.Route.extend({
   model(params) {
-    return $.getJSON(`/lookup/congress-from-district?id=${params.district_id}`);
+    return $.getJSON(`/api/congress-from-district?id=${params.district_id}`);
   }
 });

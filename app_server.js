@@ -99,7 +99,7 @@ function buildCongress(district) {
   });
 }
 
-app.get('/lookup/district-from-address', (req, res) => {
+app.get('/api/district-from-address', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   try {
@@ -111,7 +111,7 @@ app.get('/lookup/district-from-address', (req, res) => {
   }
 });
 
-app.get('/lookup/congress-from-district', (req, res) => {
+app.get('/api/congress-from-district', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   try {

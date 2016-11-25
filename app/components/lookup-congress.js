@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
     const street = encodeURI(this.get('street'));
     const zip = this.get('zip');
-    $.getJSON(`/lookup/district-from-address?street=${street}&zip=${zip}`)
+    $.getJSON(`/api/district-from-address?street=${street}&zip=${zip}`)
       .then(district => {
         this.get('router').transitionTo('district', district.id);
       });
