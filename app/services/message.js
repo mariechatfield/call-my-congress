@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import i18n from 'ember-i18n';
 
 const MESSAGE_DURATION = 7000;
 
@@ -29,7 +28,6 @@ export default Ember.Service.extend({
   },
 
   displayFromServer(error) {
-    debugger
     if (error && error.responseJSON && error.responseJSON.translationKey) {
       const partialKey = error.responseJSON.translationKey;
       const fullKey = `errors.server.${partialKey}`;
