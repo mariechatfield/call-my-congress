@@ -45,6 +45,10 @@ function getDistricts(geography) {
   };
 
   return performGETRequest(buildURL(GEOGRAPHY_BASE_URL, params), result => {
+    if (result.result.addressMatches.length === 0) {
+      throw new Error('INVALID_ADDRESS');
+    }
+
     const address = result.result.addressMatches[0];
     const number = address.geographies['115th Congressional Districts'][0].BASENAME;
     const state = address.addressComponents.state;
@@ -95,6 +99,14 @@ function buildCongress(district) {
     const senators = congress[1].senators;
     const district = congress[2];
 
+    if (senators.length === 0 && representatives.length === 0) {
+      throw new Error('INVALID_STATE');
+    }
+
+    if (representatives.length === 0) {
+      throw new Error('INVALID_DISTRICT');
+    }
+
     return { representatives, senators, district };
   });
 }
@@ -102,12 +114,18 @@ function buildCongress(district) {
 app.get('/api/district-from-address', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
+  if (req.query.street === undefined || req.query.street === null ||
+      req.query.zip === undefined || req.query.zip === null) {
+    res.status(400).send({ translationKey: 'INCOMPLETE_PARAMS' });
+    return;
+  }
+
   try {
     getDistricts(req.query)
       .then(district => res.send(district))
-      .catch(err => res.status(500).send(err));
+      .catch(err => res.status(500).send({ translationKey: err.message }));
   } catch (err) {
-    res.status(500).send('Something went wrong!');
+    res.status(500);
   }
 });
 
@@ -117,13 +135,20 @@ app.get('/api/congress-from-district', (req, res) => {
   try {
     const districtID = req.query.id;
     const stateNumberPattern = /^([a-zA-z]{2})-([0-9]+)$/;
-    const [, state, number] = districtID.match(stateNumberPattern);
+    const match = districtID.match(stateNumberPattern);
+
+    if (match === null) {
+      res.status(400).send({ translationKey: 'INVALID_DISTRICT_ID'});
+      return;
+    }
+
+    const [, state, number] = match;
 
     buildCongress({ state, number, id: districtID })
       .then(congress => res.send(congress))
-      .catch(err => res.status(500).send(err));
+      .catch(err => res.status(500).send({ translationKey: err.message }));
   } catch (err) {
-    res.status(500).send('Something went wrong!');
+    res.status(500);
   }
 });
 

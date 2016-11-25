@@ -1,27 +1,29 @@
-<div class="row">
-  <div class="one-half column"><strong>{{t "geography.state"}}</strong></div>
-  <div class="one-half column">{{congress.district.state}}</div>
-</div>
-
-<div class="row">
-  <div class="one-half column"><strong>{{t "geography.district"}}</strong></div>
-  <div class="one-half column">{{congress.district.number}}</div>
-</div>
-
-<div class="row">
-  <div class="one-half column"><strong>{{t "displayCongress.permalink"}}</strong></div>
-  <div class="one-half column">
-    <a href="{{permalink}}">{{permalink}}</a>
+{{#if successfulLoad}}
+  <div class="row">
+    <div class="one-half column"><strong>{{t "geography.state"}}</strong></div>
+    <div class="one-half column">{{congress.district.state}}</div>
   </div>
-</div>
 
-{{#each congress.representatives as |representative|}}
-  {{display-congressperson congressperson=representative}}
-{{/each}}
+  <div class="row">
+    <div class="one-half column"><strong>{{t "geography.district"}}</strong></div>
+    <div class="one-half column">{{congress.district.number}}</div>
+  </div>
 
-{{#each congress.senators as |senator|}}
-  {{display-congressperson congressperson=senator}}
-{{/each}}
+  <div class="row">
+    <div class="one-half column"><strong>{{t "displayCongress.permalink"}}</strong></div>
+    <div class="one-half column">
+      <a href="{{permalink}}">{{permalink}}</a>
+    </div>
+  </div>
+
+  {{#each congress.representatives as |representative|}}
+    {{display-congressperson congressperson=representative}}
+  {{/each}}
+
+  {{#each congress.senators as |senator|}}
+    {{display-congressperson congressperson=senator}}
+  {{/each}}
+{{/if}}
 
 <div class="row--extra-space">
   <button class="button-primary u-full-width" {{action "returnHome"}}>{{t "displayCongress.back"}}</button>

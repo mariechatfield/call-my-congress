@@ -32,6 +32,16 @@ export default {
 
   about: {
     attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}} and {{link-govtrack}}GovTrack.us{{/link-govtrack}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
-  }
+  },
 
+  errors: {
+    general: 'Something went wrong.',
+    server: {
+      INCOMPLETE_PARAMS: 'Please fill out both street address and zip code.',
+      INVALID_ADDRESS: 'Could not find valid address. Please double check the street address and zip code.',
+      INVALID_DISTRICT: 'District number provided does not exist in your state.',
+      INVALID_DISTRICT_ID: 'Provided URL does not map to a valid state and district number.',
+      INVALID_STATE: 'State abbreviation provided does not match any known states.'
+    }
+  }
 };

@@ -3,8 +3,10 @@
   --color-blue--dark: #0B3266;
   --color-red: #960200;
   --color-white: #F7F4F3;
+  --color-gray: #DBDBDB;
 
   --padding--default: 8px;
+  --padding--small: calc(2 * var(--padding--default));
   --padding--medium: calc(4 * var(--padding--default));
   --padding--large: calc(6 * var(--padding--default));
   --padding--footer-size: 200px;
@@ -74,6 +76,12 @@ body {
 
 .display-congressperson {
   padding-top: var(--padding--large);
+}
+
+.app-message {
+  padding: var(--padding--small);
+  background-color: var(--color-gray);
+  border-radius: 4px;
 }
 
 /* Override default skeleton.css button colors. */
