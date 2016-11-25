@@ -116,7 +116,7 @@ app.get('/api/district-from-address', (req, res) => {
 
   if (req.query.street === undefined || req.query.street === null ||
       req.query.zip === undefined || req.query.zip === null) {
-    res.status(400).send({ translationKey: 'INCOMPLETE_PARAMS' });
+    res.status(400).send({ translationKey: 'INCOMPLETE_ADDRESS' });
     return;
   }
 
@@ -125,7 +125,7 @@ app.get('/api/district-from-address', (req, res) => {
       .then(district => res.send(district))
       .catch(err => res.status(500).send({ translationKey: err.message }));
   } catch (err) {
-    res.status(500);
+    res.status(500).send();
   }
 });
 
@@ -148,7 +148,7 @@ app.get('/api/congress-from-district', (req, res) => {
       .then(congress => res.send(congress))
       .catch(err => res.status(500).send({ translationKey: err.message }));
   } catch (err) {
-    res.status(500);
+    res.status(500).send();
   }
 });
 

@@ -11,6 +11,11 @@ export default Ember.Component.extend({
     event.preventDefault();
     this.get('message').clear();
 
+    if (this.get('street') === null || this.get('zip') === null) {
+      this.get('message').display('errors.server.INCOMPLETE_ADDRESS');
+      return;
+    }
+
     const street = encodeURI(this.get('street'));
     const zip = this.get('zip');
     $.getJSON(`/api/district-from-address?street=${street}&zip=${zip}`)

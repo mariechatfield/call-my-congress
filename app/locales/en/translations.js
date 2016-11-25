@@ -37,7 +37,7 @@ export default {
   errors: {
     general: 'Something went wrong.',
     server: {
-      INCOMPLETE_PARAMS: 'Please fill out both street address and zip code.',
+      INCOMPLETE_ADDRESS: 'Please fill out both street address and zip code.',
       INVALID_ADDRESS: 'Could not find valid address. Please double check the street address and zip code.',
       INVALID_DISTRICT: 'District number provided does not exist in your state.',
       INVALID_DISTRICT_ID: 'Provided URL does not map to a valid state and district number.',
