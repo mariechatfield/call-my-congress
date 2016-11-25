@@ -85,6 +85,9 @@ input[type="button"].button-primary {
   color: var(--color-white);
   background-color: var(--color-blue);
   border-color: var(--color-blue);
+
+  /* Removes default styling. */
+  -webkit-appearance: none;
 }
 
 .button.button-primary:hover,
