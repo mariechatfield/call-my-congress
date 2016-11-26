@@ -11,7 +11,9 @@
   "scripts": {
     "build": "ember build",
     "start": "node app/server.js",
-    "test": "ember test"
+    "test": "ember test",
+    "backend": "PORT=3000 nodemon app/server.js",
+    "frontend": "ember server --proxy http://127.0.0.1:3000"
   },
   "repository": "",
   "engines": {
@@ -40,7 +42,8 @@
     "ember-i18n": "4.3.2",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "nodemon": "^1.11.0"
   },
   "dependencies": {
     "express": "^4.14.0",
