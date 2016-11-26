@@ -84,6 +84,12 @@ body {
   border-radius: 4px;
 }
 
+.loading {
+  display: block;
+  margin: 200px auto;
+  max-width: 75px;
+}
+
 /* Override default skeleton.css button colors. */
 .button.button-primary,
 button.button-primary,
