@@ -51,7 +51,7 @@ moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
   }
 });
 
-test('submit | makes request when street and zip are provided', function(assert) {
+test('submit > makes request when street and zip are provided', function(assert) {
   this.component.setProperties({
     street: STREET,
     zip: ZIP
@@ -67,7 +67,7 @@ test('submit | makes request when street and zip are provided', function(assert)
   );
 });
 
-test('submit | does not make request unless both street and zip are provided', function(assert) {
+test('submit > does not make request unless both street and zip are provided', function(assert) {
   this.component.submit(this.stubs.objects.event);
 
   assert.equal(this.stubs.calls.message.clear.length, 1, 'clears any existing messages');
@@ -92,7 +92,7 @@ test('submit | does not make request unless both street and zip are provided', f
   assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not attempt to transition');
 });
 
-test('lookupDistrict | transitions when response is successful', function(assert) {
+test('lookupDistrict > transitions when response is successful', function(assert) {
   this.responseSuccessful = true;
   this.response = { id: 'some-id' };
 
@@ -110,7 +110,7 @@ test('lookupDistrict | transitions when response is successful', function(assert
   });
 });
 
-test('lookupDistrict | shows error when response is malformed', function(assert) {
+test('lookupDistrict > shows error when response is malformed', function(assert) {
   this.responseSuccessful = true;
   this.response = 'this is an invalid response';
 
@@ -128,7 +128,7 @@ test('lookupDistrict | shows error when response is malformed', function(assert)
   });
 });
 
-test('lookupDistrict | shows error when response fails', function(assert) {
+test('lookupDistrict > shows error when response fails', function(assert) {
   this.responseSuccessful = false;
   this.response = 'some error';
 

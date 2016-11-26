@@ -48,7 +48,7 @@ moduleFor('route:district', 'Unit | Route | district', {
   }
 });
 
-test('model | returns successful response', function(assert) {
+test('model > returns successful response', function(assert) {
   this.responseSuccessful = true;
   this.response = VALID_RESULT;
 
@@ -61,7 +61,7 @@ test('model | returns successful response', function(assert) {
   });
 });
 
-test('model | shows error when response fails', function(assert) {
+test('model > shows error when response fails', function(assert) {
   this.responseSuccessful = false;
   this.response = 'some error';
 
@@ -73,7 +73,7 @@ test('model | shows error when response fails', function(assert) {
   });
 });
 
-test('model | shows error when params are malformed', function(assert) {
+test('model > shows error when params are malformed', function(assert) {
   this.responseSuccessful = false;
   this.response = 'some error';
 
