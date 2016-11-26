@@ -65,5 +65,5 @@ PRs and improvements are welcome! If you'd like to contribute but aren't sure wh
 * Improve high-level documentation (particularly around getting started or running locally)
 * Document a component with its expected inputs and behavior
 * Add another test for a case that's missing
-* Try out the app on a different browser or operating system, and if there are any bugs then [file an issue](/issues) and consider trying to fix it
+* Try out the app on a different browser or operating system, and if there are any bugs then [file an issue](../../issues) and consider trying to fix it
 * Translate helper text and error messages into a new language ([original English strings](app/locales/en/translations.js))
