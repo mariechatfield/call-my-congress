@@ -1,4 +1,4 @@
-<div class="u-full-width">
+<div class="u-full-width display-congressperson__name">
   <h5>{{t "format.name" title=congressperson.title
                         firstName=congressperson.person.firstname
                         lastName=congressperson.person.lastname}}</h5>
@@ -7,7 +7,7 @@
 <table class="u-full-width">
   <tbody>
     {{#if congressperson.phone}}
-      <tr>
+      <tr class="display-congressperson__phone">
         <td><strong>{{t "general.phone"}}</strong></td>
         <td>
          <a href="tel:{{congressperson.phone}}">{{congressperson.phone}}</a>
@@ -15,7 +15,7 @@
       </tr>
     {{/if}}
     {{#if congressperson.person.twitterid}}
-    <tr>
+    <tr class="display-congressperson__twitter">
       <td><strong>{{t "general.twitter"}}</strong></td>
       <td>
         <a href="https://twitter.com/{{congressperson.person.twitterid}}" target="_blank">@{{congressperson.person.twitterid}}</a>
@@ -23,16 +23,16 @@
     </tr>
     {{/if}}
     {{#if congressperson.party}}
-    <tr>
+    <tr class="display-congressperson__party">
       <td><strong>{{t "congress.partyAffiliation"}}</strong></td>
       <td>{{congressperson.party}}</td>
     </tr>
     {{/if}}
     {{#if congressperson.person.link}}
-    <tr>
+    <tr class="display-congressperson__voting-record">
       <td><strong>{{t "congress.votingRecord"}}</strong></td>
       <td>
-        <a href="{{congressperson.person.link}}" target="_blank">{{t "congress.govTrack"}}</a>
+        <a class="display-congressperson__voting-record__link" href="{{congressperson.person.link}}" target="_blank">{{t "congress.govTrack"}}</a>
       </td>
     </tr>
     {{/if}}

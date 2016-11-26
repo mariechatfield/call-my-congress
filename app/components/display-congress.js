@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['display-congress'],
   message: Ember.inject.service(),
 
   congress: null,

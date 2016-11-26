@@ -1,13 +1,13 @@
 <form>
    <div class="row">
-    <div class="six columns">
+    <div class="six columns lookup-congress__street">
       <label for="addressInput">{{t "geography.address"}}</label>
       {{input value=street
               placeholder="1600 Pennsylvania Ave"
               id="addressInput"
               class="u-full-width"}}
     </div>
-    <div class="six columns">
+    <div class="six columns lookup-congress__zip">
       <label for="zipCodeInput">{{t "geography.zipCode"}}</label>
       {{input value=zip
               placeholder="20500"
@@ -20,7 +20,7 @@
 
   <div class="row">
     {{input value=(t "lookupCongress.search")
-            class="button-primary"
+            class="button-primary lookup-congress__search"
             type="submit"}}
   </div>
 </form>

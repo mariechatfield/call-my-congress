@@ -1,15 +1,15 @@
 {{#if successfulLoad}}
-  <div class="row">
+  <div class="row display-congress__state">
     <div class="one-half column"><strong>{{t "geography.state"}}</strong></div>
     <div class="one-half column">{{congress.district.state}}</div>
   </div>
 
-  <div class="row">
+  <div class="row display-congress__district">
     <div class="one-half column"><strong>{{t "geography.district"}}</strong></div>
     <div class="one-half column">{{congress.district.number}}</div>
   </div>
 
-  <div class="row">
+  <div class="row display-congress__permalink">
     <div class="one-half column"><strong>{{t "displayCongress.permalink"}}</strong></div>
     <div class="one-half column">
       <a href="{{permalink}}">{{permalink}}</a>
@@ -25,6 +25,6 @@
   {{/each}}
 {{/if}}
 
-<div class="row--extra-space">
+<div class="row--extra-space display-congress__back">
   <button class="button-primary u-full-width" {{action "returnHome"}}>{{t "displayCongress.back"}}</button>
 </div>
