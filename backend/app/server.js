@@ -7,7 +7,12 @@ const querystring = require('querystring');
 const app = express();
 
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
+const ZIP_ONLY_BASE_URL = 'http://whoismyrepresentative.com/getall_mems.php';
 const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
+
+// When zip code is not found, the response succeeds with code 200 but the body
+// has this message instead of a JSON object.
+const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found'/>`;
 
 const DEFAULT_PORT = 3000;
 
@@ -19,13 +24,25 @@ function buildURL(base, params) {
   return `${base}?${querystring.stringify(params)}`;
 }
 
-function performGETRequest(url, processResult) {
+function AppError(message) {
+  this.name = 'AppError';
+  this.message = message || 'Default Message';
+  this.stack = (new Error()).stack;
+}
+AppError.prototype = Object.create(Error.prototype);
+AppError.prototype.constructor = AppError;
+
+function performGETRequest(url, processResult, attemptParse = true) {
   return new Promise((resolve, reject) => {
     request.get(url, function (error, response, body) {
       try {
         if (!error && response.statusCode === 200) {
-          const result = JSON.parse(body);
-          resolve(processResult(result));
+          if (attemptParse) {
+            const result = JSON.parse(body);
+            resolve(processResult(result));
+          } else {
+            resolve(processResult(body));
+          }
         } else {
           reject(error);
         }
@@ -34,6 +51,37 @@ function performGETRequest(url, processResult) {
       }
     });
   });
+}
+
+function getDistrictsZipOnly(geography) {
+  const params = {
+    output: 'json',
+    zip: geography.zip
+  };
+
+  return performGETRequest(buildURL(ZIP_ONLY_BASE_URL, params), body => {
+    if (body === ZIP_ONLY_ERROR_BODY) {
+      throw new AppError('INVALID_ADDRESS');
+    }
+
+    const result = JSON.parse(body);
+    const state = result.results[0].state;
+
+    const districtNumbers = result.results
+      .map(representative => representative.district)
+      // Filter out all non-numeric districts (i.e. "Junior Seat" for senators)
+      .filter(district => !isNaN(district));
+
+    const districts = districtNumbers.map(number => {
+      return {
+        state,
+        number,
+        id: `${state}-${number}`
+      };
+    });
+
+    return { districts };
+  }, false);
 }
 
 function getDistricts(geography) {
@@ -48,7 +96,7 @@ function getDistricts(geography) {
 
   return performGETRequest(buildURL(GEOGRAPHY_BASE_URL, params), result => {
     if (result.result.addressMatches.length === 0) {
-      throw new Error('INVALID_ADDRESS');
+      throw new AppError('INVALID_ADDRESS');
     }
 
     const address = result.result.addressMatches[0];
@@ -57,11 +105,16 @@ function getDistricts(geography) {
 
     const id = `${state}-${number}`;
 
-    return { number, state, id };
+    return {
+      districts: [
+        { number, state, id }
+      ]
+    };
   });
 }
 
-function getRepresentatives(district) {
+function getRepresentatives(districts) {
+  const district = districts.districts[0];
   const params = {
     current: true,
     district: district.number,
@@ -76,7 +129,8 @@ function getRepresentatives(district) {
 }
 
 
-function getSenators(district) {
+function getSenators(districts) {
+  const district = districts.districts[0];
   const params = {
     current: true,
     role_type: 'senator',
@@ -102,11 +156,11 @@ function buildCongress(district) {
     const district = congress[2];
 
     if (senators.length === 0 && representatives.length === 0) {
-      throw new Error('INVALID_STATE');
+      throw new AppError('INVALID_STATE');
     }
 
     if (representatives.length === 0) {
-      throw new Error('INVALID_DISTRICT');
+      throw new AppError('INVALID_DISTRICT');
     }
 
     return { representatives, senators, district };
@@ -116,16 +170,20 @@ function buildCongress(district) {
 app.get('/api/district-from-address', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
-  if (req.query.street === undefined || req.query.street === null ||
-      req.query.zip === undefined || req.query.zip === null) {
-    res.status(400).send({ translationKey: 'INCOMPLETE_ADDRESS' });
+  if (req.query.zip === undefined || req.query.zip === null) {
+    res.status(400).send({ translationKey: 'MISSING_ZIP' });
     return;
   }
 
+  const getDistrictsFunction = req.query.street ? getDistricts : getDistrictsZipOnly;
+
   try {
-    getDistricts(req.query)
+    getDistrictsFunction(req.query)
       .then(district => res.send(district))
-      .catch(() => res.status(500).send({ translationKey: 'UNKNOWN' }));
+      .catch(err => {
+        const translationKey = err instanceof AppError ? err.message : 'UNKNOWN';
+        res.status(500).send({ translationKey });
+      });
   } catch (err) {
     res.status(500).send({ translationKey: 'UNKNOWN' });
   }
@@ -151,10 +209,18 @@ app.get('/api/congress-from-district', (req, res) => {
     }
 
     const [, state, number] = match;
+    const district = {
+      districts: [
+        { state, number, id: districtID }
+      ]
+    };
 
-    buildCongress({ state, number, id: districtID })
+    buildCongress(district)
       .then(congress => res.send(congress))
-      .catch(() => res.status(500).send({ translationKey: 'UNKNOWN' }));
+      .catch(err => {
+        const translationKey = err instanceof AppError ? err.message : 'UNKNOWN';
+        res.status(500).send({ translationKey });
+      });
   } catch (err) {
     res.status(500).send({ translationKey: 'UNKNOWN' });
   }
