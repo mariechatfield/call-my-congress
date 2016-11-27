@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   street: null,
   zip: null,
 
+  districtsToPickFrom: null,
+
   lookupDistrict() {
     const street = this.get('street');
     const zip = this.get('zip');
@@ -22,11 +24,17 @@ export default Ember.Component.extend({
 
     return $.getJSON(url)
       .then(result => {
-        if (result.districts && result.districts[0] && result.districts[0].id) {
-          this.get('router').transitionTo('district', result.districts[0].id);
-        } else {
-          this.get('message').display('errors.general');
+        if (result.districts) {
+          if (result.districts.length === 1) {
+            this.get('router').transitionTo('district', result.districts[0].id);
+            return;
+          } else if (result.districts.length > 1) {
+            this.set('districtsToPickFrom', result.districts);
+            return;
+          }
         }
+
+        this.get('message').display('errors.general');
       })
       .catch(error => {
         this.get('message').displayFromServer(error);

@@ -1,5 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
-import { SINGLE_DISTRICT } from '../../fixtures/districts';
+import { SINGLE_DISTRICT, MULTIPLE_DISTRICTS } from '../../fixtures/districts';
 import Ember from 'ember';
 import $ from 'jquery';
 import setupStubs from '../../helpers/setup-stubs';
@@ -114,6 +114,23 @@ test('lookupDistrict > transitions when response is successful with only zip', f
   this.component.lookupDistrict().then(() => {
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'calls router.transitionTo');
     assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'CA-12'], 'transitions to route based on id of response');
+    done();
+  });
+});
+
+test('lookupDistrict > sets districtsToPickFrom when multiple districts per zip', function(assert) {
+  this.responseSuccessful = true;
+  this.response = MULTIPLE_DISTRICTS;
+
+  this.component.setProperties({
+    zip: ZIP
+  });
+
+  const done = assert.async();
+
+  this.component.lookupDistrict().then(() => {
+    assert.deepEqual(this.component.get('districtsToPickFrom'), MULTIPLE_DISTRICTS.districts);
+    assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not call calls router.transitionTo');
     done();
   });
 });
