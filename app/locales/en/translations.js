@@ -12,13 +12,17 @@ export default {
     search: 'Find My Congress'
   },
 
+  pickDistrict: {
+    helpText: 'Your zip code falls within multiple congressional districts. Pick a district below to see its representatives, or provide a street address and search again for more accurate results.'
+  },
+
   displayCongress: {
     back: 'Search Again',
     permalink: 'Permanent Link to This Page'
   },
 
   geography: {
-    address: 'Street Address',
+    address: 'Street Address (optional)',
     district: 'Congressional District',
     state: 'State',
     zipCode: 'Zip Code'
@@ -31,17 +35,17 @@ export default {
   },
 
   about: {
-    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}} and {{link-govtrack}}GovTrack.us{{/link-govtrack}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
+    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}}, {{link-govtrack}}GovTrack.us{{/link-govtrack}}, and {{link-whoismyrep}}whoismyrepresentative.com{{/link-whoismyrep}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
   },
 
   errors: {
     general: 'Something went wrong.',
     server: {
-      INCOMPLETE_ADDRESS: 'Please fill out both street address and zip code.',
       INVALID_ADDRESS: 'Could not find valid address. Please double check the street address and zip code.',
       INVALID_DISTRICT: 'District number provided does not exist in your state.',
       INVALID_DISTRICT_ID: 'Provided URL does not map to a valid state and district number.',
       INVALID_STATE: 'State abbreviation provided does not match any known states.',
+      MISSING_ZIP: 'Please provide a valid zip code.',
       MISSING_DISTRICT_ID: 'Please provide a valid district id to look up representatives.',
       UNKNOWN: 'Something went wrong.'
     }

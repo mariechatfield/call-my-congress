@@ -73,6 +73,79 @@ const DISTRICT_OBJECT = {
   }
 };
 
+const ZIP_ONLY_DISTRICT_OBJECT = {
+  results: [
+    {
+      district: '12',
+      link: 'http://pelosi.house.gov',
+      name: 'Nancy Pelosi',
+      office: '233 Cannon House Office Building',
+      party: 'D',
+      phone: '202-225-4965',
+      state: 'CA'
+    },
+    {
+      district: 'Junior Seat',
+      link: 'http://www.boxer.senate.gov',
+      name: 'Barbara Boxer',
+      office: '112 Hart Senate Office Building',
+      party: 'D',
+      phone: '202-224-3553',
+      state: 'CA'
+    },
+    {
+      district: 'Senior Seat',
+      link: 'http://www.feinstein.senate.gov',
+      name: 'Dianne Feinstein',
+      office: '331 Hart Senate Office Building',
+      party: 'D',
+      phone: '202-224-3841',
+      state: 'CA'
+    }
+  ]
+};
+
+const ZIP_ONLY_WITH_TWO_DISTRICTS_OBJECT = {
+  results: [
+    {
+      district: '7',
+      link: 'http://culberson.house.gov',
+      name: 'John Culberson',
+      office: '2372 Rayburn House Office Building',
+      party: 'R',
+      phone: '202-225-2571',
+      state: 'TX'
+    },
+    {
+      district: '9',
+      link: 'http://algreen.house.gov',
+      name: 'Al Green',
+      office: '2347 Rayburn House Office Building',
+      party: 'D',
+      phone: '202-225-7508',
+      state: 'TX'
+    },
+    {
+      district: 'Senior Seat',
+      link: 'http://www.cornyn.senate.gov',
+      name: 'John Cornyn',
+      office: '517 Hart Senate Office Building',
+      party: 'R',
+      phone: '202-224-2934',
+      state: 'TX'
+    },
+    {
+      district: 'Junior Seat',
+      link: 'http://www.cruz.senate.gov',
+      name: 'Ted Cruz',
+      office: '404 Russell Senate Office Building',
+      party: 'R',
+      phone: '202-224-5922',
+      state: 'TX'
+    }
+  ]
+};
+
 const SENATORS_OBJECT = {
  meta: {
   limit: 100,
@@ -251,13 +324,34 @@ const REPRESENTATIVE_OBJECT = {
 };
 
 const DISTRICT = JSON.stringify(DISTRICT_OBJECT);
+const ZIP_ONLY_DISTRICT = JSON.stringify(ZIP_ONLY_DISTRICT_OBJECT);
+const ZIP_ONLY_WITH_TWO_DISTRICTS = JSON.stringify(ZIP_ONLY_WITH_TWO_DISTRICTS_OBJECT);
 const SENATORS = JSON.stringify(SENATORS_OBJECT);
 const REPRESENTATIVE = JSON.stringify(REPRESENTATIVE_OBJECT);
 
 const DISTRICT_RESPONSE = {
-  state: 'CA',
-  number: '12',
-  id: 'CA-12'
+  districts: [
+    {
+      state: 'CA',
+      number: '12',
+      id: 'CA-12'
+    }
+  ]
+};
+
+const TWO_DISTRICTS_RESPONSE = {
+  districts: [
+    {
+      state: 'TX',
+      number: '7',
+      id: 'TX-7'
+    },
+    {
+      state: 'TX',
+      number: '9',
+      id: 'TX-9'
+    }
+  ]
 };
 
 const CONGRESS_RESPONSE = {
@@ -268,8 +362,11 @@ const CONGRESS_RESPONSE = {
 
 module.exports = {
   DISTRICT,
+  ZIP_ONLY_DISTRICT,
+  ZIP_ONLY_WITH_TWO_DISTRICTS,
   SENATORS,
   REPRESENTATIVE,
   DISTRICT_RESPONSE,
+  TWO_DISTRICTS_RESPONSE,
   CONGRESS_RESPONSE
 };

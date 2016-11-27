@@ -1,8 +1,12 @@
 export const COMPLETE_CONGRESS = {
   district: {
-    id: "CA-12",
-    number: "12",
-    state: "CA"
+    districts: [
+      {
+        id: "CA-12",
+        number: "12",
+        state: "CA"
+      }
+    ]
   },
   representatives: [
     {
@@ -333,9 +337,13 @@ export const NO_DISTRICT = {
 
 export const NO_REPRESENTATIVES =  {
   district: {
-    id: "CA-12",
-    number: "12",
-    state: "CA"
+    districts: [
+      {
+        id: "CA-12",
+        number: "12",
+        state: "CA"
+      }
+    ]
   },
   senators: [
     {
@@ -450,9 +458,13 @@ export const NO_REPRESENTATIVES =  {
 
 export const NO_SENATORS = {
   district: {
-    id: "CA-12",
-    number: "12",
-    state: "CA"
+    districts: [
+      {
+        id: "CA-12",
+        number: "12",
+        state: "CA"
+      }
+    ]
   },
   representatives: [
     {

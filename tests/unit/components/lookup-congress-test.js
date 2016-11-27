@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import { SINGLE_DISTRICT, MULTIPLE_DISTRICTS } from '../../fixtures/districts';
 import Ember from 'ember';
 import $ from 'jquery';
 import setupStubs from '../../helpers/setup-stubs';
@@ -67,7 +68,7 @@ test('submit > makes request when street and zip are provided', function(assert)
   );
 });
 
-test('submit > does not make request unless both street and zip are provided', function(assert) {
+test('submit > does not make request unless zip is provided', function(assert) {
   this.component.submit(this.stubs.objects.event);
 
   assert.equal(this.stubs.calls.message.clear.length, 1, 'clears any existing messages');
@@ -80,21 +81,11 @@ test('submit > does not make request unless both street and zip are provided', f
   assert.equal(this.stubs.calls.message.clear.length, 2, 'clears any existing messages');
   assert.equal(this.stubs.calls.message.display.length, 2, 'displays an error message');
   assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not attempt to transition');
-
-  this.component.setProperties({
-    street: null,
-    zip: ZIP
-  });
-  this.component.submit(this.stubs.objects.event);
-
-  assert.equal(this.stubs.calls.message.clear.length, 3, 'clears any existing messages');
-  assert.equal(this.stubs.calls.message.display.length, 3, 'displays an error message');
-  assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not attempt to transition');
 });
 
 test('lookupDistrict > transitions when response is successful', function(assert) {
   this.responseSuccessful = true;
-  this.response = { id: 'some-id' };
+  this.response = SINGLE_DISTRICT;
 
   this.component.setProperties({
     street: STREET,
@@ -105,7 +96,41 @@ test('lookupDistrict > transitions when response is successful', function(assert
 
   this.component.lookupDistrict().then(() => {
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'calls router.transitionTo');
-    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'some-id'], 'transitions to route based on id of response');
+    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'CA-12'], 'transitions to route based on id of response');
+    done();
+  });
+});
+
+test('lookupDistrict > transitions when response is successful with only zip', function(assert) {
+  this.responseSuccessful = true;
+  this.response = SINGLE_DISTRICT;
+
+  this.component.setProperties({
+    zip: ZIP
+  });
+
+  const done = assert.async();
+
+  this.component.lookupDistrict().then(() => {
+    assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'calls router.transitionTo');
+    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'CA-12'], 'transitions to route based on id of response');
+    done();
+  });
+});
+
+test('lookupDistrict > sets districtsToPickFrom when multiple districts per zip', function(assert) {
+  this.responseSuccessful = true;
+  this.response = MULTIPLE_DISTRICTS;
+
+  this.component.setProperties({
+    zip: ZIP
+  });
+
+  const done = assert.async();
+
+  this.component.lookupDistrict().then(() => {
+    assert.deepEqual(this.component.get('districtsToPickFrom'), MULTIPLE_DISTRICTS.districts);
+    assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not call calls router.transitionTo');
     done();
   });
 });

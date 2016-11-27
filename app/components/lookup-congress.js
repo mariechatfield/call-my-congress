@@ -7,16 +7,34 @@ export default Ember.Component.extend({
   street: null,
   zip: null,
 
+  districtsToPickFrom: null,
+
   lookupDistrict() {
-    const street = encodeURI(this.get('street'));
+    const street = this.get('street');
     const zip = this.get('zip');
-    return $.getJSON(`/api/district-from-address?street=${street}&zip=${zip}`)
-      .then(district => {
-        if (district.id) {
-          this.get('router').transitionTo('district', district.id);
-        } else {
-          this.get('message').display('errors.general');
+
+    let url;
+
+    if (street) {
+      const encodedStreet = encodeURI(street);
+      url = `/api/district-from-address?street=${encodedStreet}&zip=${zip}`;
+    } else {
+      url = `/api/district-from-address?zip=${zip}`;
+    }
+
+    return $.getJSON(url)
+      .then(result => {
+        if (result.districts) {
+          if (result.districts.length === 1) {
+            this.get('router').transitionTo('district', result.districts[0].id);
+            return;
+          } else if (result.districts.length > 1) {
+            this.set('districtsToPickFrom', result.districts);
+            return;
+          }
         }
+
+        this.get('message').display('errors.general');
       })
       .catch(error => {
         this.get('message').displayFromServer(error);
@@ -27,8 +45,8 @@ export default Ember.Component.extend({
     event.preventDefault();
     this.get('message').clear();
 
-    if (this.get('street') === null || this.get('zip') === null) {
-      this.get('message').display('errors.server.INCOMPLETE_ADDRESS');
+    if (this.get('zip') === null) {
+      this.get('message').display('errors.server.MISSING_ZIP');
       return;
     }
 
