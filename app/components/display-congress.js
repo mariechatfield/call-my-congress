@@ -16,7 +16,7 @@ export default Ember.Component.extend({
   ),
 
   permalink: Ember.computed('district.id', function() {
-    return `http://www.callmycongress.com/${this.get('district.id')}`;
+    return `https://www.callmycongress.com/${this.get('district.id')}`;
   }),
 
   actions: {

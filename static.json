@@ -1,5 +1,6 @@
 {
   "root": "dist/",
+  "https_only": true,
   "proxies": {
     "/api/": {
       "origin": "https://call-my-congress-backend.herokuapp.com/api"
