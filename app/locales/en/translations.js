@@ -41,7 +41,9 @@ export default {
       INVALID_ADDRESS: 'Could not find valid address. Please double check the street address and zip code.',
       INVALID_DISTRICT: 'District number provided does not exist in your state.',
       INVALID_DISTRICT_ID: 'Provided URL does not map to a valid state and district number.',
-      INVALID_STATE: 'State abbreviation provided does not match any known states.'
+      INVALID_STATE: 'State abbreviation provided does not match any known states.',
+      MISSING_DISTRICT_ID: 'Please provide a valid district id to look up representatives.',
+      UNKNOWN: 'Something went wrong.'
     }
   }
 };
