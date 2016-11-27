@@ -9,6 +9,8 @@ const app = express();
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
 const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
 
+const DEFAULT_PORT = 3000;
+
 // Geography layer that includes information on the 115th Congressional Districts
 // as defined: https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/54
 const CONGRESSIONAL_DISTRICTS_LAYER = 54;
@@ -19,7 +21,7 @@ function buildURL(base, params) {
 
 function performGETRequest(url, processResult) {
   return new Promise((resolve, reject) => {
-    request(url, function (error, response, body) {
+    request.get(url, function (error, response, body) {
       try {
         if (!error && response.statusCode === 200) {
           const result = JSON.parse(body);
@@ -123,9 +125,9 @@ app.get('/api/district-from-address', (req, res) => {
   try {
     getDistricts(req.query)
       .then(district => res.send(district))
-      .catch(err => res.status(500).send({ translationKey: err.message }));
+      .catch(() => res.status(500).send({ translationKey: 'UNKNOWN' }));
   } catch (err) {
-    res.status(500).send();
+    res.status(500).send({ translationKey: 'UNKNOWN' });
   }
 });
 
@@ -134,6 +136,12 @@ app.get('/api/congress-from-district', (req, res) => {
 
   try {
     const districtID = req.query.id;
+
+    if (districtID === undefined) {
+      res.status(400).send({ translationKey: 'MISSING_DISTRICT_ID'});
+      return;
+    }
+
     const stateNumberPattern = /^([a-zA-z]{2})-([0-9]+)$/;
     const match = districtID.match(stateNumberPattern);
 
@@ -146,10 +154,15 @@ app.get('/api/congress-from-district', (req, res) => {
 
     buildCongress({ state, number, id: districtID })
       .then(congress => res.send(congress))
-      .catch(err => res.status(500).send({ translationKey: err.message }));
+      .catch(() => res.status(500).send({ translationKey: 'UNKNOWN' }));
   } catch (err) {
-    res.status(500).send();
+    res.status(500).send({ translationKey: 'UNKNOWN' });
   }
 });
 
-app.listen(process.env.PORT);
+const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
+  const port = server.address().port;
+  console.log(`CallMyCongress server listening at port ${port}`);
+});
+
+module.exports = server;

@@ -6,7 +6,7 @@ Call My Congress is a small application that helps US citizens quickly find cont
 
 It is built using data freely provided by the [US Census Geocoding Services](https://geocoding.geo.census.gov/) and [GovTrack.us](https://www.govtrack.us/developers).
 
-The app consists of an Ember client app and an Express server. All the application code can be found in [`app/`](app/). The server consists of a single file: [`app/server.js`](app/server.js). All other files in that directory belong to the client-side Ember app.
+The app consists of an Ember client app and an Express server. All the front end application code can be found in [`app/`](app/). The back end application code can be found in [`backend/app/`](backend/app/).
 
 ## Prerequisites
 
@@ -40,10 +40,17 @@ Both of these servers will automatically reload whenever you save changes.
 To run all tests once (used for Travis CI builds):
 * `npm test`
 
-To develop against tests:
-* `ember test --server`
+This runs both the front end and back end test suites. You can also run either suite just once with:
+* `npm run test:backend`
+* `npm run test:frontend`
 
-This will open up a test runner in Chrome, and will reload your tests whenever you save either app or test code. Pro tip: you can use the `filter` query param to run a subset of tests. I.e. `?filter=Integration | Component` will only run the component integration tests.
+To develop against tests:
+* `npm run test-server:backend`
+* `npm run test-server:frontend`
+
+This will start a test server for the test suite in question, and will reload your tests whenever you save either app or test code.
+
+Pro tip for front end tests: the tests will be opened in your browser. You can use the `filter` query param to run a subset of tests. I.e. `?filter=Integration | Component` will only run the component integration tests.
 
 ### Building
 

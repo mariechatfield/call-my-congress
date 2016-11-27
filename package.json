@@ -7,13 +7,20 @@
     "doc": "doc",
     "test": "tests"
   },
-  "main": "app/server.js",
+  "main": "backend/app/server.js",
   "scripts": {
     "build": "ember build",
-    "start": "node app/server.js",
-    "test": "ember test",
-    "backend": "PORT=3000 nodemon app/server.js",
-    "frontend": "ember server --proxy http://127.0.0.1:3000"
+    "start": "node backend/app/server.js",
+    "test": "npm run test:backend && npm run test:frontend",
+
+    "backend": "PORT=3000 nodemon backend/app/server.js",
+    "frontend": "ember server --proxy http://127.0.0.1:3000",
+
+    "test:backend": "mocha -R spec backend/tests/server-test.js",
+    "test:frontend": "ember test",
+
+    "test-server:backend": "mocha -R spec backend/tests/server-test.js -w",
+    "test-server:frontend": "ember test --serve"
   },
   "repository": "",
   "engines": {
@@ -43,7 +50,10 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.10",
-    "nodemon": "^1.11.0"
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "sinon": "^1.17.6",
+    "supertest": "^2.0.1"
   },
   "dependencies": {
     "express": "^4.14.0",
