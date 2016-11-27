@@ -12,6 +12,10 @@ export default {
     search: 'Find My Congress'
   },
 
+  pickDistrict: {
+    helpText: 'Your zip code falls within multiple congressional districts. Pick a district below to see its representatives, or provide a street address and search again for more accurate results.'
+  },
+
   displayCongress: {
     back: 'Search Again',
     permalink: 'Permanent Link to This Page'
