@@ -6,14 +6,17 @@ export default Ember.Component.extend({
 
   congress: null,
 
+  // We can assume only one district per congress response from the server
+  district: Ember.computed.alias('congress.district.districts.firstObject'),
+
   successfulLoad: Ember.computed.and(
-    'congress.district.id',
+    'district.id',
     'congress.representatives.length',
     'congress.senators.length'
   ),
 
-  permalink: Ember.computed('congress.district.id', function() {
-    return `http://www.callmycongress.com/${this.get('congress.district.id')}`;
+  permalink: Ember.computed('district.id', function() {
+    return `http://www.callmycongress.com/${this.get('district.id')}`;
   }),
 
   actions: {

@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import { SINGLE_DISTRICT } from '../../fixtures/districts';
 import Ember from 'ember';
 import $ from 'jquery';
 import setupStubs from '../../helpers/setup-stubs';
@@ -94,7 +95,7 @@ test('submit > does not make request unless both street and zip are provided', f
 
 test('lookupDistrict > transitions when response is successful', function(assert) {
   this.responseSuccessful = true;
-  this.response = { id: 'some-id' };
+  this.response = SINGLE_DISTRICT;
 
   this.component.setProperties({
     street: STREET,
@@ -105,7 +106,7 @@ test('lookupDistrict > transitions when response is successful', function(assert
 
   this.component.lookupDistrict().then(() => {
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'calls router.transitionTo');
-    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'some-id'], 'transitions to route based on id of response');
+    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['district', 'CA-12'], 'transitions to route based on id of response');
     done();
   });
 });

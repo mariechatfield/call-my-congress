@@ -11,9 +11,9 @@ export default Ember.Component.extend({
     const street = encodeURI(this.get('street'));
     const zip = this.get('zip');
     return $.getJSON(`/api/district-from-address?street=${street}&zip=${zip}`)
-      .then(district => {
-        if (district.id) {
-          this.get('router').transitionTo('district', district.id);
+      .then(result => {
+        if (result.districts && result.districts[0] && result.districts[0].id) {
+          this.get('router').transitionTo('district', result.districts[0].id);
         } else {
           this.get('message').display('errors.general');
         }

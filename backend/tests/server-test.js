@@ -3,20 +3,27 @@ const supertest = require('supertest');
 const sinon = require('sinon');
 const fixtures = require('./fixtures/api');
 
-let callNum = 0;
-let requestStub;
-
 const VALID_RESPONSE = { statusCode: 200 };
 
-function stubRequest(body, error = false, response = VALID_RESPONSE) {
-  requestStub.onCall(callNum++).yields(error, response, body);
+let requests = {};
+
+function stubRequest(url, body, error = false, response = VALID_RESPONSE) {
+  requests[url] = [error, response, body];
 }
 
 describe('server', function() {
   before(function() {
-    requestStub = sinon.stub(request, 'get');
+    sinon.stub(request, 'get', function(url, callback) {
+      if (requests[url]) {
+        callback(...requests[url]);
+      } else {
+        console.log(url);
+        throw new Error(`No stubbed response defined for ${url}`);
+      }
+    });
   });
   beforeEach(function() {
+    requests = {};
     process.env.PORT = 3001;
     this.server = require('../app/server');
   });
@@ -31,8 +38,10 @@ describe('server', function() {
 
   describe('/api/district-from-address', function() {
     describe('with valid params', function() {
+      const validApiURL = 'https://geocoding.geo.census.gov/geocoder/geographies/address?benchmark=Public_AR_Current&vintage=Current_Current&format=json&layers=54&street=1600%20Pennsylvania%20Ave&zip=20500';
+
       it('with successful API calls, returns correctly formatted response', function testSlash(done) {
-        stubRequest(fixtures.DISTRICT);
+        stubRequest(validApiURL, fixtures.DISTRICT);
 
         supertest(this.server)
           .get('/api/district-from-address?street=1600%20Pennsylvania%20Ave&zip=20500')
@@ -40,7 +49,7 @@ describe('server', function() {
       });
 
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
-        stubRequest({ message: 'failed with some error' }, true);
+        stubRequest(validApiURL, { message: 'failed with some error' }, true);
 
         supertest(this.server)
           .get('/api/district-from-address?street=1600%20Pennsylvania%20Ave&zip=20500')
@@ -48,40 +57,64 @@ describe('server', function() {
       });
 
       it('with invalid API calls, returns correctly formatted error response', function testSlash(done) {
-        stubRequest('unexpected successful response type');
+        stubRequest(validApiURL, 'unexpected successful response type');
 
         supertest(this.server)
           .get('/api/district-from-address?street=1600%20Pennsylvania%20Ave&zip=20500')
           .expect(500, { translationKey: 'UNKNOWN' }, done);
       });
+
+      describe('providing only zip code', function() {
+        const validApiURL = 'http://whoismyrepresentative.com/getall_mems.php?output=json&zip=20500';
+
+        it('with successful API calls, returns correctly formatted response', function testSlash(done) {
+          stubRequest(validApiURL, fixtures.ZIP_ONLY_DISTRICT);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=20500')
+            .expect(200, fixtures.DISTRICT_RESPONSE, done);
+        });
+
+        it('with successful API calls, returns correctly formatted response', function testSlash(done) {
+          stubRequest(validApiURL, fixtures.ZIP_ONLY_WITH_TWO_DISTRICTS);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=20500')
+            .expect(200, fixtures.TWO_DISTRICTS_RESPONSE, done);
+        });
+
+        it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
+          stubRequest(validApiURL, `<result message='No Data Found'/>`);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=20500')
+            .expect(500, { translationKey: 'INVALID_ADDRESS' }, done);
+        });
+      });
     });
 
     describe('with invalid params', function() {
-      it('with missing street, returns correctly formatted error response', function testSlash(done) {
-        supertest(this.server)
-          .get('/api/district-from-address?zip=20500')
-          .expect(400, { translationKey: 'INCOMPLETE_ADDRESS' }, done);
-      });
-
       it('with missing zip, returns correctly formatted error response', function testSlash(done) {
         supertest(this.server)
           .get('/api/district-from-address?street=1600%20%Pennsylvania%20Ave')
-          .expect(400, { translationKey: 'INCOMPLETE_ADDRESS' }, done);
+          .expect(400, { translationKey: 'MISSING_ZIP' }, done);
       });
 
       it('with no query params, returns correctly formatted error response', function testSlash(done) {
         supertest(this.server)
           .get('/api/district-from-address')
-          .expect(400, { translationKey: 'INCOMPLETE_ADDRESS' }, done);
+          .expect(400, { translationKey: 'MISSING_ZIP' }, done);
       });
     });
   });
 
   describe('/api/congress-from-district', function() {
+    const validRepresentativeURL = 'https://www.govtrack.us/api/v2/role?current=true&district=12&state=CA';
+    const validSenatorURL = 'https://www.govtrack.us/api/v2/role?current=true&role_type=senator&state=CA';
     describe('with valid params', function() {
       it('with successful API calls, returns correctly formatted response', function testSlash(done) {
-        stubRequest(fixtures.REPRESENTATIVE);
-        stubRequest(fixtures.SENATORS);
+        stubRequest(validRepresentativeURL, fixtures.REPRESENTATIVE);
+        stubRequest(validSenatorURL, fixtures.SENATORS);
 
         supertest(this.server)
           .get('/api/congress-from-district?id=CA-12')
@@ -89,8 +122,8 @@ describe('server', function() {
       });
 
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
-        stubRequest({ message: 'failed with some error' }, true);
-        stubRequest({ message: 'another error' }, true);
+        stubRequest(validRepresentativeURL, { message: 'failed with some error' }, true);
+        stubRequest(validSenatorURL, { message: 'another error' }, true);
 
         supertest(this.server)
           .get('/api/congress-from-district?id=CA-12')
@@ -98,8 +131,8 @@ describe('server', function() {
       });
 
       it('with invalid API calls, returns correctly formatted error response', function testSlash(done) {
-        stubRequest('unexpected successful response type');
-        stubRequest('unexpected error response type', true);
+        stubRequest(validRepresentativeURL, 'unexpected successful response type');
+        stubRequest(validSenatorURL, 'unexpected error response type', true);
 
         supertest(this.server)
           .get('/api/congress-from-district?id=CA-12')
