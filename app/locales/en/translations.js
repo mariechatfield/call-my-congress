@@ -35,7 +35,7 @@ export default {
   },
 
   about: {
-    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}} and {{link-govtrack}}GovTrack.us{{/link-govtrack}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
+    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}}, {{link-govtrack}}GovTrack.us{{/link-govtrack}}, and {{link-whoismyrep}}whoismyrepresentative.com{{/link-whoismyrep}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
   },
 
   errors: {
