@@ -8,9 +8,19 @@ export default Ember.Component.extend({
   zip: null,
 
   lookupDistrict() {
-    const street = encodeURI(this.get('street'));
+    const street = this.get('street');
     const zip = this.get('zip');
-    return $.getJSON(`/api/district-from-address?street=${street}&zip=${zip}`)
+
+    let url;
+
+    if (street) {
+      const encodedStreet = encodeURI(street);
+      url = `/api/district-from-address?street=${encodedStreet}&zip=${zip}`;
+    } else {
+      url = `/api/district-from-address?zip=${zip}`;
+    }
+
+    return $.getJSON(url)
       .then(result => {
         if (result.districts && result.districts[0] && result.districts[0].id) {
           this.get('router').transitionTo('district', result.districts[0].id);
@@ -27,8 +37,8 @@ export default Ember.Component.extend({
     event.preventDefault();
     this.get('message').clear();
 
-    if (this.get('street') === null || this.get('zip') === null) {
-      this.get('message').display('errors.server.INCOMPLETE_ADDRESS');
+    if (this.get('zip') === null) {
+      this.get('message').display('errors.server.MISSING_ZIP');
       return;
     }
 
