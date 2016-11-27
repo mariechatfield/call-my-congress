@@ -18,7 +18,7 @@ export default {
   },
 
   geography: {
-    address: 'Street Address',
+    address: 'Street Address (optional)',
     district: 'Congressional District',
     state: 'State',
     zipCode: 'Zip Code'
