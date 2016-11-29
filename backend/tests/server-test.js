@@ -84,7 +84,7 @@ describe('server', function() {
         });
 
         it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
-          stubRequest(validApiURL, `<result message='No Data Found'/>`);
+          stubRequest(validApiURL, `<result message='No Data Found' />`);
 
           supertest(this.server)
             .get('/api/district-from-address?zip=20500')

@@ -12,7 +12,7 @@ const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
 
 // When zip code is not found, the response succeeds with code 200 but the body
 // has this message instead of a JSON object.
-const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found'/>`;
+const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found' />`;
 
 const DEFAULT_PORT = 3000;
 
