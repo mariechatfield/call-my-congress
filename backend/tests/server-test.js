@@ -48,6 +48,14 @@ describe('server', function() {
           .expect(200, fixtures.DISTRICT_RESPONSE, done);
       });
 
+      it('returns correctly formatted response for address that in state with a single at-large district', function testSlash(done) {
+        stubRequest(validApiURL, fixtures.AT_LARGE_DISTRICT);
+
+        supertest(this.server)
+          .get('/api/district-from-address?street=1600%20Pennsylvania%20Ave&zip=20500')
+          .expect(200, fixtures.AT_LARGE_DISTRICT_RESPONSE, done);
+      });
+
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
         stubRequest(validApiURL, { message: 'failed with some error' }, true);
 
@@ -75,12 +83,28 @@ describe('server', function() {
             .expect(200, fixtures.DISTRICT_RESPONSE, done);
         });
 
-        it('with successful API calls, returns correctly formatted response', function testSlash(done) {
+        it('returns correctly formatted response for zip that could be in multiple districts', function testSlash(done) {
           stubRequest(validApiURL, fixtures.ZIP_ONLY_WITH_TWO_DISTRICTS);
 
           supertest(this.server)
             .get('/api/district-from-address?zip=20500')
             .expect(200, fixtures.TWO_DISTRICTS_RESPONSE, done);
+        });
+
+        it('returns correctly formatted response for zip in state with a single at-large district', function testSlash(done) {
+          stubRequest(validApiURL, fixtures.ZIP_ONLY_WITH_TWO_DISTRICTS);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=20500')
+            .expect(200, fixtures.TWO_DISTRICTS_RESPONSE, done);
+        });
+
+        it('with successful API calls, returns correctly formatted response with two districts', function testSlash(done) {
+          stubRequest(validApiURL, fixtures.ZIP_ONLY_WITH_AT_LARGE_DISTRICT);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=20500')
+            .expect(200, fixtures.AT_LARGE_DISTRICT_RESPONSE, done);
         });
 
         it('with failed API calls, returns correctly formatted error response', function testSlash(done) {

@@ -14,6 +14,9 @@ const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
 // has this message instead of a JSON object.
 const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found' />`;
 
+const AT_LARGE_DISTRICT_NAME = 'Congressional District (at Large)';
+const AT_LARGE_DISTRICT_NUMBER = 0;
+
 const DEFAULT_PORT = 3000;
 
 // Geography layer that includes information on the 115th Congressional Districts
@@ -72,6 +75,10 @@ function getDistrictsZipOnly(geography) {
       // Filter out all non-numeric districts (i.e. "Junior Seat" for senators)
       .filter(district => !isNaN(district));
 
+    if (state && districtNumbers.length === 0) {
+      districtNumbers.push(AT_LARGE_DISTRICT_NUMBER);
+    }
+
     const districts = districtNumbers.map(number => {
       return {
         state,
@@ -100,8 +107,12 @@ function getDistricts(geography) {
     }
 
     const address = result.result.addressMatches[0];
-    const number = address.geographies['115th Congressional Districts'][0].BASENAME;
+    let number = address.geographies['115th Congressional Districts'][0].BASENAME;
     const state = address.addressComponents.state;
+
+    if (state && number === AT_LARGE_DISTRICT_NAME) {
+      number = AT_LARGE_DISTRICT_NUMBER;
+    }
 
     const id = `${state}-${number}`;
 
