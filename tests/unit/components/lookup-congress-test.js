@@ -20,6 +20,8 @@ moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
         name: 'message',
         methods: ['clear', 'display', 'displayFromServer']
       }, {
+        name: 'lookupData'
+      }, {
         name: 'event',
         methods: ['preventDefault']
       }, {
@@ -40,7 +42,8 @@ moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
     this.component = this.subject();
     this.component.setProperties({
       message: this.stubs.objects.message,
-      router: this.stubs.objects.router
+      lookupData: this.stubs.objects.lookupData,
+      router: this.stubs.objects.router,
     });
 
     this.orginalGetJSON = $.getJSON;
@@ -53,7 +56,7 @@ moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
 });
 
 test('submit > makes request when street and zip are provided', function(assert) {
-  this.component.setProperties({
+  this.component.set('lookupData', {
     street: STREET,
     zip: ZIP
   });
@@ -75,7 +78,7 @@ test('submit > does not make request unless zip is provided', function(assert) {
   assert.equal(this.stubs.calls.message.display.length, 1, 'displays an error message');
   assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not attempt to transition');
 
-  this.component.set('street', '1600 Pennsylvania Ave');
+  this.component.set('lookupData.street', '1600 Pennsylvania Ave');
   this.component.submit(this.stubs.objects.event);
 
   assert.equal(this.stubs.calls.message.clear.length, 2, 'clears any existing messages');
@@ -87,7 +90,7 @@ test('lookupDistrict > transitions when response is successful', function(assert
   this.responseSuccessful = true;
   this.response = SINGLE_DISTRICT;
 
-  this.component.setProperties({
+  this.component.setProperties('lookupData', {
     street: STREET,
     zip: ZIP
   });
@@ -105,7 +108,7 @@ test('lookupDistrict > transitions when response is successful with only zip', f
   this.responseSuccessful = true;
   this.response = SINGLE_DISTRICT;
 
-  this.component.setProperties({
+  this.component.setProperties('lookupData', {
     zip: ZIP
   });
 
@@ -122,14 +125,14 @@ test('lookupDistrict > sets districtsToPickFrom when multiple districts per zip'
   this.responseSuccessful = true;
   this.response = MULTIPLE_DISTRICTS;
 
-  this.component.setProperties({
+  this.component.setProperties('lookupData', {
     zip: ZIP
   });
 
   const done = assert.async();
 
   this.component.lookupDistrict().then(() => {
-    assert.deepEqual(this.component.get('districtsToPickFrom'), MULTIPLE_DISTRICTS.districts);
+    assert.deepEqual(this.component.get('lookupData.districtsToPickFrom'), MULTIPLE_DISTRICTS.districts);
     assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'does not call calls router.transitionTo');
     done();
   });
@@ -139,7 +142,7 @@ test('lookupDistrict > shows error when response is malformed', function(assert)
   this.responseSuccessful = true;
   this.response = 'this is an invalid response';
 
-  this.component.setProperties({
+  this.component.setProperties('lookupData', {
     street: STREET,
     zip: ZIP
   });
@@ -157,7 +160,7 @@ test('lookupDistrict > shows error when response fails', function(assert) {
   this.responseSuccessful = false;
   this.response = 'some error';
 
-  this.component.setProperties({
+  this.component.setProperties('lookupData', {
     street: STREET,
     zip: ZIP
   });

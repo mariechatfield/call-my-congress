@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['display-congress'],
   message: Ember.inject.service(),
+  lookupData: Ember.inject.service(),
 
   congress: null,
 
@@ -22,6 +23,7 @@ export default Ember.Component.extend({
   actions: {
     returnHome() {
       this.get('message').clear();
+      this.get('lookupData').clear();
       this.get('router').transitionTo('index');
     }
   }
