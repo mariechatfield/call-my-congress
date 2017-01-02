@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   message: Ember.inject.service(),
   lookupData: Ember.inject.service(),
 
+  isLoading: false,
+
   lookupDistrict() {
     const street = this.get('lookupData.street');
     const zip = this.get('lookupData.zip');
@@ -18,8 +20,11 @@ export default Ember.Component.extend({
       url = `/api/district-from-address?zip=${zip}`;
     }
 
+    this.set('isLoading', true);
+
     return $.getJSON(url)
       .then(result => {
+        this.set('isLoading', false);
         if (result.districts) {
           if (result.districts.length === 1) {
             this.get('router').transitionTo('district', result.districts[0].id);
@@ -33,6 +38,7 @@ export default Ember.Component.extend({
         this.get('message').display('errors.general');
       })
       .catch(error => {
+        this.set('isLoading', false);
         this.get('message').displayFromServer(error);
       });
   },

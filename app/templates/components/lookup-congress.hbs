@@ -25,6 +25,10 @@
   </div>
 </form>
 
+{{#if isLoading}}
+  <img class="loading loading--nested" src="/assets/loading.svg" />
+{{/if}}
+
 {{#if lookupData.districtsToPickFrom}}
   {{pick-district districts=lookupData.districtsToPickFrom}}
 {{/if}}
