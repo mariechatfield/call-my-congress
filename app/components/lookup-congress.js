@@ -3,15 +3,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   message: Ember.inject.service(),
-
-  street: null,
-  zip: null,
-
-  districtsToPickFrom: null,
+  lookupData: Ember.inject.service(),
 
   lookupDistrict() {
-    const street = this.get('street');
-    const zip = this.get('zip');
+    const street = this.get('lookupData.street');
+    const zip = this.get('lookupData.zip');
 
     let url;
 
@@ -29,7 +25,7 @@ export default Ember.Component.extend({
             this.get('router').transitionTo('district', result.districts[0].id);
             return;
           } else if (result.districts.length > 1) {
-            this.set('districtsToPickFrom', result.districts);
+            this.set('lookupData.districtsToPickFrom', result.districts);
             return;
           }
         }
@@ -45,7 +41,7 @@ export default Ember.Component.extend({
     event.preventDefault();
     this.get('message').clear();
 
-    if (this.get('zip') === null) {
+    if (Ember.isNone(this.get('lookupData.zip'))) {
       this.get('message').display('errors.server.MISSING_ZIP');
       return;
     }

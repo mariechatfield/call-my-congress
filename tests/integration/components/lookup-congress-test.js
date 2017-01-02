@@ -17,8 +17,8 @@ test('it renders', function(assert) {
 });
 
 test('renders pick-district component when multiple districts', function(assert) {
-  this.set('districts', MULTIPLE_DISTRICTS.districts);
-  this.render(hbs`{{lookup-congress districtsToPickFrom=districts}}`);
+  this.set('lookupData', { districtsToPickFrom: MULTIPLE_DISTRICTS.districts });
+  this.render(hbs`{{lookup-congress lookupData=lookupData}}`);
 
   assert.equal(this.$('.pick-district').length, 1, 'renders pick-district');
 });
