@@ -91,6 +91,10 @@ body {
   max-width: 75px;
 }
 
+.loading--nested {
+  margin: var(--padding--large) auto;
+}
+
 /* Override default skeleton.css button colors. */
 .button.button-primary,
 button.button-primary,
