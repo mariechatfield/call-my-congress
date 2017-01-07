@@ -57,6 +57,14 @@ describe('server', function() {
           .expect(200, fixtures.AT_LARGE_DISTRICT_RESPONSE, done);
       });
 
+      it('returns correctly formatted response for address that in non-voting district', function testSlash(done) {
+        stubRequest(apiURL, fixtures.NON_VOTING_DISTRICT);
+
+        supertest(this.server)
+          .get(serverURL)
+          .expect(200, fixtures.NON_VOTING_DISTRICT_RESPONSE, done);
+      });
+
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
         stubRequest(apiURL, { message: 'failed with some error' }, true);
 
@@ -110,11 +118,20 @@ describe('server', function() {
         });
 
         it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
+          stubRequest('http://whoismyrepresentative.com/getall_mems.php?output=json&zip=99999',
+                      `<result message='No Data Found' />`);
+
+          supertest(this.server)
+            .get('/api/district-from-address?zip=99999')
+            .expect(500, { translationKey: 'INVALID_ADDRESS' }, done);
+        });
+
+        it('with failed API calls, matching a non-voting district, returns correctly formatted response', function testSlash(done) {
           stubRequest(apiURL, `<result message='No Data Found' />`);
 
           supertest(this.server)
             .get(serverURL)
-            .expect(500, { translationKey: 'INVALID_ADDRESS' }, done);
+            .expect(200, fixtures.NON_VOTING_DISTRICT_RESPONSE, done);
         });
       });
     });

@@ -16,10 +16,10 @@
     "backend": "PORT=3000 nodemon backend/app/server.js",
     "frontend": "ember server --proxy http://127.0.0.1:3000",
 
-    "test:backend": "mocha -R spec backend/tests/server-test.js",
+    "test:backend": "mocha -R spec backend/tests/*-test.js",
     "test:frontend": "ember test",
 
-    "test-server:backend": "mocha -R spec backend/tests/server-test.js -w",
+    "test-server:backend": "mocha -R spec backend/tests/*-test.js -w",
     "test-server:frontend": "ember test --serve"
   },
   "repository": "",
