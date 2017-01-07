@@ -10,10 +10,14 @@ export default Ember.Component.extend({
   // We can assume only one district per congress response from the server
   district: Ember.computed.alias('congress.district.districts.firstObject'),
 
-  successfulLoad: Ember.computed.and(
-    'district.id',
+  hasRepresentativesOrSenators: Ember.computed.or(
     'congress.representatives.length',
     'congress.senators.length'
+  ),
+
+  successfulLoad: Ember.computed.and(
+    'district.id',
+    'hasRepresentativesOrSenators'
   ),
 
   permalink: Ember.computed('district.id', function() {

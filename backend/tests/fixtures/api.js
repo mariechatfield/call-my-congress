@@ -144,6 +144,79 @@ const AT_LARGE_DISTRICT_OBJECT = {
   }
 };
 
+const NON_VOTING_DISTRICT_OBJECT = {
+  result: {
+    input: {
+      address: {
+        street: '1025 5th St',
+        zip: '20001'
+      },
+      benchmark: {
+        id: '4',
+        isDefault: false,
+        benchmarkName: 'Public_AR_Current',
+        benchmarkDescription: 'Public Address Ranges - Current Benchmark'
+      },
+      vintage: {
+        id: '4',
+        isDefault: true,
+        vintageName: 'Current_Current',
+        vintageDescription: 'Current Vintage - Current Benchmark'
+      }
+    },
+    addressMatches: [
+      {
+        geographies: {
+          '115th Congressional Districts': [
+            {
+              OID: 211904692355590,
+              STATE: '11',
+              FUNCSTAT: 'N',
+              NAME: 'Delegate District (at Large)',
+              AREAWATER: 18633403,
+              CDSESSN: '115',
+              LSADC: 'C4',
+              CENTLON: '-077.0162745',
+              BASENAME: 'Delegate District (at Large)',
+              INTPTLAT: '+38.9041031',
+              MTFCC: 'G5200',
+              GEOID: '1198',
+              CENTLAT: '+38.9047579',
+              CD115: '98',
+              INTPTLON: '-077.0172290',
+              AREALAND: 158364994,
+              OBJECTID: 264
+            }
+          ]
+        },
+        matchedAddress: '1025 5TH ST NW, WASHINGTON, DC, 20001',
+        coordinates: {
+          x: -77.01892,
+          y: 38.903103
+        },
+        tigerLine: {
+          side: 'R',
+          tigerLineId: '638666952'
+        },
+        addressComponents: {
+          fromAddress: '1001',
+          toAddress: '1051',
+          preQualifier: '',
+          preDirection: '',
+          preType: '',
+          streetName: '5TH',
+          suffixType: 'ST',
+          suffixDirection: 'NW',
+          suffixQualifier: '',
+          state: 'DC',
+          zip: '20001',
+          city: 'WASHINGTON'
+        }
+      }
+    ]
+  }
+};
+
 const ZIP_ONLY_DISTRICT_OBJECT = {
   results: [
     {
@@ -419,6 +492,7 @@ const REPRESENTATIVE_OBJECT = {
 
 const DISTRICT = JSON.stringify(DISTRICT_OBJECT);
 const AT_LARGE_DISTRICT = JSON.stringify(AT_LARGE_DISTRICT_OBJECT);
+const NON_VOTING_DISTRICT = JSON.stringify(NON_VOTING_DISTRICT_OBJECT);
 const ZIP_ONLY_DISTRICT = JSON.stringify(ZIP_ONLY_DISTRICT_OBJECT);
 const ZIP_ONLY_WITH_TWO_DISTRICTS = JSON.stringify(ZIP_ONLY_WITH_TWO_DISTRICTS_OBJECT);
 const ZIP_ONLY_WITH_AT_LARGE_DISTRICT = JSON.stringify(ZIP_ONLY_WITH_AT_LARGE_DISTRICT_OBJECT);
@@ -460,6 +534,16 @@ const AT_LARGE_DISTRICT_RESPONSE = {
   ]
 };
 
+const NON_VOTING_DISTRICT_RESPONSE = {
+  districts: [
+    {
+      state: 'DC',
+      number: '0',
+      id: 'DC-0'
+    }
+  ]
+};
+
 const CONGRESS_RESPONSE = {
   district: DISTRICT_RESPONSE,
   representatives: REPRESENTATIVE_OBJECT.objects,
@@ -469,6 +553,7 @@ const CONGRESS_RESPONSE = {
 module.exports = {
   DISTRICT,
   AT_LARGE_DISTRICT,
+  NON_VOTING_DISTRICT,
   ZIP_ONLY_DISTRICT,
   ZIP_ONLY_WITH_TWO_DISTRICTS,
   ZIP_ONLY_WITH_AT_LARGE_DISTRICT,
@@ -477,5 +562,6 @@ module.exports = {
   DISTRICT_RESPONSE,
   TWO_DISTRICTS_RESPONSE,
   AT_LARGE_DISTRICT_RESPONSE,
+  NON_VOTING_DISTRICT_RESPONSE,
   CONGRESS_RESPONSE
 };

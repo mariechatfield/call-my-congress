@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import {
   COMPLETE_CONGRESS,
   NO_DISTRICT,
-  NO_REPRESENTATIVES,
+  NO_REPRESENTATIVES_OR_SENATORS,
   NO_SENATORS
 } from '../../fixtures/congress';
 import hbs from 'htmlbars-inline-precompile';
@@ -47,6 +47,19 @@ test('back button', function(assert) {
   assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['index'], 'router.transitionTo was called with "index"');
 });
 
+test('with partial data, it renders', function(assert) {
+  this.set('congress', NO_SENATORS);
+  this.render(hbs`{{display-congress congress=congress}}`);
+
+  assert.ok(this.$('.display-congress__state').text().match('CA'), 'renders the state');
+  assert.ok(this.$('.display-congress__district').text().match('12'), 'renders the district number');
+  assert.ok(this.$('.display-congress__permalink').text().match('CA-12'), 'renders the permalink');
+
+  assert.equal(this.$('.display-congressperson').length, 1, 'renders the representative');
+
+  assert.equal(this.$('.display-congress__back').length, 1, 'renders back button');
+});
+
 function testIncompleteFixture(fixture) {
   test('it handles incomplete data', function(assert) {
     this.set('congress', fixture);
@@ -59,5 +72,4 @@ function testIncompleteFixture(fixture) {
 }
 
 testIncompleteFixture(NO_DISTRICT);
-testIncompleteFixture(NO_REPRESENTATIVES);
-testIncompleteFixture(NO_SENATORS);
+testIncompleteFixture(NO_REPRESENTATIVES_OR_SENATORS);

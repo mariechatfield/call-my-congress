@@ -6,6 +6,8 @@ const express = require('express');
 const querystring = require('querystring');
 const app = express();
 
+const { zipCodeToNonVotingUSPSCode } = require('./non-voting-districts');
+
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
 const ZIP_ONLY_BASE_URL = 'http://whoismyrepresentative.com/getall_mems.php';
 const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
@@ -14,7 +16,7 @@ const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
 // has this message instead of a JSON object.
 const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found' />`;
 
-const AT_LARGE_DISTRICT_NAME = 'Congressional District (at Large)';
+const AT_LARGE_DISTRICT_NAME = '(at Large)';
 const AT_LARGE_DISTRICT_NUMBER = 0;
 
 const DEFAULT_PORT = 3000;
@@ -63,7 +65,28 @@ function getDistrictsZipOnly(geography) {
   };
 
   return performGETRequest(buildURL(ZIP_ONLY_BASE_URL, params), body => {
+
     if (body === ZIP_ONLY_ERROR_BODY) {
+      // Current API used for zip-only addresses does not handle non-voting
+      // congressional districts. Manually verify if the given zip belongs
+      // to a non-voting district, and if so return that district. Otherwise,
+      // zip code does not map to any district and is invalid.
+      const state = zipCodeToNonVotingUSPSCode(geography.zip);
+
+      if (state !== null) {
+        const number = AT_LARGE_DISTRICT_NUMBER;
+
+        return {
+          districts: [
+            {
+              state,
+              number,
+              id: `${state}-${number}`
+            }
+          ]
+        };
+      }
+
       throw new AppError('INVALID_ADDRESS');
     }
 
@@ -110,7 +133,7 @@ function getDistricts(geography) {
     let number = address.geographies['115th Congressional Districts'][0].BASENAME;
     const state = address.addressComponents.state;
 
-    if (state && number === AT_LARGE_DISTRICT_NAME) {
+    if (state && number.match(AT_LARGE_DISTRICT_NAME)) {
       number = AT_LARGE_DISTRICT_NUMBER;
     }
 
