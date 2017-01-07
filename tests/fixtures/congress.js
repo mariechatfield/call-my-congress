@@ -335,7 +335,7 @@ export const NO_DISTRICT = {
   ]
 };
 
-export const NO_REPRESENTATIVES =  {
+export const NO_REPRESENTATIVES_OR_SENATORS =  {
   district: {
     districts: [
       {
@@ -344,116 +344,7 @@ export const NO_REPRESENTATIVES =  {
         state: "CA"
       }
     ]
-  },
-  senators: [
-    {
-      caucus: null,
-      congress_numbers: [
-        112,
-        113,
-        114
-      ],
-      current: true,
-      description: "Junior Senator from California",
-      district: null,
-      enddate: "2017-01-03",
-      extra: {
-        address: "112 Hart Senate Office Building Washington DC 20510",
-        contact_form: "https://www.boxer.senate.gov/contact/shareyourviews.html",
-        fax: "202-224-0454",
-        office: "112 Hart Senate Office Building"
-      },
-      id: 3853,
-      leadership_title: null,
-      party: "Democrat",
-      person: {
-        bioguideid: "B000711",
-        birthday: "1940-11-11",
-        cspanid: 2470,
-        firstname: "Barbara",
-        gender: "female",
-        gender_label: "Female",
-        id: 300011,
-        lastname: "Boxer",
-        link: "https://www.govtrack.us/congress/members/barbara_boxer/300011",
-        middlename: "",
-        name: "Sen. Barbara Boxer [D-CA]",
-        namemod: "",
-        nickname: "",
-        osid: "N00006692",
-        pvsid: "53274",
-        sortname: "Boxer, Barbara (Sen.) [D-CA]",
-        twitterid: "SenatorBoxer",
-        youtubeid: "SenatorBoxer"
-      },
-      phone: "202-224-3553",
-      role_type: "senator",
-      role_type_label: "Senator",
-      senator_class: "class3",
-      senator_class_label: "Class 3",
-      senator_rank: "junior",
-      senator_rank_label: "Junior",
-      startdate: "2011-01-05",
-      state: "CA",
-      title: "Sen.",
-      title_long: "Senator",
-      website: "https://www.boxer.senate.gov"
-    },
-    {
-      caucus: null,
-      congress_numbers: [
-        113,
-        114,
-        115
-      ],
-      current: true,
-      description: "Senior Senator from California",
-      district: null,
-      enddate: "2019-01-03",
-      extra: {
-        address: "331 Hart Senate Office Building Washington DC 20510",
-        contact_form: "https://www.feinstein.senate.gov/public/index.cfm/e-mail-me",
-        fax: "202-228-3954",
-        office: "331 Hart Senate Office Building",
-        rss_url: "http://www.feinstein.senate.gov/public/?a=rss.feed"
-      },
-      id: 42868,
-      leadership_title: null,
-      party: "Democrat",
-      person: {
-        bioguideid: "F000062",
-        birthday: "1933-06-22",
-        cspanid: 13061,
-        firstname: "Dianne",
-        gender: "female",
-        gender_label: "Female",
-        id: 300043,
-        lastname: "Feinstein",
-        link: "https://www.govtrack.us/congress/members/dianne_feinstein/300043",
-        middlename: "",
-        name: "Sen. Dianne Feinstein [D-CA]",
-        namemod: "",
-        nickname: "",
-        osid: "N00007364",
-        pvsid: "53273",
-        sortname: "Feinstein, Dianne (Sen.) [D-CA]",
-        twitterid: "SenFeinstein",
-        youtubeid: "SenatorFeinstein"
-      },
-      phone: "202-224-3841",
-      role_type: "senator",
-      role_type_label: "Senator",
-      senator_class: "class1",
-      senator_class_label: "Class 1",
-      senator_rank: "senior",
-      senator_rank_label: "Senior",
-      startdate: "2013-01-03",
-      state: "CA",
-      title: "Sen.",
-      title_long: "Senator",
-      website: "http://www.feinstein.senate.gov"
-    }
-  ]
+  }
 };
 
 export const NO_SENATORS = {
