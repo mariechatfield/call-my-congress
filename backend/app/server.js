@@ -96,7 +96,7 @@ function getDistrictsZipOnly(geography) {
     const districtNumbers = result.results
       .map(representative => representative.district)
       // Filter out all non-numeric districts (i.e. "Junior Seat" for senators)
-      .filter(district => !isNaN(district));
+      .filter(district => district && !isNaN(district));
 
     if (state && districtNumbers.length === 0) {
       districtNumbers.push(AT_LARGE_DISTRICT_NUMBER);

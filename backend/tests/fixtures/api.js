@@ -238,7 +238,7 @@ const ZIP_ONLY_DISTRICT_OBJECT = {
       state: 'CA'
     },
     {
-      district: 'Senior Seat',
+      district: '',
       link: 'http://www.feinstein.senate.gov',
       name: 'Dianne Feinstein',
       office: '331 Hart Senate Office Building',
@@ -279,7 +279,7 @@ const ZIP_ONLY_WITH_TWO_DISTRICTS_OBJECT = {
       state: 'TX'
     },
     {
-      district: 'Junior Seat',
+      district: '',
       link: 'http://www.cruz.senate.gov',
       name: 'Ted Cruz',
       office: '404 Russell Senate Office Building',
