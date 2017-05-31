@@ -13,7 +13,7 @@
     "start": "node backend/app/server.js",
     "test": "npm run test:backend && npm run test:frontend",
 
-    "backend": "PORT=3000 nodemon backend/app/server.js",
+    "backend": "PORT=3000 nodemon backend/app/server.js --ignore ./tmp/ --ignore ./app/",
     "frontend": "ember server --proxy http://127.0.0.1:3000",
 
     "test:backend": "mocha -R spec backend/tests/*-test.js",
