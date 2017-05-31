@@ -81,8 +81,9 @@ describe('server', function() {
           .expect(500, { translationKey: 'UNKNOWN' }, done);
       });
 
-      describe('providing only zip code', function() {
-        const apiURL = 'http://whoismyrepresentative.com/getall_mems.php?output=json&zip=20500';
+      /* TODO: If we can find a new source of data for zip-to-congressional-district, re-enable these tests. */
+      describe.skip('providing only zip code', function() {
+        const apiURL = ''; // TODO: replace with new API url if one can be found
         const serverURL = '/api/district-from-address?zip=20500';
 
         it('with successful API calls, returns correctly formatted response', function testSlash(done) {
