@@ -22,7 +22,7 @@ export default {
   },
 
   geography: {
-    address: 'Street Address (optional)',
+    address: 'Street Address',
     district: 'Congressional District',
     state: 'State',
     zipCode: 'Zip Code'
@@ -46,6 +46,7 @@ export default {
       INVALID_DISTRICT_ID: 'Provided URL does not map to a valid state and district number.',
       INVALID_STATE: 'State abbreviation provided does not match any known states.',
       MISSING_ZIP: 'Please provide a valid zip code.',
+      MISSING_STREET: 'Please provide a street address. CallMyCongress.com no longer supports zip-only searches, as the source of our data for zip code to congressional districts was shut down. We apologize for the inconvenience.',
       MISSING_DISTRICT_ID: 'Please provide a valid district id to look up representatives.',
       UNKNOWN: 'Something went wrong.'
     }
