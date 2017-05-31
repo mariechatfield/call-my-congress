@@ -130,10 +130,6 @@ function buildCongress(district) {
       throw new AppError('INVALID_STATE');
     }
 
-    if (representatives.length === 0) {
-      throw new AppError('INVALID_DISTRICT');
-    }
-
     return { representatives, senators, district };
   });
 }
