@@ -28,3 +28,10 @@
 <div class="row--extra-space display-congress__back">
   <button class="button-primary u-full-width" {{action "returnHome"}}>{{t "displayCongress.back"}}</button>
 </div>
+
+<div class="row--extra-space">
+  <p>{{t "displayCongress.disclaimerTitle"}}</p>
+  <small>{{translate-format-link key="displayCongress.disclaimerBody"
+                        links=(hash govtrack="https://www.govtrack.us/")}}</small>
+
+</div>

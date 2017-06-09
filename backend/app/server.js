@@ -4,10 +4,12 @@
 const request = require('request');
 const express = require('express');
 const querystring = require('querystring');
+const convert = require('xml-js');
 const app = express();
 
+const HOUSE_BASE_URL = 'http://clerk.house.gov/xml/lists/MemberData.xml';
+const SENATOR_BASE_URL = 'https://www.senate.gov/general/contact_information/senators_cfm.xml';
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
-const ROLE_BASE_URL = 'https://www.govtrack.us/api/v2/role';
 
 const AT_LARGE_DISTRICT_NAME = '(at Large)';
 const AT_LARGE_DISTRICT_NUMBER = 0;
@@ -29,6 +31,20 @@ function AppError(message) {
 }
 AppError.prototype = Object.create(Error.prototype);
 AppError.prototype.constructor = AppError;
+
+function getPartyName(shorthand) {
+  switch(shorthand) {
+    case 'D': return 'Democrat';
+    case 'R': return 'Republican';
+    default: return shorthand;
+  }
+}
+
+function getFormattedDistrictNumber(number) {
+  // Prefix number with a leading zero, but return only the last two digits
+  // e.g. '00' or '12' or '09'.
+  return `0${number}`.slice(-2);
+}
 
 function performGETRequest(url, processResult, attemptParse = true) {
   return new Promise((resolve, reject) => {
@@ -86,33 +102,58 @@ function getDistricts(geography) {
 
 function getRepresentatives(districts) {
   const district = districts.districts[0];
-  const params = {
-    current: true,
-    district: district.number,
-    state: district.state
-  };
+  const districtNumber = getFormattedDistrictNumber(district.number);
+  const districtID = `${district.state}${districtNumber}`;
 
-  return performGETRequest(buildURL(ROLE_BASE_URL, params), result => {
-    const representatives = result.objects;
+  return performGETRequest(HOUSE_BASE_URL, result => {
+    const responseData = convert.xml2js(result, { compact: true });
+    const allMembers = responseData.MemberData.members.member;
+    const repsForDistrict = allMembers.filter(member => member.statedistrict._text === districtID);
+
+    const representatives = repsForDistrict.map(representative => {
+      const data = {
+        title: 'Rep.',
+        person: {
+          firstname: representative['member-info'].firstname._text,
+          lastname: representative['member-info'].lastname._text,
+        },
+        party: getPartyName(representative['member-info'].party._text),
+        phone: representative['member-info'].phone._text
+      };
+
+      if (representative['member-info'].footnote) {
+        data.vacant = true;
+        data.footnote = representative['member-info'].footnote._text;
+      }
+
+      return data;
+    });
 
     return { representatives };
-  });
+  }, false);
 }
 
 
 function getSenators(districts) {
   const district = districts.districts[0];
-  const params = {
-    current: true,
-    role_type: 'senator',
-    state: district.state
-  };
 
-  return performGETRequest(buildURL(ROLE_BASE_URL, params), result => {
-    const senators = result.objects;
+  return performGETRequest(SENATOR_BASE_URL, result => {
+    const responseData = convert.xml2js(result, { compact: true });
+    const allMembers = responseData.contact_information.member;
+    const senatorsForDistrict = allMembers.filter(member => member.state._text === district.state);
+
+    const senators = senatorsForDistrict.map(senator => ({
+      title: 'Sen.',
+      person: {
+        firstname: senator.first_name._text,
+        lastname: senator.last_name._text,
+      },
+      party: getPartyName(senator.party._text),
+      phone: senator.phone._text
+    }));
 
     return { senators };
-  });
+  }, false);
 }
 
 function buildCongress(district) {
