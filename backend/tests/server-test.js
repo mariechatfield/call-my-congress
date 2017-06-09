@@ -1,7 +1,12 @@
+/* jshint node: true */
+/* global describe,before,beforeEach,after,afterEach,it */
+
 const request = require('request');
 const supertest = require('supertest');
 const sinon = require('sinon');
 const fixtures = require('./fixtures/api');
+const senateFixtures = require('./fixtures/senate');
+const houseFixtures = require('./fixtures/house');
 
 const VALID_RESPONSE = { statusCode: 200 };
 
@@ -153,18 +158,27 @@ describe('server', function() {
   });
 
   describe('/api/congress-from-district', function() {
-    const validRepresentativeURL = 'https://www.govtrack.us/api/v2/role?current=true&district=12&state=CA';
-    const validSenatorURL = 'https://www.govtrack.us/api/v2/role?current=true&role_type=senator&state=CA';
+    const validRepresentativeURL = 'http://clerk.house.gov/xml/lists/MemberData.xml';
+    const validSenatorURL = 'https://www.senate.gov/general/contact_information/senators_cfm.xml';
     const serverURL = '/api/congress-from-district?id=CA-12';
 
     describe('with valid params', function() {
       it('with successful API calls, returns correctly formatted response', function testSlash(done) {
-        stubRequest(validRepresentativeURL, fixtures.REPRESENTATIVE);
-        stubRequest(validSenatorURL, fixtures.SENATORS);
+        stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
+        stubRequest(validSenatorURL, senateFixtures.SENATORS);
 
         supertest(this.server)
           .get(serverURL)
           .expect(200, fixtures.CONGRESS_RESPONSE, done);
+      });
+
+      it('with a state with an at-large district, returns correctly formatted response', function testSlash(done) {
+        stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
+        stubRequest(validSenatorURL, senateFixtures.SENATORS);
+
+        supertest(this.server)
+          .get('/api/congress-from-district?id=AK-0')
+          .expect(200, fixtures.AT_LARGE_CONGRESS_RESPONSE, done);
       });
 
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
