@@ -18,12 +18,12 @@ function stubRequest(url, body, error = false, response = VALID_RESPONSE) {
 
 describe('server', function() {
   before(function() {
-    sinon.stub(request, 'get', function(url, callback) {
-      if (requests[url]) {
-        callback(...requests[url]);
+    sinon.stub(request, 'get', function(options, callback) {
+      if (requests[options.url]) {
+        callback(...requests[options.url]);
       } else {
-        console.log(url);
-        throw new Error(`No stubbed response defined for ${url}`);
+        console.log(options.url);
+        throw new Error(`No stubbed response defined for ${options.url}`);
       }
     });
   });
@@ -158,8 +158,8 @@ describe('server', function() {
   });
 
   describe('/api/congress-from-district', function() {
-    const validRepresentativeURL = 'http://clerk.house.gov/xml/lists/MemberData.xml';
-    const validSenatorURL = 'https://www.senate.gov/general/contact_information/senators_cfm.xml';
+    const validRepresentativeURL = 'https://api.propublica.org/congress/v1/115/house/members.json';
+    const validSenatorURL = 'https://api.propublica.org/congress/v1/115/senate/members.json';
     const serverURL = '/api/congress-from-district?id=CA-12';
 
     describe('with valid params', function() {

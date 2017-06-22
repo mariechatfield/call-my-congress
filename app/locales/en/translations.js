@@ -19,11 +19,7 @@ export default {
   displayCongress: {
     back: 'Search Again',
     permalink: 'Permanent Link to This Page',
-    disclaimerTitle: "Where did all the other data go? Can we get more data?",
-    disclaimerBody: `This site previously used data generously provided for free by {{link-govtrack}}GovTrack.us{{/link-govtrack}}, a project run by citizens who care about government transparency.
-      Unfortunately, GovTrack.us is no longer able to support providing other projects with free access to data, but you can still use their site directly to track your representatives' voting records and participation in Congress.
-      CallMyCongress.com now runs entirely off data provided directly by the US Government, which is more limited.`
-  },
+ },
 
   geography: {
     address: 'Street Address',
@@ -33,12 +29,18 @@ export default {
   },
 
   congress: {
+    cspan: 'C-SPAN',
+    cspanLink: 'Video Appearances in Congress',
+    govtrack: 'Voting Record',
+    govtrackLink: 'GovTrack.us Record',
+    nextElection: 'Next Election',
     partyAffiliation: 'Party Affiliation',
-    vacancy: '(Vacant Seat)'
+    vacancy: '(Vacant Seat)',
+    vacancySuccessor: 'This seat was vacated by {{title}} {{firstName}} {{lastName}}.'
   },
 
   about: {
-    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}}, the {{link-house}}US House of Representatives{{/link-house}}, and the {{link-senate}}US Senate{{/link-senate}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
+    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}} and {{link-propublica}}ProPublica{{/link-propublica}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
   },
 
   errors: {

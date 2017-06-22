@@ -1,1215 +1,4159 @@
 /* jshint node: true */
 
 module.exports = {
-  SENATORS: `<?xml version="1.0" encoding="UTF-8"?><contact_information><member>
-        <member_full>Alexander (R-TN)</member_full>
-        <last_name>Alexander</last_name>
-        <first_name>Lamar</first_name>
-        <party>R</party>
-        <state>TN</state>
-        <address>455 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4944</phone>
-        <email>http://www.alexander.senate.gov/public/index.cfm?p=Email</email>
-        <website>http://www.alexander.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>A000360</bioguide_id>
-    </member><member>
-        <member_full>Baldwin (D-WI)</member_full>
-        <last_name>Baldwin</last_name>
-        <first_name>Tammy</first_name>
-        <party>D</party>
-        <state>WI</state>
-        <address>709 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5653</phone>
-        <email>https://www.baldwin.senate.gov/feedback</email>
-        <website>http://www.baldwin.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>B001230</bioguide_id>
-    </member><member>
-        <member_full>Barrasso (R-WY)</member_full>
-        <last_name>Barrasso</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>WY</state>
-        <address>307 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6441</phone>
-        <email>https://www.barrasso.senate.gov/public/index.cfm/contact-form</email>
-        <website>http://www.barrasso.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>B001261</bioguide_id>
-    </member><member>
-        <member_full>Bennet (D-CO)</member_full>
-        <last_name>Bennet</last_name>
-        <first_name>Michael F.</first_name>
-        <party>D</party>
-        <state>CO</state>
-        <address>261 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5852</phone>
-        <email>https://www.bennet.senate.gov/?p=contact</email>
-        <website>http://www.bennet.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>B001267</bioguide_id>
-    </member><member>
-        <member_full>Blumenthal (D-CT)</member_full>
-        <last_name>Blumenthal</last_name>
-        <first_name>Richard</first_name>
-        <party>D</party>
-        <state>CT</state>
-        <address>706 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2823</phone>
-        <email>https://www.blumenthal.senate.gov/contact/</email>
-        <website>http://www.blumenthal.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>B001277</bioguide_id>
-    </member><member>
-        <member_full>Blunt (R-MO)</member_full>
-        <last_name>Blunt</last_name>
-        <first_name>Roy</first_name>
-        <party>R</party>
-        <state>MO</state>
-        <address>260 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5721</phone>
-        <email>https://www.blunt.senate.gov/public/index.cfm/contact-roy</email>
-        <website>http://www.blunt.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>B000575</bioguide_id>
-    </member><member>
-        <member_full>Booker (D-NJ)</member_full>
-        <last_name>Booker</last_name>
-        <first_name>Cory A.</first_name>
-        <party>D</party>
-        <state>NJ</state>
-        <address>359 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3224</phone>
-        <email>https://www.booker.senate.gov/?p=contact</email>
-        <website>http://www.booker.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>B001288</bioguide_id>
-    </member><member>
-        <member_full>Boozman (R-AR)</member_full>
-        <last_name>Boozman</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>AR</state>
-        <address>141 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4843</phone>
-        <email>https://www.boozman.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.boozman.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>B001236</bioguide_id>
-    </member><member>
-        <member_full>Brown (D-OH)</member_full>
-        <last_name>Brown</last_name>
-        <first_name>Sherrod</first_name>
-        <party>D</party>
-        <state>OH</state>
-        <address>713 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2315</phone>
-        <email>http://www.brown.senate.gov/contact/</email>
-        <website>http://www.brown.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>B000944</bioguide_id>
-    </member><member>
-        <member_full>Burr (R-NC)</member_full>
-        <last_name>Burr</last_name>
-        <first_name>Richard</first_name>
-        <party>R</party>
-        <state>NC</state>
-        <address>217 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3154</phone>
-        <email>https://www.burr.senate.gov/contact/email</email>
-        <website>http://www.burr.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>B001135</bioguide_id>
-    </member><member>
-        <member_full>Cantwell (D-WA)</member_full>
-        <last_name>Cantwell</last_name>
-        <first_name>Maria</first_name>
-        <party>D</party>
-        <state>WA</state>
-        <address>511 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3441</phone>
-        <email>http://www.cantwell.senate.gov/public/index.cfm/email-maria</email>
-        <website>http://www.cantwell.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>C000127</bioguide_id>
-    </member><member>
-        <member_full>Capito (R-WV)</member_full>
-        <last_name>Capito</last_name>
-        <first_name>Shelley Moore</first_name>
-        <party>R</party>
-        <state>WV</state>
-        <address>172 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6472</phone>
-        <email>https://www.capito.senate.gov/contact/contact-shelley</email>
-        <website>http://www.capito.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>C001047</bioguide_id>
-    </member><member>
-        <member_full>Cardin (D-MD)</member_full>
-        <last_name>Cardin</last_name>
-        <first_name>Benjamin L.</first_name>
-        <party>D</party>
-        <state>MD</state>
-        <address>509 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4524</phone>
-        <email>http://www.cardin.senate.gov/contact/</email>
-        <website>http://www.cardin.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>C000141</bioguide_id>
-    </member><member>
-        <member_full>Carper (D-DE)</member_full>
-        <last_name>Carper</last_name>
-        <first_name>Thomas R.</first_name>
-        <party>D</party>
-        <state>DE</state>
-        <address>513 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2441</phone>
-        <email>http://www.carper.senate.gov/public/index.cfm/email-senator-carper</email>
-        <website>http://www.carper.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>C000174</bioguide_id>
-    </member><member>
-        <member_full>Casey (D-PA)</member_full>
-        <last_name>Casey</last_name>
-        <first_name>Robert P., Jr.</first_name>
-        <party>D</party>
-        <state>PA</state>
-        <address>393 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6324</phone>
-        <email>https://www.casey.senate.gov/contact/</email>
-        <website>http://www.casey.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>C001070</bioguide_id>
-    </member><member>
-        <member_full>Cassidy (R-LA)</member_full>
-        <last_name>Cassidy</last_name>
-        <first_name>Bill</first_name>
-        <party>R</party>
-        <state>LA</state>
-        <address>520 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5824</phone>
-        <email>https://www.cassidy.senate.gov/contact</email>
-        <website>http://www.cassidy.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>C001075</bioguide_id>
-    </member><member>
-        <member_full>Cochran (R-MS)</member_full>
-        <last_name>Cochran</last_name>
-        <first_name>Thad</first_name>
-        <party>R</party>
-        <state>MS</state>
-        <address>113 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5054</phone>
-        <email>https://www.cochran.senate.gov/public/index.cfm/email-me</email>
-        <website>http://www.cochran.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>C000567</bioguide_id>
-    </member><member>
-        <member_full>Collins (R-ME)</member_full>
-        <last_name>Collins</last_name>
-        <first_name>Susan M.</first_name>
-        <party>R</party>
-        <state>ME</state>
-        <address>413 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2523</phone>
-        <email>http://www.collins.senate.gov/contact</email>
-        <website>http://www.collins.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>C001035</bioguide_id>
-    </member><member>
-        <member_full>Coons (D-DE)</member_full>
-        <last_name>Coons</last_name>
-        <first_name>Christopher A.</first_name>
-        <party>D</party>
-        <state>DE</state>
-        <address>127A Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5042</phone>
-        <email>https://www.coons.senate.gov/contact</email>
-        <website>http://www.coons.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>C001088</bioguide_id>
-    </member><member>
-        <member_full>Corker (R-TN)</member_full>
-        <last_name>Corker</last_name>
-        <first_name>Bob</first_name>
-        <party>R</party>
-        <state>TN</state>
-        <address>425 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3344</phone>
-        <email>https://www.corker.senate.gov/public/index.cfm/emailme</email>
-        <website>http://www.corker.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>C001071</bioguide_id>
-    </member><member>
-        <member_full>Cornyn (R-TX)</member_full>
-        <last_name>Cornyn</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>TX</state>
-        <address>517 Hart Senate Office Building Washington DC 20510
-        </address>
-        <phone>(202) 224-2934</phone>
-        <email>https://www.cornyn.senate.gov/contact</email>
-        <website>http://www.cornyn.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>C001056</bioguide_id>
-        <leadership_position>Assistant Majority Leader</leadership_position>
-      </member><member>
-        <member_full>Cortez Masto (D-NV)</member_full>
-        <last_name>Cortez Masto</last_name>
-        <first_name>Catherine</first_name>
-        <party>D</party>
-        <state>NV</state>
-        <address>204 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3542</phone>
-        <email>https://www.cortezmasto.senate.gov/content/contact-senator</email>
-        <website>http://www.cortezmasto.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>C001113</bioguide_id>
-    </member><member>
-        <member_full>Cotton (R-AR)</member_full>
-        <last_name>Cotton</last_name>
-        <first_name>Tom</first_name>
-        <party>R</party>
-        <state>AR</state>
-        <address>124 Russell Senate Office Building Washington DC 20510
-        </address>
-        <phone>(202) 224-2353</phone>
-        <email>http://www.cotton.senate.gov/?p=contact</email>
-        <website>http://www.cotton.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>C001095</bioguide_id>
-    </member><member>
-        <member_full>Crapo (R-ID)</member_full>
-        <last_name>Crapo</last_name>
-        <first_name>Mike</first_name>
-        <party>R</party>
-        <state>ID</state>
-        <address>239 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6142</phone>
-        <email>https://www.crapo.senate.gov/contact</email>
-        <website>http://www.crapo.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>C000880</bioguide_id>
-    </member><member>
-        <member_full>Cruz (R-TX)</member_full>
-        <last_name>Cruz</last_name>
-        <first_name>Ted</first_name>
-        <party>R</party>
-        <state>TX</state>
-        <address>404 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5922</phone>
-        <email>http://www.cruz.senate.gov/?p=email_senator</email>
-        <website>http://www.cruz.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>C001098</bioguide_id>
-    </member><member>
-        <member_full>Daines (R-MT)</member_full>
-        <last_name>Daines</last_name>
-        <first_name>Steve</first_name>
-        <party>R</party>
-        <state>MT</state>
-        <address>320 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2651</phone>
-        <email>https://www.daines.senate.gov/connect/email-steve</email>
-        <website>http://www.daines.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>D000618</bioguide_id>
-    </member><member>
-        <member_full>Donnelly (D-IN)</member_full>
-        <last_name>Donnelly</last_name>
-        <first_name>Joe</first_name>
-        <party>D</party>
-        <state>IN</state>
-        <address>720 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4814</phone>
-        <email>https://www.donnelly.senate.gov/contact/email-joe</email>
-        <website>http://www.donnelly.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>D000607</bioguide_id>
-    </member><member>
-        <member_full>Duckworth (D-IL)</member_full>
-        <last_name>Duckworth</last_name>
-        <first_name>Tammy</first_name>
-        <party>D</party>
-        <state>IL</state>
-        <address>524 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2854</phone>
-        <email>https://www.duckworth.senate.gov/content/contact-senator</email>
-        <website>http://www.duckworth.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>D000622</bioguide_id>
-    </member><member>
-        <member_full>Durbin (D-IL)</member_full>
-        <last_name>Durbin</last_name>
-        <first_name>Richard J.</first_name>
-        <party>D</party>
-        <state>IL</state>
-        <address>711 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2152</phone>
-        <email>https://www.durbin.senate.gov/contact/</email>
-        <website>http://www.durbin.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>D000563</bioguide_id>
-        <leadership_position>Whip</leadership_position>
-    </member><member>
-        <member_full>Enzi (R-WY)</member_full>
-        <last_name>Enzi</last_name>
-        <first_name>Michael B.</first_name>
-        <party>R</party>
-        <state>WY</state>
-        <address>379A Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3424</phone>
-        <email>http://www.enzi.senate.gov/public/index.cfm/contact?p=e-mail-senator-enzi</email>
-        <website>http://www.enzi.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>E000285</bioguide_id>
-    </member><member>
-        <member_full>Ernst (R-IA)</member_full>
-        <last_name>Ernst</last_name>
-        <first_name>Joni</first_name>
-        <party>R</party>
-        <state>IA</state>
-        <address>111 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3254</phone>
-        <email>https://www.ernst.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.ernst.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>E000295</bioguide_id>
-    </member><member>
-        <member_full>Feinstein (D-CA)</member_full>
-        <last_name>Feinstein</last_name>
-        <first_name>Dianne</first_name>
-        <party>D</party>
-        <state>CA</state>
-        <address>331 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3841</phone>
-        <email>https://www.feinstein.senate.gov/public/index.cfm/e-mail-me</email>
-        <website>http://www.feinstein.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>F000062</bioguide_id>
-    </member><member>
-        <member_full>Fischer (R-NE)</member_full>
-        <last_name>Fischer</last_name>
-        <first_name>Deb</first_name>
-        <party>R</party>
-        <state>NE</state>
-        <address>454 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6551</phone>
-        <email>http://www.fischer.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.fischer.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>F000463</bioguide_id>
-    </member><member>
-        <member_full>Flake (R-AZ)</member_full>
-        <last_name>Flake</last_name>
-        <first_name>Jeff</first_name>
-        <party>R</party>
-        <state>AZ</state>
-        <address>413 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4521</phone>
-        <email>https://www.flake.senate.gov/public/index.cfm/contact-jeff</email>
-        <website>http://www.flake.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>F000444</bioguide_id>
-    </member><member>
-        <member_full>Franken (D-MN)</member_full>
-        <last_name>Franken</last_name>
-        <first_name>Al</first_name>
-        <party>D</party>
-        <state>MN</state>
-        <address>309 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5641</phone>
-        <email>https://www.franken.senate.gov/?p=contact</email>
-        <website>http://www.franken.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>F000457</bioguide_id>
-    </member><member>
-        <member_full>Gardner (R-CO)</member_full>
-        <last_name>Gardner</last_name>
-        <first_name>Cory</first_name>
-        <party>R</party>
-        <state>CO</state>
-        <address>354 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5941</phone>
-        <email>https://www.gardner.senate.gov/contact-cory/email-cory</email>
-        <website>http://www.gardner.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>G000562</bioguide_id>
-    </member><member>
-        <member_full>Gillibrand (D-NY)</member_full>
-        <last_name>Gillibrand</last_name>
-        <first_name>Kirsten E.</first_name>
-        <party>D</party>
-        <state>NY</state>
-        <address>478 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4451</phone>
-        <email>http://www.gillibrand.senate.gov/contact/</email>
-        <website>http://www.gillibrand.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>G000555</bioguide_id>
-    </member><member>
-        <member_full>Graham (R-SC)</member_full>
-        <last_name>Graham</last_name>
-        <first_name>Lindsey</first_name>
-        <party>R</party>
-        <state>SC</state>
-        <address>290 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5972</phone>
-        <email>https://www.lgraham.senate.gov/public/index.cfm/e-mail-senator-graham</email>
-        <website>http://www.lgraham.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>G000359</bioguide_id>
-    </member><member>
-        <member_full>Grassley (R-IA)</member_full>
-        <last_name>Grassley</last_name>
-        <first_name>Chuck</first_name>
-        <party>R</party>
-        <state>IA</state>
-        <address>135 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3744</phone>
-        <email>http://www.grassley.senate.gov/contact</email>
-        <website>http://www.grassley.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>G000386</bioguide_id>
-    </member><member>
-        <member_full>Harris (D-CA)</member_full>
-        <last_name>Harris</last_name>
-        <first_name>Kamala D.</first_name>
-        <party>D</party>
-        <state>CA</state>
-        <address>112 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3553</phone>
-        <email>https://www.harris.senate.gov/content/contact-senator</email>
-        <website>http://www.harris.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>H001075</bioguide_id>
-    </member><member>
-        <member_full>Hassan (D-NH)</member_full>
-        <last_name>Hassan</last_name>
-        <first_name>Margaret Wood</first_name>
-        <party>D</party>
-        <state>NH</state>
-        <address>330 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3324</phone>
-        <email>https://www.hassan.senate.gov/content/contact-senator</email>
-        <website>http://www.hassan.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>H001076</bioguide_id>
-    </member><member>
-        <member_full>Hatch (R-UT)</member_full>
-        <last_name>Hatch</last_name>
-        <first_name>Orrin G.</first_name>
-        <party>R</party>
-        <state>UT</state>
-        <address>104 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5251</phone>
-        <email>http://www.hatch.senate.gov/public/index.cfm/contact?p=Email-Orrin</email>
-        <website>http://www.hatch.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>H000338</bioguide_id>
-        <leadership_position>President Pro Tempore</leadership_position>
-    </member><member>
-        <member_full>Heinrich (D-NM)</member_full>
-        <last_name>Heinrich</last_name>
-        <first_name>Martin</first_name>
-        <party>D</party>
-        <state>NM</state>
-        <address>303 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5521</phone>
-        <email>http://www.heinrich.senate.gov/contact</email>
-        <website>http://www.heinrich.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>H001046</bioguide_id>
-    </member><member>
-        <member_full>Heitkamp (D-ND)</member_full>
-        <last_name>Heitkamp</last_name>
-        <first_name>Heidi</first_name>
-        <party>D</party>
-        <state>ND</state>
-        <address>516 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2043</phone>
-        <email>http://www.heitkamp.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.heitkamp.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>H001069</bioguide_id>
-    </member><member>
-        <member_full>Heller (R-NV)</member_full>
-        <last_name>Heller</last_name>
-        <first_name>Dean</first_name>
-        <party>R</party>
-        <state>NV</state>
-        <address>324 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6244</phone>
-        <email>http://www.heller.senate.gov/public/index.cfm/contact-form</email>
-        <website>http://www.heller.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>H001041</bioguide_id>
-    </member><member>
-        <member_full>Hirono (D-HI)</member_full>
-        <last_name>Hirono</last_name>
-        <first_name>Mazie K.</first_name>
-        <party>D</party>
-        <state>HI</state>
-        <address>730 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6361</phone>
-        <email>https://www.hirono.senate.gov/contact</email>
-        <website>http://www.hirono.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>H001042</bioguide_id>
-    </member><member>
-        <member_full>Hoeven (R-ND)</member_full>
-        <last_name>Hoeven</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>ND</state>
-        <address>338 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2551</phone>
-        <email>http://www.hoeven.senate.gov/public/index.cfm/email-the-senator</email>
-        <website>http://www.hoeven.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>H001061</bioguide_id>
-    </member><member>
-        <member_full>Inhofe (R-OK)</member_full>
-        <last_name>Inhofe</last_name>
-        <first_name>James M.</first_name>
-        <party>R</party>
-        <state>OK</state>
-        <address>205 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4721</phone>
-        <email>https://www.inhofe.senate.gov/contact</email>
-        <website>http://www.inhofe.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>I000024</bioguide_id>
-    </member><member>
-        <member_full>Isakson (R-GA)</member_full>
-        <last_name>Isakson</last_name>
-        <first_name>Johnny</first_name>
-        <party>R</party>
-        <state>GA</state>
-        <address>131 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3643</phone>
-        <email>https://www.isakson.senate.gov/public/index.cfm/email-me</email>
-        <website>http://www.isakson.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>I000055</bioguide_id>
-    </member><member>
-        <member_full>Johnson (R-WI)</member_full>
-        <last_name>Johnson</last_name>
-        <first_name>Ron</first_name>
-        <party>R</party>
-        <state>WI</state>
-        <address>328 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5323</phone>
-        <email>https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator</email>
-        <website>http://www.ronjohnson.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>J000293</bioguide_id>
-    </member><member>
-        <member_full>Kaine (D-VA)</member_full>
-        <last_name>Kaine</last_name>
-        <first_name>Tim</first_name>
-        <party>D</party>
-        <state>VA</state>
-        <address>231 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4024</phone>
-        <email>https://www.kaine.senate.gov/contact</email>
-        <website>http://www.kaine.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>K000384</bioguide_id>
-    </member><member>
-        <member_full>Kennedy (R-LA)</member_full>
-        <last_name>Kennedy</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>LA</state>
-        <address>383 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4623</phone>
-        <email>https://www.kennedy.senate.gov/content/contact-senator</email>
-        <website>http://www.kennedy.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>K000393</bioguide_id>
-    </member><member>
-        <member_full>King (I-ME)</member_full>
-        <last_name>King</last_name>
-        <first_name>Angus S., Jr.</first_name>
-        <party>I</party>
-        <state>ME</state>
-        <address>133 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5344</phone>
-        <email>https://www.king.senate.gov/contact</email>
-        <website>http://www.king.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>K000383</bioguide_id>
-    </member><member>
-        <member_full>Klobuchar (D-MN)</member_full>
-        <last_name>Klobuchar</last_name>
-        <first_name>Amy</first_name>
-        <party>D</party>
-        <state>MN</state>
-        <address>302 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3244</phone>
-        <email>http://www.klobuchar.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.klobuchar.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>K000367</bioguide_id>
-    </member><member>
-        <member_full>Lankford (R-OK)</member_full>
-        <last_name>Lankford</last_name>
-        <first_name>James</first_name>
-        <party>R</party>
-        <state>OK</state>
-        <address>316 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5754</phone>
-        <email>http://www.lankford.senate.gov/contact/email</email>
-        <website>http://www.lankford.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>L000575</bioguide_id>
-    </member><member>
-        <member_full>Leahy (D-VT)</member_full>
-        <last_name>Leahy</last_name>
-        <first_name>Patrick J.</first_name>
-        <party>D</party>
-        <state>VT</state>
-        <address>437 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4242</phone>
-        <email>https://www.leahy.senate.gov/contact/</email>
-        <website>http://www.leahy.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>L000174</bioguide_id>
-    </member><member>
-        <member_full>Lee (R-UT)</member_full>
-        <last_name>Lee</last_name>
-        <first_name>Mike</first_name>
-        <party>R</party>
-        <state>UT</state>
-        <address>361A Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5444</phone>
-        <email>https://www.lee.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.lee.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>L000577</bioguide_id>
-    </member><member>
-        <member_full>Manchin (D-WV)</member_full>
-        <last_name>Manchin</last_name>
-        <first_name>Joe, III</first_name>
-        <party>D</party>
-        <state>WV</state>
-        <address>306 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3954</phone>
-        <email>http://www.manchin.senate.gov/public/index.cfm/contact-form</email>
-        <website>http://www.manchin.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>M001183</bioguide_id>
-    </member><member>
-        <member_full>Markey (D-MA)</member_full>
-        <last_name>Markey</last_name>
-        <first_name>Edward J.</first_name>
-        <party>D</party>
-        <state>MA</state>
-        <address>255 Dirksen Senate Office Building Washington DC 20510
-        </address>
-        <phone>(202) 224-2742</phone>
-        <email>https://www.markey.senate.gov/contact</email>
-        <website>http://www.markey.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>M000133</bioguide_id>
-    </member><member>
-        <member_full>McCain (R-AZ)</member_full>
-        <last_name>McCain</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>AZ</state>
-        <address>218 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2235</phone>
-        <email>https://www.mccain.senate.gov/public/index.cfm/contact-form</email>
-        <website>http://www.mccain.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>M000303</bioguide_id>
-    </member><member>
-        <member_full>McCaskill (D-MO)</member_full>
-        <last_name>McCaskill</last_name>
-        <first_name>Claire</first_name>
-        <party>D</party>
-        <state>MO</state>
-        <address>503 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6154</phone>
-        <email>http://www.mccaskill.senate.gov/contact</email>
-        <website>http://www.mccaskill.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>M001170</bioguide_id>
-    </member><member>
-        <member_full>McConnell (R-KY)</member_full>
-        <last_name>McConnell</last_name>
-        <first_name>Mitch</first_name>
-        <party>R</party>
-        <state>KY</state>
-        <address>317 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2541</phone>
-        <email>http://www.mcconnell.senate.gov/public/index.cfm?p=contact</email>
-        <website>http://www.mcconnell.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>M000355</bioguide_id>
-        <leadership_position>Majority Leader</leadership_position>
-    </member><member>
-        <member_full>Menendez (D-NJ)</member_full>
-        <last_name>Menendez</last_name>
-        <first_name>Robert</first_name>
-        <party>D</party>
-        <state>NJ</state>
-        <address>528 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4744</phone>
-        <email>https://www.menendez.senate.gov/contact</email>
-        <website>http://www.menendez.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>M000639</bioguide_id>
-    </member><member>
-        <member_full>Merkley (D-OR)</member_full>
-        <last_name>Merkley</last_name>
-        <first_name>Jeff</first_name>
-        <party>D</party>
-        <state>OR</state>
-        <address>313 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3753</phone>
-        <email>http://www.merkley.senate.gov/contact/</email>
-        <website>http://www.merkley.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>M001176</bioguide_id>
-    </member><member>
-        <member_full>Moran (R-KS)</member_full>
-        <last_name>Moran</last_name>
-        <first_name>Jerry</first_name>
-        <party>R</party>
-        <state>KS</state>
-        <address>521 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6521</phone>
-        <email>https://www.moran.senate.gov/public/index.cfm/e-mail-jerry</email>
-        <website>http://www.moran.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>M000934</bioguide_id>
-    </member><member>
-        <member_full>Murkowski (R-AK)</member_full>
-        <last_name>Murkowski</last_name>
-        <first_name>Lisa</first_name>
-        <party>R</party>
-        <state>AK</state>
-        <address>522 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6665</phone>
-        <email>https://www.murkowski.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.murkowski.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>M001153</bioguide_id>
-    </member><member>
-        <member_full>Murphy (D-CT)</member_full>
-        <last_name>Murphy</last_name>
-        <first_name>Christopher</first_name>
-        <party>D</party>
-        <state>CT</state>
-        <address>136 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4041</phone>
-        <email>http://www.murphy.senate.gov/contact</email>
-        <website>http://www.murphy.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>M001169</bioguide_id>
-    </member><member>
-        <member_full>Murray (D-WA)</member_full>
-        <last_name>Murray</last_name>
-        <first_name>Patty</first_name>
-        <party>D</party>
-        <state>WA</state>
-        <address>154 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2621</phone>
-        <email>http://www.murray.senate.gov/public/index.cfm/contactme</email>
-        <website>http://www.murray.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>M001111</bioguide_id>
-        <leadership_position>Assistant Democratic Leader</leadership_position>
-    </member><member>
-        <member_full>Nelson (D-FL)</member_full>
-        <last_name>Nelson</last_name>
-        <first_name>Bill</first_name>
-        <party>D</party>
-        <state>FL</state>
-        <address>716 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5274</phone>
-        <email>https://www.billnelson.senate.gov/contact-bill</email>
-        <website>http://www.billnelson.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>N000032</bioguide_id>
-    </member><member>
-        <member_full>Paul (R-KY)</member_full>
-        <last_name>Paul</last_name>
-        <first_name>Rand</first_name>
-        <party>R</party>
-        <state>KY</state>
-        <address>167 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4343</phone>
-        <email>https://www.paul.senate.gov/connect/email-rand</email>
-        <website>http://www.paul.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>P000603</bioguide_id>
-    </member><member>
-        <member_full>Perdue (R-GA)</member_full>
-        <last_name>Perdue</last_name>
-        <first_name>David</first_name>
-        <party>R</party>
-        <state>GA</state>
-        <address>455 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3521</phone>
-        <email>https://www.perdue.senate.gov/connect/email</email>
-        <website>http://www.perdue.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>P000612</bioguide_id>
-    </member><member>
-        <member_full>Peters (D-MI)</member_full>
-        <last_name>Peters</last_name>
-        <first_name>Gary C.</first_name>
-        <party>D</party>
-        <state>MI</state>
-        <address>724 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6221</phone>
-        <email>https://www.peters.senate.gov/contact/email-gary</email>
-        <website>http://www.peters.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>P000595</bioguide_id>
-    </member><member>
-        <member_full>Portman (R-OH)</member_full>
-        <last_name>Portman</last_name>
-        <first_name>Rob</first_name>
-        <party>R</party>
-        <state>OH</state>
-        <address>448 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3353</phone>
-        <email>https://www.portman.senate.gov/public/index.cfm/contact?p=contact-form</email>
-        <website>http://www.portman.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>P000449</bioguide_id>
-    </member><member>
-        <member_full>Reed (D-RI)</member_full>
-        <last_name>Reed</last_name>
-        <first_name>Jack</first_name>
-        <party>D</party>
-        <state>RI</state>
-        <address>728 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4642</phone>
-        <email>https://www.reed.senate.gov/contact/</email>
-        <website>http://www.reed.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>R000122</bioguide_id>
-    </member><member>
-        <member_full>Risch (R-ID)</member_full>
-        <last_name>Risch</last_name>
-        <first_name>James E.</first_name>
-        <party>R</party>
-        <state>ID</state>
-        <address>483 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2752</phone>
-        <email>http://www.risch.senate.gov/public/index.cfm?p=Email</email>
-        <website>http://www.risch.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>R000584</bioguide_id>
-    </member><member>
-        <member_full>Roberts (R-KS)</member_full>
-        <last_name>Roberts</last_name>
-        <first_name>Pat</first_name>
-        <party>R</party>
-        <state>KS</state>
-        <address>109 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4774</phone>
-        <email>https://www.roberts.senate.gov/public/?p=EmailPat</email>
-        <website>http://www.roberts.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>R000307</bioguide_id>
-    </member><member>
-        <member_full>Rounds (R-SD)</member_full>
-        <last_name>Rounds</last_name>
-        <first_name>Mike</first_name>
-        <party>R</party>
-        <state>SD</state>
-        <address>502 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5842</phone>
-        <email>https://www.rounds.senate.gov/contact/email-mike</email>
-        <website>http://www.rounds.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>R000605</bioguide_id>
-    </member><member>
-        <member_full>Rubio (R-FL)</member_full>
-        <last_name>Rubio</last_name>
-        <first_name>Marco</first_name>
-        <party>R</party>
-        <state>FL</state>
-        <address>284 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3041</phone>
-        <email>http://www.rubio.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.rubio.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>R000595</bioguide_id>
-    </member><member>
-        <member_full>Sanders (I-VT)</member_full>
-        <last_name>Sanders</last_name>
-        <first_name>Bernard</first_name>
-        <party>I</party>
-        <state>VT</state>
-        <address>332 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5141</phone>
-        <email>http://www.sanders.senate.gov/contact/</email>
-        <website>http://www.sanders.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>S000033</bioguide_id>
-    </member><member>
-        <member_full>Sasse (R-NE)</member_full>
-        <last_name>Sasse</last_name>
-        <first_name>Ben</first_name>
-        <party>R</party>
-        <state>NE</state>
-        <address>136 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4224</phone>
-        <email>http://www.sasse.senate.gov/public/index.cfm/email-ben</email>
-        <website>http://www.sasse.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>S001197</bioguide_id>
-    </member><member>
-      <member_full>Schatz (D-HI)</member_full>
-      <last_name>Schatz</last_name>
-      <first_name>Brian</first_name>
-      <party>D</party>
-      <state>HI</state>
-      <address>722 Hart Senate Office Building Washington DC 20510</address>
-      <phone>(202) 224-3934</phone>
-      <email>https://www.schatz.senate.gov/contact</email>
-      <website>http://www.schatz.senate.gov</website>
-      <class>Class III</class>
-      <bioguide_id>S001194</bioguide_id>
-    </member><member>
-        <member_full>Schumer (D-NY)</member_full>
-        <last_name>Schumer</last_name>
-        <first_name>Charles E.</first_name>
-        <party>D</party>
-        <state>NY</state>
-        <address>322 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6542</phone>
-        <email>https://www.schumer.senate.gov/contact/email-chuck</email>
-        <website>http://www.schumer.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>S000148</bioguide_id>
-        <leadership_position>Democratic Leader</leadership_position>
-    </member><member>
-        <member_full>Scott (R-SC)</member_full>
-        <last_name>Scott</last_name>
-        <first_name>Tim</first_name>
-        <party>R</party>
-        <state>SC</state>
-        <address>717 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6121</phone>
-        <email>https://www.scott.senate.gov/contact/email-me</email>
-        <website>http://www.scott.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>S001184</bioguide_id>
-    </member><member>
-        <member_full>Shaheen (D-NH)</member_full>
-        <last_name>Shaheen</last_name>
-        <first_name>Jeanne</first_name>
-        <party>D</party>
-        <state>NH</state>
-        <address>506 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2841</phone>
-        <email>https://www.shaheen.senate.gov/contact/contact-jeanne</email>
-        <website>http://www.shaheen.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>S001181</bioguide_id>
-    </member><member>
-        <member_full>Shelby (R-AL)</member_full>
-        <last_name>Shelby</last_name>
-        <first_name>Richard C.</first_name>
-        <party>R</party>
-        <state>AL</state>
-        <address>304 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5744</phone>
-        <email>https://www.shelby.senate.gov/public/index.cfm/emailsenatorshelby</email>
-        <website>http://www.shelby.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>S000320</bioguide_id>
-    </member><member>
-        <member_full>Stabenow (D-MI)</member_full>
-        <last_name>Stabenow</last_name>
-        <first_name>Debbie</first_name>
-        <party>D</party>
-        <state>MI</state>
-        <address>731 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4822</phone>
-        <email>https://www.stabenow.senate.gov/contact</email>
-        <website>http://www.stabenow.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>S000770</bioguide_id>
-    </member><member>
-        <member_full>Strange (R-AL)</member_full>
-        <last_name>Strange</last_name>
-        <first_name>Luther</first_name>
-        <party>R</party>
-        <state>AL</state>
-        <address>326 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4124</phone>
-        <email>https://www.strange.senate.gov/content/contact-senator</email>
-        <website>https://www.strange.senate.gov/</website>
-        <class>Class II</class>
-        <bioguide_id>S001202</bioguide_id>
-    </member><member>
-        <member_full>Sullivan (R-AK)</member_full>
-        <last_name>Sullivan</last_name>
-        <first_name>Dan</first_name>
-        <party>R</party>
-        <state>AK</state>
-        <address>702 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-3004</phone>
-        <email>https://www.sullivan.senate.gov/contact/email</email>
-        <website>http://www.sullivan.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>S001198</bioguide_id>
-    </member><member>
-        <member_full>Tester (D-MT)</member_full>
-        <last_name>Tester</last_name>
-        <first_name>Jon</first_name>
-        <party>D</party>
-        <state>MT</state>
-        <address>311 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2644</phone>
-        <email>https://www.tester.senate.gov/?p=email_senator</email>
-        <website>http://www.tester.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>T000464</bioguide_id>
-    </member><member>
-        <member_full>Thune (R-SD)</member_full>
-        <last_name>Thune</last_name>
-        <first_name>John</first_name>
-        <party>R</party>
-        <state>SD</state>
-        <address>511 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2321</phone>
-        <email>http://www.thune.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.thune.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>T000250</bioguide_id>
-    </member><member>
-        <member_full>Tillis (R-NC)</member_full>
-        <last_name>Tillis</last_name>
-        <first_name>Thom</first_name>
-        <party>R</party>
-        <state>NC</state>
-        <address>185 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6342</phone>
-        <email>https://www.tillis.senate.gov/public/index.cfm/email-me</email>
-        <website>http://www.tillis.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>T000476</bioguide_id>
-    </member><member>
-        <member_full>Toomey (R-PA)</member_full>
-        <last_name>Toomey</last_name>
-        <first_name>Patrick J.</first_name>
-        <party>R</party>
-        <state>PA</state>
-        <address>248 Russell Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4254</phone>
-        <email>https://www.toomey.senate.gov/?p=contact</email>
-        <website>http://www.toomey.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>T000461</bioguide_id>
-    </member><member>
-        <member_full>Udall (D-NM)</member_full>
-        <last_name>Udall</last_name>
-        <first_name>Tom</first_name>
-        <party>D</party>
-        <state>NM</state>
-        <address>531 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6621</phone>
-        <email>https://www.tomudall.senate.gov/?p=contact</email>
-        <website>http://www.tomudall.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>U000039</bioguide_id>
-    </member><member>
-        <member_full>Van Hollen (D-MD)</member_full>
-        <last_name>Van Hollen</last_name>
-        <first_name>Chris</first_name>
-        <party>D</party>
-        <state>MD</state>
-        <address>110 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4654</phone>
-        <email>https://www.vanhollen.senate.gov/content/contact-senator</email>
-        <website>http://www.vanhollen.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>V000128</bioguide_id>
-    </member><member>
-        <member_full>Warner (D-VA)</member_full>
-        <last_name>Warner</last_name>
-        <first_name>Mark R.</first_name>
-        <party>D</party>
-        <state>VA</state>
-        <address>703 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2023</phone>
-        <email>http://www.warner.senate.gov/public/index.cfm?p=Contact</email>
-        <website>http://www.warner.senate.gov</website>
-        <class>Class II</class>
-        <bioguide_id>W000805</bioguide_id>
-    </member><member>
-        <member_full>Warren (D-MA)</member_full>
-        <last_name>Warren</last_name>
-        <first_name>Elizabeth</first_name>
-        <party>D</party>
-        <state>MA</state>
-        <address>317 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-4543</phone>
-        <email>https://www.warren.senate.gov/?p=email_senator</email>
-        <website>http://www.warren.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>W000817</bioguide_id>
-    </member><member>
-        <member_full>Whitehouse (D-RI)</member_full>
-        <last_name>Whitehouse</last_name>
-        <first_name>Sheldon</first_name>
-        <party>D</party>
-        <state>RI</state>
-        <address>530 Hart Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-2921</phone>
-        <email>https://www.whitehouse.senate.gov/contact/email-sheldon</email>
-        <website>http://www.whitehouse.senate.gov/</website>
-        <class>Class I</class>
-        <bioguide_id>W000802</bioguide_id>
-    </member><member>
-        <member_full>Wicker (R-MS)</member_full>
-        <last_name>Wicker</last_name>
-        <first_name>Roger F.</first_name>
-        <party>R</party>
-        <state>MS</state>
-        <address>555 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-6253</phone>
-        <email>https://www.wicker.senate.gov/public/index.cfm/contact</email>
-        <website>http://www.wicker.senate.gov</website>
-        <class>Class I</class>
-        <bioguide_id>W000437</bioguide_id>
-    </member><member>
-        <member_full>Wyden (D-OR)</member_full>
-        <last_name>Wyden</last_name>
-        <first_name>Ron</first_name>
-        <party>D</party>
-        <state>OR</state>
-        <address>221 Dirksen Senate Office Building Washington DC 20510</address>
-        <phone>(202) 224-5244</phone>
-        <email>https://www.wyden.senate.gov/contact/</email>
-        <website>http://www.wyden.senate.gov/</website>
-        <class>Class III</class>
-        <bioguide_id>W000779</bioguide_id>
-    </member><member>
-        <member_full>Young (R-IN)</member_full>
-        <last_name>Young</last_name>
-        <first_name>Todd</first_name>
-        <party>R</party>
-        <state>IN</state>
-        <address>400 Russell Senate Office Building Washington DC
-      20510</address>
-        <phone>(202) 224-5623</phone>
-        <email>https://www.young.senate.gov/content/contact-senator</email>
-        <website>http://www.young.senate.gov</website>
-        <class>Class III</class>
-        <bioguide_id>Y000064</bioguide_id>
-    </member><last_updated>Thursday, June 8, 2017: 9:35 AM EST</last_updated></contact_information>`
+  SENATORS: `{
+    "status": "OK",
+    "copyright": " Copyright (c) 2017 Pro Publica Inc. All Rights Reserved.",
+    "results": [
+      {
+        "congress": "115",
+        "chamber": "Senate",
+        "num_results": 101,
+        "offset": 0,
+        "members": [
+          {
+            "id": "A000360",
+            "api_uri": "https://api.propublica.org/congress/v1/members/A000360.json",
+            "first_name": "Lamar",
+            "middle_name": "",
+            "last_name": "Alexander",
+            "date_of_birth": "1940-07-03",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenAlexander",
+            "facebook_account": "senatorlamaralexander",
+            "youtube_account": "lamaralexander",
+            "govtrack_id": "300002",
+            "cspan_id": "5",
+            "votesmart_id": "15691",
+            "icpsr_id": "40304",
+            "crp_id": "N00009888",
+            "google_entity_id": "/m/01rbs3",
+            "url": "https://www.alexander.senate.gov/public/index.cfm/home",
+            "rss_url": "https://www.alexander.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.alexander.senate.gov/public/index.cfm?p=Email",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.323,
+            "ideal_point": null,
+            "seniority": "15",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 5,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:tn",
+            "office": "455 Dirksen Senate Office Building",
+            "phone": "202-224-4944",
+            "fax": "202-228-3398",
+            "state": "TN",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S289",
+            "missed_votes_pct": 3.31,
+            "votes_with_party_pct": 99.32
+          },
+          {
+            "id": "B000575",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B000575.json",
+            "first_name": "Roy",
+            "middle_name": "",
+            "last_name": "Blunt",
+            "date_of_birth": "1950-01-10",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "RoyBlunt",
+            "facebook_account": "SenatorBlunt",
+            "youtube_account": "SenatorBlunt",
+            "govtrack_id": "400034",
+            "cspan_id": "45465",
+            "votesmart_id": "418",
+            "icpsr_id": "29735",
+            "crp_id": "N00005195",
+            "google_entity_id": "/m/034fn4",
+            "url": "http://www.blunt.senate.gov/public",
+            "rss_url": "http://www.blunt.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "https://www.blunt.senate.gov/public/index.cfm/contact-roy",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.431,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mo",
+            "office": "260 Russell Senate Office Building",
+            "phone": "202-224-5721",
+            "fax": "202-224-8149",
+            "state": "MO",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S342",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 99.33
+          },
+          {
+            "id": "B000944",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B000944.json",
+            "first_name": "Sherrod",
+            "middle_name": "",
+            "last_name": "Brown",
+            "date_of_birth": "1952-11-09",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenSherrodBrown",
+            "facebook_account": "",
+            "youtube_account": "SherrodBrownOhio",
+            "govtrack_id": "400050",
+            "cspan_id": "5051",
+            "votesmart_id": "27018",
+            "icpsr_id": "29389",
+            "crp_id": "N00003535",
+            "google_entity_id": "/m/034s80",
+            "url": "https://www.brown.senate.gov",
+            "rss_url": "https://www.brown.senate.gov/rss/feeds/?type=all&amp;",
+            "contact_form": "http://www.brown.senate.gov/contact/",
+            "domain": "www.brown.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.44,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:oh",
+            "office": "713 Hart Senate Office Building",
+            "phone": "202-224-2315",
+            "fax": "202-228-6321",
+            "state": "OH",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S307",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 95.36
+          },
+          {
+            "id": "B001135",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001135.json",
+            "first_name": "Richard",
+            "middle_name": "M.",
+            "last_name": "Burr",
+            "date_of_birth": "1955-11-30",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorBurr",
+            "facebook_account": "SenatorRichardBurr",
+            "youtube_account": "SenatorRichardBurr",
+            "govtrack_id": "400054",
+            "cspan_id": "31054",
+            "votesmart_id": "21787",
+            "icpsr_id": "29548",
+            "crp_id": "N00002221",
+            "google_entity_id": "/m/03g_s9",
+            "url": "http://www.burr.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.burr.senate.gov/contact/email",
+            "domain": "burr.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.454,
+            "ideal_point": null,
+            "seniority": "13",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nc",
+            "office": "217 Russell Senate Office Building",
+            "phone": "202-224-3154",
+            "fax": "202-228-2981",
+            "state": "NC",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S300",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "B001230",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001230.json",
+            "first_name": "Tammy",
+            "middle_name": null,
+            "last_name": "Baldwin",
+            "date_of_birth": "1962-02-11",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorBaldwin",
+            "facebook_account": "TammyBaldwin",
+            "youtube_account": "witammybaldwin",
+            "govtrack_id": "400013",
+            "cspan_id": "57884",
+            "votesmart_id": "3470",
+            "icpsr_id": "29940",
+            "crp_id": "N00004367",
+            "google_entity_id": "/m/024v02",
+            "url": "https://www.baldwin.senate.gov",
+            "rss_url": "https://www.baldwin.senate.gov/rss/feeds/?type=all",
+            "contact_form": "https://www.baldwin.senate.gov/feedback",
+            "domain": "baldwin.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.546,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wi",
+            "office": "709 Hart",
+            "phone": "202-224-5653",
+            "fax": "202-225-6942",
+            "state": "WI",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S354",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 95.36
+          },
+          {
+            "id": "B001236",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001236.json",
+            "first_name": "John",
+            "middle_name": "",
+            "last_name": "Boozman",
+            "date_of_birth": "1950-12-10",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "JohnBoozman",
+            "facebook_account": "JohnBoozman",
+            "youtube_account": "BoozmanPressOffice",
+            "govtrack_id": "400040",
+            "cspan_id": "92069",
+            "votesmart_id": "27958",
+            "icpsr_id": "20101",
+            "crp_id": "N00013873",
+            "google_entity_id": "/m/024s3v",
+            "url": "https://www.boozman.senate.gov/public/index.cfm/home",
+            "rss_url": "https://www.boozman.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "https://www.boozman.senate.gov/public/index.cfm/contact",
+            "domain": "www.boozman.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.402,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ar",
+            "office": "141 Hart Senate Office Building",
+            "phone": "202-224-4843",
+            "fax": "202-228-1371",
+            "state": "AR",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S343",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "B001261",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001261.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Barrasso",
+            "date_of_birth": "1952-07-21",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJohnBarrasso",
+            "facebook_account": "johnbarrasso",
+            "youtube_account": "barrassowyo",
+            "govtrack_id": "412251",
+            "cspan_id": "1024777",
+            "votesmart_id": "52662",
+            "icpsr_id": "40707",
+            "crp_id": "N00006236",
+            "google_entity_id": "/m/02rsm32",
+            "url": "http://www.barrasso.senate.gov",
+            "rss_url": "https://www.barrasso.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.barrasso.senate.gov/public/index.cfm/contact-form",
+            "domain": "www.barrasso.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.528,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wy",
+            "office": "307 Dirksen Senate Office Building",
+            "phone": "202-224-6441",
+            "fax": "202-224-1724",
+            "state": "WY",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S317",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 99.33
+          },
+          {
+            "id": "B001267",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001267.json",
+            "first_name": "Michael",
+            "middle_name": null,
+            "last_name": "Bennet",
+            "date_of_birth": "1964-11-28",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenBennetCo",
+            "facebook_account": "senbennetco",
+            "youtube_account": "SenatorBennet",
+            "govtrack_id": "412330",
+            "cspan_id": "1031622",
+            "votesmart_id": "110942",
+            "icpsr_id": "40910",
+            "crp_id": "N00030608",
+            "google_entity_id": "/m/05b60qf",
+            "url": "https://www.bennet.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.bennet.senate.gov/?p=contact",
+            "domain": "www.bennet.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.208,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:co",
+            "office": "261 Russell Senate Office Building",
+            "phone": "202-224-5852",
+            "fax": "202-228-5097",
+            "state": "CO",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S330",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 91.33
+          },
+          {
+            "id": "B001277",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001277.json",
+            "first_name": "Richard",
+            "middle_name": null,
+            "last_name": "Blumenthal",
+            "date_of_birth": "1946-02-13",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenBlumenthal",
+            "facebook_account": "SenBlumenthal",
+            "youtube_account": "SenatorBlumenthal",
+            "govtrack_id": "412490",
+            "cspan_id": "21799",
+            "votesmart_id": "1568",
+            "icpsr_id": "41101",
+            "crp_id": "N00031685",
+            "google_entity_id": "/m/03tg8m",
+            "url": "https://www.blumenthal.senate.gov",
+            "rss_url": "https://www.blumenthal.senate.gov/rss/feeds/?type=press",
+            "contact_form": "https://www.blumenthal.senate.gov/contact/",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.418,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ct",
+            "office": "706 Hart Senate Office Building",
+            "phone": "202-224-2823",
+            "fax": "202-224-9673",
+            "state": "CT",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S341",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 90.67
+          },
+          {
+            "id": "B001288",
+            "api_uri": "https://api.propublica.org/congress/v1/members/B001288.json",
+            "first_name": "Cory",
+            "middle_name": "",
+            "last_name": "Booker",
+            "date_of_birth": "1969-04-27",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "CoryBooker",
+            "facebook_account": "",
+            "youtube_account": "SenCoryBooker",
+            "govtrack_id": "412598",
+            "cspan_id": "84679",
+            "votesmart_id": "76151",
+            "icpsr_id": "41308",
+            "crp_id": "N00035267",
+            "google_entity_id": "/m/06p430",
+            "url": "http://www.booker.senate.gov",
+            "rss_url": "https://www.booker.senate.gov/rss/",
+            "contact_form": "https://www.booker.senate.gov/?p=contact",
+            "domain": "www.booker.senate.gov/",
+            "in_office": "true",
+            "dw_nominate": -0.588,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nj",
+            "office": "359 Dirksen Senate Office Building",
+            "phone": "202-224-3224",
+            "fax": "202-224-8378",
+            "state": "NJ",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S370",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 85.33
+          },
+          {
+            "id": "C000127",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C000127.json",
+            "first_name": "Maria",
+            "middle_name": null,
+            "last_name": "Cantwell",
+            "date_of_birth": "1958-10-13",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorCantwell",
+            "facebook_account": "senatorcantwell",
+            "youtube_account": "SenatorCantwell",
+            "govtrack_id": "300018",
+            "cspan_id": "26137",
+            "votesmart_id": "27122",
+            "icpsr_id": "39310",
+            "crp_id": "N00007836",
+            "google_entity_id": "/m/01x68t",
+            "url": "https://www.cantwell.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.cantwell.senate.gov/public/index.cfm/email-maria",
+            "domain": "www.cantwell.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.287,
+            "ideal_point": null,
+            "seniority": "17",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wa",
+            "office": "511 Hart Senate Office Building",
+            "phone": "202-224-3441",
+            "fax": "202-228-0514",
+            "state": "WA",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S275",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 98.66
+          },
+          {
+            "id": "C000141",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C000141.json",
+            "first_name": "Benjamin",
+            "middle_name": "L.",
+            "last_name": "Cardin",
+            "date_of_birth": "1943-10-05",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorCardin",
+            "facebook_account": "senatorbencardin",
+            "youtube_account": "senatorcardin",
+            "govtrack_id": "400064",
+            "cspan_id": "4004",
+            "votesmart_id": "26888",
+            "icpsr_id": "15408",
+            "crp_id": "N00001955",
+            "google_entity_id": "/m/025k3k",
+            "url": "https://www.cardin.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.cardin.senate.gov/contact/",
+            "domain": "www.cardin.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.329,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:md",
+            "office": "509 Hart Senate Office Building",
+            "phone": "202-224-4524",
+            "fax": "202-224-1651",
+            "state": "MD",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S308",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 96.69
+          },
+          {
+            "id": "C000174",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C000174.json",
+            "first_name": "Thomas",
+            "middle_name": "R.",
+            "last_name": "Carper",
+            "date_of_birth": "1947-01-23",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorCarper",
+            "facebook_account": "tomcarper",
+            "youtube_account": "senatorcarper",
+            "govtrack_id": "300019",
+            "cspan_id": "663",
+            "votesmart_id": "22421",
+            "icpsr_id": "15015",
+            "crp_id": "N00012508",
+            "google_entity_id": "/m/01xw7t",
+            "url": "https://www.carper.senate.gov/public",
+            "rss_url": "https://www.carper.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "http://www.carper.senate.gov/public/index.cfm/email-senator-carper",
+            "domain": "www.carper.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.174,
+            "ideal_point": null,
+            "seniority": "17",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 5,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:de",
+            "office": "513 Hart Senate Office Building",
+            "phone": "202-224-2441",
+            "fax": "202-228-2190",
+            "state": "DE",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S277",
+            "missed_votes_pct": 3.31,
+            "votes_with_party_pct": 92.47
+          },
+          {
+            "id": "C000567",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C000567.json",
+            "first_name": "Thad",
+            "middle_name": null,
+            "last_name": "Cochran",
+            "date_of_birth": "1937-12-07",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenThadCochran",
+            "facebook_account": "",
+            "youtube_account": "sencochran",
+            "govtrack_id": "300023",
+            "cspan_id": "1200",
+            "votesmart_id": "53312",
+            "icpsr_id": "14009",
+            "crp_id": "N00003328",
+            "google_entity_id": "/m/01fmcd",
+            "url": "http://www.cochran.senate.gov",
+            "rss_url": "https://www.cochran.senate.gov/public/index.cfm/rss/taggedfeed?Type=news-releases&amp;region=&amp;issue=",
+            "contact_form": "https://www.cochran.senate.gov/public/index.cfm/email-me",
+            "domain": "www.cochran.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.286,
+            "ideal_point": null,
+            "seniority": "39",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ms",
+            "office": "113 Dirksen Senate Office Building",
+            "phone": "202-224-5054",
+            "fax": "202-224-9450",
+            "state": "MS",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S136",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "C000880",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C000880.json",
+            "first_name": "Michael",
+            "middle_name": "D.",
+            "last_name": "Crapo",
+            "date_of_birth": "1951-05-20",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "MikeCrapo",
+            "facebook_account": "mikecrapo",
+            "youtube_account": "senatorcrapo",
+            "govtrack_id": "300030",
+            "cspan_id": "26440",
+            "votesmart_id": "26830",
+            "icpsr_id": "29345",
+            "crp_id": "N00006267",
+            "google_entity_id": "/m/021pgp",
+            "url": "http://www.crapo.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.crapo.senate.gov/contact/email.cfm",
+            "domain": "crapo.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.507,
+            "ideal_point": null,
+            "seniority": "19",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:id",
+            "office": "239 Dirksen Senate Office Building",
+            "phone": "202-224-6142",
+            "fax": "202-228-1375",
+            "state": "ID",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S266",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "C001035",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001035.json",
+            "first_name": "Susan",
+            "middle_name": null,
+            "last_name": "Collins",
+            "date_of_birth": "1952-12-07",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorCollins",
+            "facebook_account": "susancollins",
+            "youtube_account": "SenatorSusanCollins",
+            "govtrack_id": "300025",
+            "cspan_id": "45738",
+            "votesmart_id": "379",
+            "icpsr_id": "49703",
+            "crp_id": "N00000491",
+            "google_entity_id": "/m/020y8m",
+            "url": "https://www.collins.senate.gov",
+            "rss_url": "https://www.collins.senate.gov/?q=rss.xml",
+            "contact_form": "http://www.collins.senate.gov/contact",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.107,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:me",
+            "office": "413 Dirksen Senate Office Building",
+            "phone": "202-224-2523",
+            "fax": "202-224-2693",
+            "state": "ME",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S252",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 88.74
+          },
+          {
+            "id": "C001047",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001047.json",
+            "first_name": "Shelley",
+            "middle_name": "Moore",
+            "last_name": "Capito",
+            "date_of_birth": "1953-11-26",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenCapito",
+            "facebook_account": "senshelley",
+            "youtube_account": "UCbiXdR4XQ3vD9Xp5lfR9QXw",
+            "govtrack_id": "400061",
+            "cspan_id": "83737",
+            "votesmart_id": "11701",
+            "icpsr_id": "20146",
+            "crp_id": "N00009771",
+            "google_entity_id": "/m/024pwq",
+            "url": "https://www.capito.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.capito.senate.gov/contact/contact-shelley",
+            "domain": "www.capito.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.258,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wv",
+            "office": "172 Russell Senate Office Building",
+            "phone": "202-224-6472",
+            "fax": "202-225-7856",
+            "state": "WV",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S372",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 98.66
+          },
+          {
+            "id": "C001056",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001056.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Cornyn",
+            "date_of_birth": "1952-02-02",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "JohnCornyn",
+            "facebook_account": "sen.johncornyn",
+            "youtube_account": "senjohncornyn",
+            "govtrack_id": "300027",
+            "cspan_id": "93131",
+            "votesmart_id": "15375",
+            "icpsr_id": "40305",
+            "crp_id": "N00024852",
+            "google_entity_id": "/m/01xcqs",
+            "url": "https://www.cornyn.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.cornyn.senate.gov/contact",
+            "domain": "www.cornyn.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.497,
+            "ideal_point": null,
+            "seniority": "15",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:tx",
+            "office": "517 Hart Senate Office Building",
+            "phone": "202-224-2934",
+            "fax": "202-228-2856",
+            "state": "TX",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S287",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "C001070",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001070.json",
+            "first_name": "Bob",
+            "middle_name": null,
+            "last_name": "Casey",
+            "date_of_birth": "1960-04-13",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenBobCasey",
+            "facebook_account": "SenatorBobCasey",
+            "youtube_account": "SenatorBobCasey",
+            "govtrack_id": "412246",
+            "cspan_id": "47036",
+            "votesmart_id": "2541",
+            "icpsr_id": "40703",
+            "crp_id": "N00027503",
+            "google_entity_id": "/m/047ymw",
+            "url": "https://www.casey.senate.gov",
+            "rss_url": "https://www.casey.senate.gov/rss/feeds/?all",
+            "contact_form": "https://www.casey.senate.gov/contact/",
+            "domain": "www.casey.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.298,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:pa",
+            "office": "393 Russell Senate Office Building",
+            "phone": "202-224-6324",
+            "fax": "202-228-0604",
+            "state": "PA",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S309",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.01
+          },
+          {
+            "id": "C001071",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001071.json",
+            "first_name": "Bob",
+            "middle_name": null,
+            "last_name": "Corker",
+            "date_of_birth": "1952-08-24",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenBobCorker",
+            "facebook_account": "bobcorker",
+            "youtube_account": "senatorcorker",
+            "govtrack_id": "412248",
+            "cspan_id": "1021114",
+            "votesmart_id": "65905",
+            "icpsr_id": "40705",
+            "crp_id": "N00027441",
+            "google_entity_id": "/m/0d9fz3",
+            "url": "http://www.corker.senate.gov",
+            "rss_url": "https://www.corker.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "https://www.corker.senate.gov/public/index.cfm/emailme",
+            "domain": "www.corker.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.391,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:tn",
+            "office": "425 Dirksen Senate Office Building",
+            "phone": "202-224-3344",
+            "fax": "202-228-0566",
+            "state": "TN",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S310",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 97.99
+          },
+          {
+            "id": "C001075",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001075.json",
+            "first_name": "Bill",
+            "middle_name": null,
+            "last_name": "Cassidy",
+            "date_of_birth": "1957-09-28",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "",
+            "facebook_account": "",
+            "youtube_account": "SenatorBillCassidy",
+            "govtrack_id": "412269",
+            "cspan_id": "1030546",
+            "votesmart_id": "69494",
+            "icpsr_id": "20919",
+            "crp_id": "N00030245",
+            "google_entity_id": "/m/0286t7r",
+            "url": "http://www.cassidy.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.cassidy.senate.gov/contact",
+            "domain": "www.cassidy.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.453,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:la",
+            "office": "520 Hart Senate Office Building",
+            "phone": "202-224-5824",
+            "fax": "202-225-7313",
+            "state": "LA",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S373",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "C001088",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001088.json",
+            "first_name": "Christopher",
+            "middle_name": "A.",
+            "last_name": "Coons",
+            "date_of_birth": "1963-09-09",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenCoonsOffice",
+            "facebook_account": "senatorchriscoons",
+            "youtube_account": "senatorchriscoons",
+            "govtrack_id": "412390",
+            "cspan_id": "9269028",
+            "votesmart_id": "122834",
+            "icpsr_id": "40916",
+            "crp_id": "N00031820",
+            "google_entity_id": "/m/082d3d",
+            "url": "https://www.coons.senate.gov",
+            "rss_url": "https://www.coons.senate.gov/rss/feeds/?type=press",
+            "contact_form": "https://www.coons.senate.gov/contact",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.283,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 10,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:de",
+            "office": "127a Russell Senate Office Building",
+            "phone": "202-224-5042",
+            "fax": "202-228-3075",
+            "state": "DE",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S337",
+            "missed_votes_pct": 6.62,
+            "votes_with_party_pct": 93.62
+          },
+          {
+            "id": "C001095",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001095.json",
+            "first_name": "Tom",
+            "middle_name": null,
+            "last_name": "Cotton",
+            "date_of_birth": "1977-05-13",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenTomCotton",
+            "facebook_account": "SenatorTomCotton",
+            "youtube_account": "RepTomCotton",
+            "govtrack_id": "412508",
+            "cspan_id": "63928",
+            "votesmart_id": "135651",
+            "icpsr_id": "21301",
+            "crp_id": "N00033363",
+            "google_entity_id": "/m/02g3ds",
+            "url": "https://www.cotton.senate.gov",
+            "rss_url": "https://www.cotton.senate.gov/rss/",
+            "contact_form": "http://www.cotton.senate.gov/?p=contact",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.619,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ar",
+            "office": "124 Russell Senate Office Building",
+            "phone": "202-224-2353",
+            "fax": "",
+            "state": "AR",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S374",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "C001098",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001098.json",
+            "first_name": "Ted",
+            "middle_name": null,
+            "last_name": "Cruz",
+            "date_of_birth": "1970-12-22",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenTedCruz",
+            "facebook_account": "SenatorTedCruz",
+            "youtube_account": "sentedcruz",
+            "govtrack_id": "412573",
+            "cspan_id": "1019953",
+            "votesmart_id": "135705",
+            "icpsr_id": "41304",
+            "crp_id": "N00033085",
+            "google_entity_id": "/m/07j6ty",
+            "url": "https://www.cruz.senate.gov",
+            "rss_url": "https://www.cruz.senate.gov/rss/",
+            "contact_form": "http://www.cruz.senate.gov/?p=email_senator",
+            "domain": "cruz.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.884,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 4,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:tx",
+            "office": "404 Russell Senate Office Building",
+            "phone": "202-224-5922",
+            "fax": "202-228-3398",
+            "state": "TX",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S355",
+            "missed_votes_pct": 2.65,
+            "votes_with_party_pct": 97.28
+          },
+          {
+            "id": "C001113",
+            "api_uri": "https://api.propublica.org/congress/v1/members/C001113.json",
+            "first_name": "Catherine",
+            "middle_name": null,
+            "last_name": "Cortez Masto",
+            "date_of_birth": "1964-03-29",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "sencortezmasto",
+            "facebook_account": "SenatorCortezMasto",
+            "youtube_account": "",
+            "govtrack_id": "412681",
+            "cspan_id": "105698",
+            "votesmart_id": "69579",
+            "icpsr_id": "",
+            "crp_id": "N00037161",
+            "google_entity_id": "/m/02rtp9t",
+            "url": "https://www.cortezmasto.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.cortezmasto.senate.gov/content/contact-senator",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": null,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nv",
+            "office": "B40a Dirksen Senate Office Building",
+            "phone": "202-224-3542",
+            "fax": "",
+            "state": "NV",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S385",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 90.07
+          },
+          {
+            "id": "D000563",
+            "api_uri": "https://api.propublica.org/congress/v1/members/D000563.json",
+            "first_name": "Richard",
+            "middle_name": "J.",
+            "last_name": "Durbin",
+            "date_of_birth": "1944-11-21",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorDurbin",
+            "facebook_account": "SenatorDurbin",
+            "youtube_account": "SenatorDurbin",
+            "govtrack_id": "300038",
+            "cspan_id": "6741",
+            "votesmart_id": "26847",
+            "icpsr_id": "15021",
+            "crp_id": "N00004981",
+            "google_entity_id": "/m/01xcd1",
+            "url": "http://www.durbin.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.durbin.senate.gov/contact/",
+            "domain": "www.durbin.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.365,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 7,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:il",
+            "office": "711 Hart Senate Office Building",
+            "phone": "202-224-2152",
+            "fax": "202-228-0400",
+            "state": "IL",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S253",
+            "missed_votes_pct": 4.64,
+            "votes_with_party_pct": 96.53
+          },
+          {
+            "id": "D000607",
+            "api_uri": "https://api.propublica.org/congress/v1/members/D000607.json",
+            "first_name": "Joe",
+            "middle_name": null,
+            "last_name": "Donnelly",
+            "date_of_birth": "1955-09-28",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenDonnelly",
+            "facebook_account": "senatordonnelly",
+            "youtube_account": "sendonnelly",
+            "govtrack_id": "412205",
+            "cspan_id": "1012000",
+            "votesmart_id": "34212",
+            "icpsr_id": "20717",
+            "crp_id": "N00026586",
+            "google_entity_id": "/m/0gmx64",
+            "url": "http://www.donnelly.senate.gov",
+            "rss_url": "https://www.donnelly.senate.gov/rss/feeds/?press",
+            "contact_form": "https://www.donnelly.senate.gov/contact/email-joe",
+            "domain": "www.donnelly.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.12,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:in",
+            "office": "720 Hart Senate Office Building",
+            "phone": "202-224-4814",
+            "fax": "202-225-6798",
+            "state": "IN",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S356",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 81.76
+          },
+          {
+            "id": "D000618",
+            "api_uri": "https://api.propublica.org/congress/v1/members/D000618.json",
+            "first_name": "Steve",
+            "middle_name": null,
+            "last_name": "Daines",
+            "date_of_birth": "1962-08-20",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SteveDaines",
+            "facebook_account": "SteveDainesMT",
+            "youtube_account": "SteveDainesMT",
+            "govtrack_id": "412549",
+            "cspan_id": "1034037",
+            "votesmart_id": "135720",
+            "icpsr_id": "21338",
+            "crp_id": "N00033054",
+            "google_entity_id": "/m/03qlc5t",
+            "url": "https://www.daines.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.daines.senate.gov/connect/email-steve",
+            "domain": "www.daines.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.53,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mt",
+            "office": "320 Hart Senate Office Building",
+            "phone": "202-224-2651",
+            "fax": "202-228-1236",
+            "state": "MT",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S375",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "D000622",
+            "api_uri": "https://api.propublica.org/congress/v1/members/D000622.json",
+            "first_name": "Tammy",
+            "middle_name": null,
+            "last_name": "Duckworth",
+            "date_of_birth": "1968-03-12",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenDuckworth",
+            "facebook_account": "SenDuckworth",
+            "youtube_account": "repduckworth",
+            "govtrack_id": "412533",
+            "cspan_id": "94484",
+            "votesmart_id": "57442",
+            "icpsr_id": "21325",
+            "crp_id": "N00027860",
+            "google_entity_id": "/m/09vqjr",
+            "url": "https://www.duckworth.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.duckworth.senate.gov/content/contact-senator",
+            "domain": "www.duckworth.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.298,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:il",
+            "office": "524 Hart Senate Office Building",
+            "phone": "202-224-2854",
+            "fax": "",
+            "state": "IL",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S386",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 91.33
+          },
+          {
+            "id": "E000285",
+            "api_uri": "https://api.propublica.org/congress/v1/members/E000285.json",
+            "first_name": "Michael",
+            "middle_name": "B.",
+            "last_name": "Enzi",
+            "date_of_birth": "1944-02-01",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorEnzi",
+            "facebook_account": "mikeenzi",
+            "youtube_account": "senatorenzi",
+            "govtrack_id": "300041",
+            "cspan_id": "45824",
+            "votesmart_id": "558",
+            "icpsr_id": "49706",
+            "crp_id": "N00006249",
+            "google_entity_id": "/m/021ph1",
+            "url": "http://www.enzi.senate.gov",
+            "rss_url": "https://www.enzi.senate.gov/public/?a=rss.feed",
+            "contact_form": "http://www.enzi.senate.gov/public/index.cfm/contact?p=e-mail-senator-enzi",
+            "domain": "www.enzi.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.537,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wy",
+            "office": "379a Russell Senate Office Building",
+            "phone": "202-224-3424",
+            "fax": "202-228-0359",
+            "state": "WY",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S254",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 99.33
+          },
+          {
+            "id": "E000295",
+            "api_uri": "https://api.propublica.org/congress/v1/members/E000295.json",
+            "first_name": "Joni",
+            "middle_name": null,
+            "last_name": "Ernst",
+            "date_of_birth": "1970-07-01",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJoniErnst",
+            "facebook_account": "senjoniernst",
+            "youtube_account": "",
+            "govtrack_id": "412667",
+            "cspan_id": "75342",
+            "votesmart_id": "128583",
+            "icpsr_id": "41502",
+            "crp_id": "N00035483",
+            "google_entity_id": "/m/0gg4wkg",
+            "url": "http://www.ernst.senate.gov/public",
+            "rss_url": "https://www.ernst.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.ernst.senate.gov/public/index.cfm/contact",
+            "domain": "www.ernst.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.51,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ia",
+            "office": "111 Russell Senate Office Building",
+            "phone": "202-224-3254",
+            "fax": "",
+            "state": "IA",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S376",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "F000062",
+            "api_uri": "https://api.propublica.org/congress/v1/members/F000062.json",
+            "first_name": "Dianne",
+            "middle_name": null,
+            "last_name": "Feinstein",
+            "date_of_birth": "1933-06-22",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenFeinstein",
+            "facebook_account": "senatorfeinstein",
+            "youtube_account": "SenatorFeinstein",
+            "govtrack_id": "300043",
+            "cspan_id": "13061",
+            "votesmart_id": "53273",
+            "icpsr_id": "49300",
+            "crp_id": "N00007364",
+            "google_entity_id": "/m/01gqws",
+            "url": "http://www.feinstein.senate.gov",
+            "rss_url": "https://www.feinstein.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.feinstein.senate.gov/public/index.cfm/e-mail-me",
+            "domain": "www.feinstein.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.263,
+            "ideal_point": null,
+            "seniority": "25",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 24,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ca",
+            "office": "331 Hart Senate Office Building",
+            "phone": "202-224-3841",
+            "fax": "202-228-3954",
+            "state": "CA",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S221",
+            "missed_votes_pct": 15.89,
+            "votes_with_party_pct": 94.49
+          },
+          {
+            "id": "F000444",
+            "api_uri": "https://api.propublica.org/congress/v1/members/F000444.json",
+            "first_name": "Jeff",
+            "middle_name": null,
+            "last_name": "Flake",
+            "date_of_birth": "1962-12-31",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "JeffFlake",
+            "facebook_account": "senatorjeffflake",
+            "youtube_account": "flakeoffice",
+            "govtrack_id": "400134",
+            "cspan_id": "87582",
+            "votesmart_id": "28128",
+            "icpsr_id": "20100",
+            "crp_id": "N00009573",
+            "google_entity_id": "/m/024p7j",
+            "url": "http://www.flake.senate.gov/public",
+            "rss_url": "https://www.flake.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.flake.senate.gov/public/index.cfm/contact-jeff",
+            "domain": "flake.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.855,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 7,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:az",
+            "office": "413 Russell Senate Office Building",
+            "phone": "202-224-4521",
+            "fax": "202-226-4386",
+            "state": "AZ",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S358",
+            "missed_votes_pct": 4.64,
+            "votes_with_party_pct": 97.92
+          },
+          {
+            "id": "F000457",
+            "api_uri": "https://api.propublica.org/congress/v1/members/F000457.json",
+            "first_name": "Al",
+            "middle_name": null,
+            "last_name": "Franken",
+            "date_of_birth": "1951-05-21",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenFranken",
+            "facebook_account": "senatoralfranken",
+            "youtube_account": "SenatorFranken",
+            "govtrack_id": "412378",
+            "cspan_id": "23334",
+            "votesmart_id": "108924",
+            "icpsr_id": "40904",
+            "crp_id": "N00029016",
+            "google_entity_id": "/m/01lct6",
+            "url": "https://www.franken.senate.gov",
+            "rss_url": "https://www.franken.senate.gov/rss/",
+            "contact_form": "https://www.franken.senate.gov/?p=contact",
+            "domain": "www.franken.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.416,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mn",
+            "office": "309 Hart Senate Office Building",
+            "phone": "202-224-5641",
+            "fax": "202-224-0044",
+            "state": "MN",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S332",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "F000463",
+            "api_uri": "https://api.propublica.org/congress/v1/members/F000463.json",
+            "first_name": "Deb",
+            "middle_name": null,
+            "last_name": "Fischer",
+            "date_of_birth": "1951-03-01",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorFischer",
+            "facebook_account": "senatordebfischer",
+            "youtube_account": "senatordebfischer",
+            "govtrack_id": "412556",
+            "cspan_id": "1034067",
+            "votesmart_id": "41963",
+            "icpsr_id": "41302",
+            "crp_id": "N00033443",
+            "google_entity_id": "/m/0c4cp0",
+            "url": "http://www.fischer.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.fischer.senate.gov/public/index.cfm/contact",
+            "domain": "fischer.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.474,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ne",
+            "office": "454 Russell Senate Office Building",
+            "phone": "202-224-6551",
+            "fax": "202-228-1325",
+            "state": "NE",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S357",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "G000359",
+            "api_uri": "https://api.propublica.org/congress/v1/members/G000359.json",
+            "first_name": "Lindsey",
+            "middle_name": null,
+            "last_name": "Graham",
+            "date_of_birth": "1955-07-09",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "GrahamBlog",
+            "facebook_account": "USSenatorLindseyGraham",
+            "youtube_account": "USSenLindseyGraham",
+            "govtrack_id": "300047",
+            "cspan_id": "36782",
+            "votesmart_id": "21992",
+            "icpsr_id": "29566",
+            "crp_id": "N00009975",
+            "google_entity_id": "/m/01_pdg",
+            "url": "https://www.lgraham.senate.gov/public",
+            "rss_url": "https://www.lgraham.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.lgraham.senate.gov/public/index.cfm/e-mail-senator-graham",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.409,
+            "ideal_point": null,
+            "seniority": "15",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 5,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:sc",
+            "office": "290 Russell Senate Office Building",
+            "phone": "202-224-5972",
+            "fax": "202-224-3808",
+            "state": "SC",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S293",
+            "missed_votes_pct": 3.31,
+            "votes_with_party_pct": 97.95
+          },
+          {
+            "id": "G000386",
+            "api_uri": "https://api.propublica.org/congress/v1/members/G000386.json",
+            "first_name": "Charles",
+            "middle_name": "E.",
+            "last_name": "Grassley",
+            "date_of_birth": "1933-09-17",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "ChuckGrassley",
+            "facebook_account": "grassley",
+            "youtube_account": "senchuckgrassley",
+            "govtrack_id": "300048",
+            "cspan_id": "1167",
+            "votesmart_id": "53293",
+            "icpsr_id": "14226",
+            "crp_id": "N00001758",
+            "google_entity_id": "/m/020ymy",
+            "url": "http://www.grassley.senate.gov",
+            "rss_url": "https://www.grassley.senate.gov/?q=rss.xml",
+            "contact_form": "http://www.grassley.senate.gov/contact",
+            "domain": "www.grassley.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.341,
+            "ideal_point": null,
+            "seniority": "37",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ia",
+            "office": "135 Hart Senate Office Building",
+            "phone": "202-224-3744",
+            "fax": "202-224-6020",
+            "state": "IA",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S153",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 97.35
+          },
+          {
+            "id": "G000555",
+            "api_uri": "https://api.propublica.org/congress/v1/members/G000555.json",
+            "first_name": "Kirsten",
+            "middle_name": "E.",
+            "last_name": "Gillibrand",
+            "date_of_birth": "1966-12-09",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenGillibrand",
+            "facebook_account": "KirstenGillibrand",
+            "youtube_account": "KirstenEGillibrand",
+            "govtrack_id": "412223",
+            "cspan_id": "1022862",
+            "votesmart_id": "65147",
+            "icpsr_id": "20735",
+            "crp_id": "N00027658",
+            "google_entity_id": "/m/0gnfc4",
+            "url": "https://www.gillibrand.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.gillibrand.senate.gov/contact/",
+            "domain": "www.gillibrand.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.334,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ny",
+            "office": "478 Russell Senate Office Building",
+            "phone": "202-224-4451",
+            "fax": "202-228-0282",
+            "state": "NY",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S331",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 82.78
+          },
+          {
+            "id": "G000562",
+            "api_uri": "https://api.propublica.org/congress/v1/members/G000562.json",
+            "first_name": "Cory",
+            "middle_name": null,
+            "last_name": "Gardner",
+            "date_of_birth": "1974-08-22",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenCoryGardner",
+            "facebook_account": "SenCoryGardner",
+            "youtube_account": "",
+            "govtrack_id": "412406",
+            "cspan_id": "623308",
+            "votesmart_id": "30004",
+            "icpsr_id": "21112",
+            "crp_id": "N00030780",
+            "google_entity_id": "/m/0czd33q",
+            "url": "https://www.gardner.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.gardner.senate.gov/contact-cory/email-cory",
+            "domain": "www.gardner.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.456,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:co",
+            "office": "354 Russell Senate Office Building",
+            "phone": "202-224-5941",
+            "fax": "202-225-5870",
+            "state": "CO",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S377",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "H000338",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H000338.json",
+            "first_name": "Orrin",
+            "middle_name": "G.",
+            "last_name": "Hatch",
+            "date_of_birth": "1934-03-22",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenOrrinHatch",
+            "facebook_account": "senatororrinhatch",
+            "youtube_account": "SenatorOrrinHatch",
+            "govtrack_id": "300052",
+            "cspan_id": "189",
+            "votesmart_id": "53352",
+            "icpsr_id": "14503",
+            "crp_id": "N00009869",
+            "google_entity_id": "/m/016mj4",
+            "url": "http://www.hatch.senate.gov",
+            "rss_url": "https://www.hatch.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "http://www.hatch.senate.gov/public/index.cfm/contact?p=Email-Orrin",
+            "domain": "www.hatch.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.382,
+            "ideal_point": null,
+            "seniority": "41",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ut",
+            "office": "104 Hart Senate Office Building",
+            "phone": "202-224-5251",
+            "fax": "202-224-6331",
+            "state": "UT",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S118",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "H001041",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001041.json",
+            "first_name": "Dean",
+            "middle_name": "",
+            "last_name": "Heller",
+            "date_of_birth": "1960-05-10",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenDeanHeller",
+            "facebook_account": "SenDeanHeller",
+            "youtube_account": "SenDeanHeller",
+            "govtrack_id": "412218",
+            "cspan_id": "1012368",
+            "votesmart_id": "2291",
+            "icpsr_id": "20730",
+            "crp_id": "N00027522",
+            "google_entity_id": "/m/0g92xz",
+            "url": "http://www.heller.senate.gov/public",
+            "rss_url": "https://www.heller.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.heller.senate.gov/public/index.cfm/contact-form",
+            "domain": "www.heller.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.461,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nv",
+            "office": "324 Hart Senate Office Building",
+            "phone": "202-224-6244",
+            "fax": "202-228-6753",
+            "state": "NV",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S352",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 92.00
+          },
+          {
+            "id": "H001042",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001042.json",
+            "first_name": "Mazie",
+            "middle_name": "K.",
+            "last_name": "Hirono",
+            "date_of_birth": "1947-11-03",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "MazieHirono",
+            "facebook_account": "senatorhirono",
+            "youtube_account": "CongresswomanHirono",
+            "govtrack_id": "412200",
+            "cspan_id": "91216",
+            "votesmart_id": "1677",
+            "icpsr_id": "20713",
+            "crp_id": "N00028139",
+            "google_entity_id": "/m/0357cd",
+            "url": "https://www.hirono.senate.gov",
+            "rss_url": "https://www.hirono.senate.gov/rss/feeds/",
+            "contact_form": "https://www.hirono.senate.gov/contact",
+            "domain": "hirono.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.492,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 4,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:hi",
+            "office": "730 Hart Senate Office Building",
+            "phone": "202-224-6361",
+            "fax": "202-225-4987",
+            "state": "HI",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S361",
+            "missed_votes_pct": 2.65,
+            "votes_with_party_pct": 97.96
+          },
+          {
+            "id": "H001046",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001046.json",
+            "first_name": "Martin",
+            "middle_name": null,
+            "last_name": "Heinrich",
+            "date_of_birth": "1971-10-17",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "MartinHeinrich",
+            "facebook_account": "MartinHeinrich",
+            "youtube_account": "SenMartinHeinrich",
+            "govtrack_id": "412281",
+            "cspan_id": "1030686",
+            "votesmart_id": "74517",
+            "icpsr_id": "20930",
+            "crp_id": "N00029835",
+            "google_entity_id": "/m/02qkv0r",
+            "url": "http://www.heinrich.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.heinrich.senate.gov/contact",
+            "domain": "www.heinrich.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.283,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nm",
+            "office": "303 Hart Senate Office Building",
+            "phone": "202-224-5521",
+            "fax": "202-225-4975",
+            "state": "NM",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S359",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 94.67
+          },
+          {
+            "id": "H001061",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001061.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Hoeven",
+            "date_of_birth": "1957-03-13",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJohnHoeven",
+            "facebook_account": "SenatorJohnHoeven",
+            "youtube_account": "senatorjohnhoevennd",
+            "govtrack_id": "412494",
+            "cspan_id": "85233",
+            "votesmart_id": "41788",
+            "icpsr_id": "41107",
+            "crp_id": "N00031688",
+            "google_entity_id": "/m/01qb45",
+            "url": "https://www.hoeven.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.hoeven.senate.gov/public/index.cfm/email-the-senator",
+            "domain": "www.hoeven.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.338,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nd",
+            "office": "338 Russell Senate Office Building",
+            "phone": "202-224-2551",
+            "fax": "202-224-7999",
+            "state": "ND",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S344",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "H001069",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001069.json",
+            "first_name": "Heidi",
+            "middle_name": null,
+            "last_name": "Heitkamp",
+            "date_of_birth": "1955-10-30",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorHeitkamp",
+            "facebook_account": "SenatorHeidiHeitkamp",
+            "youtube_account": "senatorheidiheitkamp",
+            "govtrack_id": "412554",
+            "cspan_id": "95414",
+            "votesmart_id": "41716",
+            "icpsr_id": "41303",
+            "crp_id": "N00033782",
+            "google_entity_id": "/m/02f501",
+            "url": "http://www.heitkamp.senate.gov/public",
+            "rss_url": "https://www.heitkamp.senate.gov/public/?a=rss.feed",
+            "contact_form": "http://www.heitkamp.senate.gov/public/index.cfm/contact",
+            "domain": "www.heitkamp.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.129,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nd",
+            "office": "516 Hart Senate Office Building",
+            "phone": "202-224-2043",
+            "fax": "202-224-7776",
+            "state": "ND",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S360",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 74.17
+          },
+          {
+            "id": "H001075",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001075.json",
+            "first_name": "Kamala",
+            "middle_name": null,
+            "last_name": "Harris",
+            "date_of_birth": "1964-10-20",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenKamalaHarris",
+            "facebook_account": "",
+            "youtube_account": "",
+            "govtrack_id": "412678",
+            "cspan_id": "1018696",
+            "votesmart_id": "120012",
+            "icpsr_id": "",
+            "crp_id": "N00036915",
+            "google_entity_id": "/m/08sry2",
+            "url": "https://www.harris.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.harris.senate.gov/content/contact-senator",
+            "domain": "www.harris.senate.gov",
+            "in_office": "true",
+            "dw_nominate": null,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ca",
+            "office": "112 Hart Senate Office Building",
+            "phone": "202-224-3553",
+            "fax": "",
+            "state": "CA",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S387",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 87.33
+          },
+          {
+            "id": "H001076",
+            "api_uri": "https://api.propublica.org/congress/v1/members/H001076.json",
+            "first_name": "Margaret",
+            "middle_name": null,
+            "last_name": "Hassan",
+            "date_of_birth": "1958-02-27",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "Senatorhassan",
+            "facebook_account": "SenatorHassan",
+            "youtube_account": "",
+            "govtrack_id": "412680",
+            "cspan_id": "67481",
+            "votesmart_id": "42552",
+            "icpsr_id": "",
+            "crp_id": "N00038397",
+            "google_entity_id": "/m/03c3zch",
+            "url": "https://www.hassan.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.hassan.senate.gov/content/contact-senator",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": null,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nh",
+            "office": "B85 Russell Senate Office Building",
+            "phone": "202-224-3324",
+            "fax": "",
+            "state": "NH",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S388",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 96.69
+          },
+          {
+            "id": "I000024",
+            "api_uri": "https://api.propublica.org/congress/v1/members/I000024.json",
+            "first_name": "James",
+            "middle_name": "M.",
+            "last_name": "Inhofe",
+            "date_of_birth": "1934-11-17",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "InhofePress",
+            "facebook_account": "jiminhofe",
+            "youtube_account": "jiminhofepressoffice",
+            "govtrack_id": "300055",
+            "cspan_id": "5619",
+            "votesmart_id": "27027",
+            "icpsr_id": "15424",
+            "crp_id": "N00005582",
+            "google_entity_id": "/m/021kpl",
+            "url": "http://www.inhofe.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.inhofe.senate.gov/contact",
+            "domain": "www.inhofe.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.551,
+            "ideal_point": null,
+            "seniority": "25",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ok",
+            "office": "205 Russell Senate Office Building",
+            "phone": "202-224-4721",
+            "fax": "202-228-0380",
+            "state": "OK",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S236",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "I000055",
+            "api_uri": "https://api.propublica.org/congress/v1/members/I000055.json",
+            "first_name": "Johnny",
+            "middle_name": null,
+            "last_name": "Isakson",
+            "date_of_birth": "1944-12-28",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorIsakson",
+            "facebook_account": "",
+            "youtube_account": "SenatorIsakson",
+            "govtrack_id": "400194",
+            "cspan_id": "59135",
+            "votesmart_id": "1721",
+            "icpsr_id": "29909",
+            "crp_id": "N00002593",
+            "google_entity_id": "/m/02556q",
+            "url": "https://www.isakson.senate.gov",
+            "rss_url": "https://www.isakson.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "https://www.isakson.senate.gov/public/index.cfm/email-me",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.404,
+            "ideal_point": null,
+            "seniority": "13",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 44,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ga",
+            "office": "131 Russell Senate Office Building",
+            "phone": "202-224-3643",
+            "fax": "202-228-0724",
+            "state": "GA",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S305",
+            "missed_votes_pct": 29.14,
+            "votes_with_party_pct": 99.07
+          },
+          {
+            "id": "J000293",
+            "api_uri": "https://api.propublica.org/congress/v1/members/J000293.json",
+            "first_name": "Ron",
+            "middle_name": null,
+            "last_name": "Johnson",
+            "date_of_birth": "1955-04-08",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenRonJohnson",
+            "facebook_account": "senronjohnson",
+            "youtube_account": "SenatorRonJohnson",
+            "govtrack_id": "412496",
+            "cspan_id": "62835",
+            "votesmart_id": "126217",
+            "icpsr_id": "41111",
+            "crp_id": "N00032546",
+            "google_entity_id": "/m/0cmdpzc",
+            "url": "https://www.ronjohnson.senate.gov",
+            "rss_url": "https://www.ronjohnson.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator",
+            "domain": "www.ronjohnson.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.594,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wi",
+            "office": "328 Hart Senate Office Building",
+            "phone": "202-224-5323",
+            "fax": "920-230-7262",
+            "state": "WI",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S345",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "K000367",
+            "api_uri": "https://api.propublica.org/congress/v1/members/K000367.json",
+            "first_name": "Amy",
+            "middle_name": null,
+            "last_name": "Klobuchar",
+            "date_of_birth": "1960-05-25",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "",
+            "facebook_account": "",
+            "youtube_account": "senatorklobuchar",
+            "govtrack_id": "412242",
+            "cspan_id": "83701",
+            "votesmart_id": "65092",
+            "icpsr_id": "40700",
+            "crp_id": "N00027500",
+            "google_entity_id": "/m/05fbpt",
+            "url": "https://www.klobuchar.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.klobuchar.senate.gov/public/index.cfm/contact",
+            "domain": "www.klobuchar.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.239,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mn",
+            "office": "302 Hart Senate Office Building",
+            "phone": "202-224-3244",
+            "fax": "202-228-2186",
+            "state": "MN",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S311",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 97.35
+          },
+          {
+            "id": "K000383",
+            "api_uri": "https://api.propublica.org/congress/v1/members/K000383.json",
+            "first_name": "Angus",
+            "middle_name": null,
+            "last_name": "King",
+            "date_of_birth": "1944-03-31",
+            "party": "I",
+            "leadership_role": "",
+            "twitter_account": "SenAngusKing",
+            "facebook_account": "SenatorAngusSKingJr",
+            "youtube_account": "SenatorAngusKing",
+            "govtrack_id": "412545",
+            "cspan_id": "37413",
+            "votesmart_id": "22381",
+            "icpsr_id": "41300",
+            "crp_id": "N00034580",
+            "google_entity_id": "/m/02hfx0",
+            "url": "http://www.king.senate.gov",
+            "rss_url": "https://www.king.senate.gov/rss/feeds/?type=all",
+            "contact_form": "",
+            "domain": "king.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.148,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:me",
+            "office": "",
+            "phone": "202-224-5344",
+            "fax": "",
+            "state": "ME",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S363",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 80.79
+          },
+          {
+            "id": "K000384",
+            "api_uri": "https://api.propublica.org/congress/v1/members/K000384.json",
+            "first_name": "Tim",
+            "middle_name": null,
+            "last_name": "Kaine",
+            "date_of_birth": "1958-02-26",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenKaineOffice",
+            "facebook_account": "SenatorKaine",
+            "youtube_account": "SenatorTimKaine",
+            "govtrack_id": "412582",
+            "cspan_id": "49219",
+            "votesmart_id": "50772",
+            "icpsr_id": "41305",
+            "crp_id": "N00033177",
+            "google_entity_id": "/m/053f8h",
+            "url": "http://www.kaine.senate.gov",
+            "rss_url": "https://www.kaine.senate.gov/rss/feeds/",
+            "contact_form": "https://www.kaine.senate.gov/contact",
+            "domain": "kaine.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.229,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:va",
+            "office": "231 Russell Senate Office Building",
+            "phone": "202-224-4024",
+            "fax": "202-228-6363",
+            "state": "VA",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S362",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 93.92
+          },
+          {
+            "id": "K000393",
+            "api_uri": "https://api.propublica.org/congress/v1/members/K000393.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Kennedy",
+            "date_of_birth": "1951-11-21",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJohnKennedy",
+            "facebook_account": "JohnKennedyLouisiana",
+            "youtube_account": "",
+            "govtrack_id": "412679",
+            "cspan_id": "1011723",
+            "votesmart_id": "35496",
+            "icpsr_id": "",
+            "crp_id": "N00026823",
+            "google_entity_id": "/m/0fl2sv",
+            "url": "https://www.kennedy.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.kennedy.senate.gov/content/contact-senator",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": null,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:la",
+            "office": "B11 Russell Senate Office Building",
+            "phone": "202-224-4623",
+            "fax": "",
+            "state": "LA",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S389",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 97.35
+          },
+          {
+            "id": "L000174",
+            "api_uri": "https://api.propublica.org/congress/v1/members/L000174.json",
+            "first_name": "Patrick",
+            "middle_name": "J.",
+            "last_name": "Leahy",
+            "date_of_birth": "1940-03-31",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorLeahy",
+            "facebook_account": "SenatorPatrickLeahy",
+            "youtube_account": "SenatorPatrickLeahy",
+            "govtrack_id": "300065",
+            "cspan_id": "1552",
+            "votesmart_id": "53353",
+            "icpsr_id": "14307",
+            "crp_id": "N00009918",
+            "google_entity_id": "/m/0202kf",
+            "url": "https://www.leahy.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.leahy.senate.gov/contact/",
+            "domain": "www.leahy.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.375,
+            "ideal_point": null,
+            "seniority": "43",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:vt",
+            "office": "437 Russell Senate Office Building",
+            "phone": "202-224-4242",
+            "fax": "202-224-3479",
+            "state": "VT",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S057",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 98.66
+          },
+          {
+            "id": "L000575",
+            "api_uri": "https://api.propublica.org/congress/v1/members/L000575.json",
+            "first_name": "James",
+            "middle_name": null,
+            "last_name": "Lankford",
+            "date_of_birth": "1968-03-04",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorLankford",
+            "facebook_account": "SenatorLankford",
+            "youtube_account": "SenatorLankford",
+            "govtrack_id": "412464",
+            "cspan_id": "1033847",
+            "votesmart_id": "124938",
+            "icpsr_id": "21166",
+            "crp_id": "N00031129",
+            "google_entity_id": "/m/0dgrrx6",
+            "url": "https://www.lankford.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.lankford.senate.gov/contact/email",
+            "domain": "www.lankford.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.562,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ok",
+            "office": "316 Hart Senate Office Building",
+            "phone": "202-224-5754",
+            "fax": "",
+            "state": "OK",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S378",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "L000577",
+            "api_uri": "https://api.propublica.org/congress/v1/members/L000577.json",
+            "first_name": "Mike",
+            "middle_name": null,
+            "last_name": "Lee",
+            "date_of_birth": "1971-06-04",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenMikeLee",
+            "facebook_account": "senatormikelee",
+            "youtube_account": "senatormikelee",
+            "govtrack_id": "412495",
+            "cspan_id": "9267977",
+            "votesmart_id": "66395",
+            "icpsr_id": "41110",
+            "crp_id": "N00031696",
+            "google_entity_id": "/m/09v5q9x",
+            "url": "https://www.lee.senate.gov/public",
+            "rss_url": "https://www.lee.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.lee.senate.gov/public/index.cfm/contact",
+            "domain": "www.lee.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.921,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ut",
+            "office": "361a Russell Senate Office Building",
+            "phone": "202-224-5444",
+            "fax": "",
+            "state": "UT",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S346",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 94.67
+          },
+          {
+            "id": "M000133",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M000133.json",
+            "first_name": "Edward",
+            "middle_name": "J.",
+            "last_name": "Markey",
+            "date_of_birth": "1946-07-11",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenMarkey",
+            "facebook_account": "EdJMarkey",
+            "youtube_account": "RepMarkey",
+            "govtrack_id": "400253",
+            "cspan_id": "260",
+            "votesmart_id": "26900",
+            "icpsr_id": "14435",
+            "crp_id": "N00000270",
+            "google_entity_id": "/m/028vr4",
+            "url": "http://www.markey.senate.gov",
+            "rss_url": "https://www.markey.senate.gov/rss/feeds/",
+            "contact_form": "https://www.markey.senate.gov/contact",
+            "domain": "markey.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.5,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ma",
+            "office": "255 Dirksen Senate Office Building",
+            "phone": "202-224-2742",
+            "fax": "",
+            "state": "MA",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S369",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 92.67
+          },
+          {
+            "id": "M000303",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M000303.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "McCain",
+            "date_of_birth": "1936-08-29",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJohnMcCain",
+            "facebook_account": "johnmccain",
+            "youtube_account": "SenatorJohnMcCain",
+            "govtrack_id": "300071",
+            "cspan_id": "7476",
+            "votesmart_id": "53270",
+            "icpsr_id": "15039",
+            "crp_id": "N00006424",
+            "google_entity_id": "/m/0bymv",
+            "url": "http://www.mccain.senate.gov",
+            "rss_url": "https://www.mccain.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.mccain.senate.gov/public/index.cfm/contact-form",
+            "domain": "www.mccain.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.381,
+            "ideal_point": null,
+            "seniority": "31",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:az",
+            "office": "218 Russell Senate Office Building",
+            "phone": "202-224-2235",
+            "fax": "202-228-2862",
+            "state": "AZ",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S197",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 95.27
+          },
+          {
+            "id": "M000355",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M000355.json",
+            "first_name": "Mitch",
+            "middle_name": null,
+            "last_name": "McConnell",
+            "date_of_birth": "1942-02-20",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "McConnellPress",
+            "facebook_account": "mitchmcconnell",
+            "youtube_account": "",
+            "govtrack_id": "300072",
+            "cspan_id": "2351",
+            "votesmart_id": "53298",
+            "icpsr_id": "14921",
+            "crp_id": "N00003389",
+            "google_entity_id": "/m/01z6ls",
+            "url": "http://www.mcconnell.senate.gov",
+            "rss_url": "https://www.mcconnell.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.mcconnell.senate.gov/public/index.cfm?p=contact",
+            "domain": "mcconnell.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.404,
+            "ideal_point": null,
+            "seniority": "33",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 1,
+            "ocd_id": "ocd-division/country:us/state:ky",
+            "office": "317 Russell Senate Office Building",
+            "phone": "202-224-2541",
+            "fax": "202-224-2499",
+            "state": "KY",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S174",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.01
+          },
+          {
+            "id": "M000639",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M000639.json",
+            "first_name": "Robert",
+            "middle_name": null,
+            "last_name": "Menendez",
+            "date_of_birth": "1954-01-01",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorMenendez",
+            "facebook_account": "senatormenendez",
+            "youtube_account": "SenatorMenendezNJ",
+            "govtrack_id": "400272",
+            "cspan_id": "29608",
+            "votesmart_id": "26961",
+            "icpsr_id": "29373",
+            "crp_id": "N00000699",
+            "google_entity_id": "/m/033d3p",
+            "url": "https://www.menendez.senate.gov",
+            "rss_url": "https://www.menendez.senate.gov/rss/feeds/?press",
+            "contact_form": "https://www.menendez.senate.gov/contact",
+            "domain": "menendez.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.36,
+            "ideal_point": null,
+            "seniority": "12",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nj",
+            "office": "528 Hart Senate Office Building",
+            "phone": "202-224-4744",
+            "fax": "202-228-2197",
+            "state": "NJ",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S306",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 93.29
+          },
+          {
+            "id": "M000934",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M000934.json",
+            "first_name": "Jerry",
+            "middle_name": null,
+            "last_name": "Moran",
+            "date_of_birth": "1954-05-29",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "JerryMoran",
+            "facebook_account": "jerrymoran",
+            "youtube_account": "senatorjerrymoran",
+            "govtrack_id": "400284",
+            "cspan_id": "45469",
+            "votesmart_id": "542",
+            "icpsr_id": "29722",
+            "crp_id": "N00005282",
+            "google_entity_id": "/m/024s8t",
+            "url": "http://www.moran.senate.gov",
+            "rss_url": "https://www.moran.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.moran.senate.gov/public/index.cfm/e-mail-jerry",
+            "domain": "www.moran.senate.gov/public/",
+            "in_office": "true",
+            "dw_nominate": 0.412,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ks",
+            "office": "521 Dirksen Senate Office Building",
+            "phone": "202-224-6521",
+            "fax": "202-228-6966",
+            "state": "KS",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S347",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 99.32
+          },
+          {
+            "id": "M001111",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001111.json",
+            "first_name": "Patty",
+            "middle_name": null,
+            "last_name": "Murray",
+            "date_of_birth": "1950-10-11",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "PattyMurray",
+            "facebook_account": "",
+            "youtube_account": "SenatorPattyMurray",
+            "govtrack_id": "300076",
+            "cspan_id": "25277",
+            "votesmart_id": "53358",
+            "icpsr_id": "49308",
+            "crp_id": "N00007876",
+            "google_entity_id": "/m/018qx5",
+            "url": "http://www.murray.senate.gov/public",
+            "rss_url": "https://www.murray.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.murray.senate.gov/public/index.cfm/contactme",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.342,
+            "ideal_point": null,
+            "seniority": "25",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wa",
+            "office": "154 Russell Senate Office Building",
+            "phone": "202-224-2621",
+            "fax": "202-224-0238",
+            "state": "WA",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S229",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 96.69
+          },
+          {
+            "id": "M001153",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001153.json",
+            "first_name": "Lisa",
+            "middle_name": null,
+            "last_name": "Murkowski",
+            "date_of_birth": "1957-05-22",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "LisaMurkowski",
+            "facebook_account": "SenLisaMurkowski",
+            "youtube_account": "senatormurkowski",
+            "govtrack_id": "300075",
+            "cspan_id": "1004138",
+            "votesmart_id": "15841",
+            "icpsr_id": "40300",
+            "crp_id": "N00026050",
+            "google_entity_id": "/m/0202kt",
+            "url": "https://www.murkowski.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.murkowski.senate.gov/public/index.cfm/contact",
+            "domain": "www.murkowski.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.208,
+            "ideal_point": null,
+            "seniority": "17",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 6,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ak",
+            "office": "522 Hart Senate Office Building",
+            "phone": "202-224-6665",
+            "fax": "202-224-5301",
+            "state": "AK",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S288",
+            "missed_votes_pct": 3.97,
+            "votes_with_party_pct": 96.55
+          },
+          {
+            "id": "M001169",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001169.json",
+            "first_name": "Christopher",
+            "middle_name": "S.",
+            "last_name": "Murphy",
+            "date_of_birth": "1973-08-03",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "ChrisMurphyCT",
+            "facebook_account": "chrismurphyct",
+            "youtube_account": "senchrismurphy",
+            "govtrack_id": "412194",
+            "cspan_id": "1021270",
+            "votesmart_id": "17189",
+            "icpsr_id": "20707",
+            "crp_id": "N00027566",
+            "google_entity_id": "/m/0cy_dh",
+            "url": "https://www.murphy.senate.gov",
+            "rss_url": "https://www.murphy.senate.gov/rss/feeds/?press",
+            "contact_form": "http://www.murphy.senate.gov/contact",
+            "domain": "murphy.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.311,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ct",
+            "office": "136 Hart Senate Office Building",
+            "phone": "202-224-4041",
+            "fax": "202-225-5933",
+            "state": "CT",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S364",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 95.97
+          },
+          {
+            "id": "M001170",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001170.json",
+            "first_name": "Claire",
+            "middle_name": null,
+            "last_name": "McCaskill",
+            "date_of_birth": "1953-07-24",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "McCaskillOffice",
+            "facebook_account": "senatormccaskill",
+            "youtube_account": "SenatorMcCaskill",
+            "govtrack_id": "412243",
+            "cspan_id": "1012014",
+            "votesmart_id": "2109",
+            "icpsr_id": "40701",
+            "crp_id": "N00027694",
+            "google_entity_id": "/m/040_w4",
+            "url": "https://www.mccaskill.senate.gov",
+            "rss_url": "https://www.mccaskill.senate.gov/rss/feeds/?type=all",
+            "contact_form": "http://www.mccaskill.senate.gov/contact",
+            "domain": "www.mccaskill.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.147,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mo",
+            "office": "503 Hart Senate Office Building",
+            "phone": "202-224-6154",
+            "fax": "202-228-6326",
+            "state": "MO",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S312",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 87.84
+          },
+          {
+            "id": "M001176",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001176.json",
+            "first_name": "Jeff",
+            "middle_name": null,
+            "last_name": "Merkley",
+            "date_of_birth": "1956-10-24",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenJeffMerkley",
+            "facebook_account": "jeffmerkley",
+            "youtube_account": "SenatorJeffMerkley",
+            "govtrack_id": "412325",
+            "cspan_id": "1029842",
+            "votesmart_id": "23644",
+            "icpsr_id": "40908",
+            "crp_id": "N00029303",
+            "google_entity_id": "/m/026k60f",
+            "url": "https://www.merkley.senate.gov",
+            "rss_url": "https://www.merkley.senate.gov/rss/feeds/",
+            "contact_form": "http://www.merkley.senate.gov/contact/",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.436,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:or",
+            "office": "313 Hart Senate Office Building",
+            "phone": "202-224-3753",
+            "fax": "202-228-3997",
+            "state": "OR",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S322",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 91.33
+          },
+          {
+            "id": "M001183",
+            "api_uri": "https://api.propublica.org/congress/v1/members/M001183.json",
+            "first_name": "Joe",
+            "middle_name": null,
+            "last_name": "Manchin III",
+            "date_of_birth": "1947-08-24",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "Sen_JoeManchin",
+            "facebook_account": "JoeManchinIII",
+            "youtube_account": "SenatorJoeManchin",
+            "govtrack_id": "412391",
+            "cspan_id": "62864",
+            "votesmart_id": "7547",
+            "icpsr_id": "40915",
+            "crp_id": "N00032838",
+            "google_entity_id": "/m/04lc5t",
+            "url": "http://www.manchin.senate.gov/public",
+            "rss_url": "https://www.manchin.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "http://www.manchin.senate.gov/public/index.cfm/contact-form",
+            "domain": "www.manchin.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.063,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:wv",
+            "office": "306 Hart Senate Office Building",
+            "phone": "202-224-3954",
+            "fax": "202-228-0002",
+            "state": "WV",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S338",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 72.19
+          },
+          {
+            "id": "N000032",
+            "api_uri": "https://api.propublica.org/congress/v1/members/N000032.json",
+            "first_name": "Bill",
+            "middle_name": null,
+            "last_name": "Nelson",
+            "date_of_birth": "1942-09-29",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenBillNelson",
+            "facebook_account": "",
+            "youtube_account": "senbillnelson",
+            "govtrack_id": "300078",
+            "cspan_id": "1931",
+            "votesmart_id": "1606",
+            "icpsr_id": "14651",
+            "crp_id": "N00009926",
+            "google_entity_id": "/m/01_pb_",
+            "url": "https://www.billnelson.senate.gov",
+            "rss_url": "https://www.billnelson.senate.gov/rss.xml",
+            "contact_form": "https://www.billnelson.senate.gov/contact-bill",
+            "domain": "billnelson.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.192,
+            "ideal_point": null,
+            "seniority": "17",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:fl",
+            "office": "716 Hart Senate Office Building",
+            "phone": "202-224-5274",
+            "fax": "202-228-2183",
+            "state": "FL",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S282",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 90.73
+          },
+          {
+            "id": "P000449",
+            "api_uri": "https://api.propublica.org/congress/v1/members/P000449.json",
+            "first_name": "Rob",
+            "middle_name": "",
+            "last_name": "Portman",
+            "date_of_birth": "1955-12-19",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenRobPortman",
+            "facebook_account": "senrobportman",
+            "youtube_account": "SenRobPortman",
+            "govtrack_id": "400325",
+            "cspan_id": "31819",
+            "votesmart_id": "27008",
+            "icpsr_id": "29386",
+            "crp_id": "N00003682",
+            "google_entity_id": "/m/0343xg",
+            "url": "http://www.portman.senate.gov",
+            "rss_url": "https://www.portman.senate.gov/public/index.cfm/rss/feed",
+            "contact_form": "https://www.portman.senate.gov/public/index.cfm/contact?p=contact-form",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.375,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:oh",
+            "office": "448 Russell Senate Office Building",
+            "phone": "202-224-3353",
+            "fax": "",
+            "state": "OH",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S349",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.01
+          },
+          {
+            "id": "P000595",
+            "api_uri": "https://api.propublica.org/congress/v1/members/P000595.json",
+            "first_name": "Gary",
+            "middle_name": null,
+            "last_name": "Peters",
+            "date_of_birth": "1958-12-01",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenGaryPeters",
+            "facebook_account": "SenGaryPeters",
+            "youtube_account": "RepGaryPeters",
+            "govtrack_id": "412305",
+            "cspan_id": "50199",
+            "votesmart_id": "8749",
+            "icpsr_id": "20923",
+            "crp_id": "N00029277",
+            "google_entity_id": "/m/02x0lnt",
+            "url": "https://www.peters.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.peters.senate.gov/contact/email-gary",
+            "domain": "www.peters.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.232,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mi",
+            "office": "724 Hart Senate Office Building",
+            "phone": "202-224-6221",
+            "fax": "202-226-2356",
+            "state": "MI",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S380",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 96.64
+          },
+          {
+            "id": "P000603",
+            "api_uri": "https://api.propublica.org/congress/v1/members/P000603.json",
+            "first_name": "Rand",
+            "middle_name": null,
+            "last_name": "Paul",
+            "date_of_birth": "1963-01-07",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "",
+            "facebook_account": "SenatorRandPaul",
+            "youtube_account": "SenatorRandPaul",
+            "govtrack_id": "412492",
+            "cspan_id": "9265241",
+            "votesmart_id": "117285",
+            "icpsr_id": "41104",
+            "crp_id": "N00030836",
+            "google_entity_id": "/m/05pdb7q",
+            "url": "https://www.paul.senate.gov",
+            "rss_url": "https://www.paul.senate.gov/rss/feeds/",
+            "contact_form": "https://www.paul.senate.gov/connect/email-rand",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.882,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 4,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ky",
+            "office": "167 Russell Senate Office Building",
+            "phone": "202-224-4343",
+            "fax": "202-228-1373",
+            "state": "KY",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S348",
+            "missed_votes_pct": 2.65,
+            "votes_with_party_pct": 88.44
+          },
+          {
+            "id": "P000612",
+            "api_uri": "https://api.propublica.org/congress/v1/members/P000612.json",
+            "first_name": "David",
+            "middle_name": null,
+            "last_name": "Perdue",
+            "date_of_birth": "1949-12-10",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "sendavidperdue",
+            "facebook_account": "SenatorDavidPerdue",
+            "youtube_account": "",
+            "govtrack_id": "412666",
+            "cspan_id": "75920",
+            "votesmart_id": "151330",
+            "icpsr_id": "41501",
+            "crp_id": "N00035516",
+            "google_entity_id": "/m/03wp8v4",
+            "url": "http://www.perdue.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.perdue.senate.gov/connect/email",
+            "domain": "www.perdue.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.659,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 1,
+            "ocd_id": "ocd-division/country:us/state:ga",
+            "office": "383 Russell Senate Office Building",
+            "phone": "202-224-3521",
+            "fax": "",
+            "state": "GA",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S379",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 98.67
+          },
+          {
+            "id": "R000122",
+            "api_uri": "https://api.propublica.org/congress/v1/members/R000122.json",
+            "first_name": "Jack",
+            "middle_name": null,
+            "last_name": "Reed",
+            "date_of_birth": "1949-11-12",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenJackReed",
+            "facebook_account": "SenJackReed",
+            "youtube_account": "SenatorReed",
+            "govtrack_id": "300081",
+            "cspan_id": "24239",
+            "votesmart_id": "27060",
+            "icpsr_id": "29142",
+            "crp_id": "N00000362",
+            "google_entity_id": "/m/0202mc",
+            "url": "https://www.reed.senate.gov",
+            "rss_url": "https://www.reed.senate.gov/rss/feeds/?type=press",
+            "contact_form": "https://www.reed.senate.gov/contact/",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.39,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ri",
+            "office": "728 Hart Senate Office Building",
+            "phone": "202-224-4642",
+            "fax": "202-224-4680",
+            "state": "RI",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S259",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 95.36
+          },
+          {
+            "id": "R000307",
+            "api_uri": "https://api.propublica.org/congress/v1/members/R000307.json",
+            "first_name": "Pat",
+            "middle_name": null,
+            "last_name": "Roberts",
+            "date_of_birth": "1936-04-20",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenPatRoberts",
+            "facebook_account": "SenPatRoberts",
+            "youtube_account": "SenPatRoberts",
+            "govtrack_id": "300083",
+            "cspan_id": "16354",
+            "votesmart_id": "26866",
+            "icpsr_id": "14852",
+            "crp_id": "N00005285",
+            "google_entity_id": "/m/01_pdv",
+            "url": "http://www.roberts.senate.gov",
+            "rss_url": "https://www.roberts.senate.gov/public/index.cfm?a=RSS.Feed",
+            "contact_form": "https://www.roberts.senate.gov/public/?p=EmailPat",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.415,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ks",
+            "office": "109 Hart Senate Office Building",
+            "phone": "202-224-4774",
+            "fax": "202-224-3514",
+            "state": "KS",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S260",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "R000584",
+            "api_uri": "https://api.propublica.org/congress/v1/members/R000584.json",
+            "first_name": "Jim",
+            "middle_name": null,
+            "last_name": "Risch",
+            "date_of_birth": "1943-05-03",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorRisch",
+            "facebook_account": "",
+            "youtube_account": "SenatorJamesRisch",
+            "govtrack_id": "412322",
+            "cspan_id": "1020034",
+            "votesmart_id": "2919",
+            "icpsr_id": "40902",
+            "crp_id": "N00029441",
+            "google_entity_id": "/m/06y9p0",
+            "url": "http://www.risch.senate.gov",
+            "rss_url": "https://www.risch.senate.gov/public/?a=rss.feed",
+            "contact_form": "http://www.risch.senate.gov/public/index.cfm?p=Email",
+            "domain": "www.risch.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.631,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:id",
+            "office": "483 Russell Senate Office Building",
+            "phone": "202-224-2752",
+            "fax": "202-224-2573",
+            "state": "ID",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S323",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 98.67
+          },
+          {
+            "id": "R000595",
+            "api_uri": "https://api.propublica.org/congress/v1/members/R000595.json",
+            "first_name": "Marco",
+            "middle_name": null,
+            "last_name": "Rubio",
+            "date_of_birth": "1971-05-28",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenRubioPress",
+            "facebook_account": "SenatorMarcoRubio",
+            "youtube_account": "SenatorMarcoRubio",
+            "govtrack_id": "412491",
+            "cspan_id": "87599",
+            "votesmart_id": "1601",
+            "icpsr_id": "41102",
+            "crp_id": "N00030612",
+            "google_entity_id": "/m/0dpr5f",
+            "url": "http://www.rubio.senate.gov",
+            "rss_url": "https://www.rubio.senate.gov/public/?a=rss.feed",
+            "contact_form": "http://www.rubio.senate.gov/public/index.cfm/contact",
+            "domain": "www.rubio.senate.gov/public/",
+            "in_office": "true",
+            "dw_nominate": 0.59,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:fl",
+            "office": "284 Russell Senate Office Building",
+            "phone": "202-224-3041",
+            "fax": "202-228-0285",
+            "state": "FL",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S350",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 98.00
+          },
+          {
+            "id": "R000605",
+            "api_uri": "https://api.propublica.org/congress/v1/members/R000605.json",
+            "first_name": "Mike",
+            "middle_name": null,
+            "last_name": "Rounds",
+            "date_of_birth": "1954-10-24",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorRounds",
+            "facebook_account": "SenatorMikeRounds",
+            "youtube_account": "",
+            "govtrack_id": "412669",
+            "cspan_id": "78317",
+            "votesmart_id": "7455",
+            "icpsr_id": "41505",
+            "crp_id": "N00035187",
+            "google_entity_id": "/m/020z2p",
+            "url": "http://www.rounds.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.rounds.senate.gov/contact/email-mike",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.382,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:sd",
+            "office": "502 Hart Senate Office Building",
+            "phone": "202-224-5842",
+            "fax": "",
+            "state": "SD",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S381",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "S000033",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S000033.json",
+            "first_name": "Bernard",
+            "middle_name": null,
+            "last_name": "Sanders",
+            "date_of_birth": "1941-09-08",
+            "party": "I",
+            "leadership_role": "",
+            "twitter_account": "SenSanders",
+            "facebook_account": "senatorsanders",
+            "youtube_account": "senatorsanders",
+            "govtrack_id": "400357",
+            "cspan_id": "994",
+            "votesmart_id": "27110",
+            "icpsr_id": "29147",
+            "crp_id": "N00000528",
+            "google_entity_id": "/m/01_gbv",
+            "url": "https://www.sanders.senate.gov",
+            "rss_url": "https://www.sanders.senate.gov/rss/feeds/?type=all",
+            "contact_form": "",
+            "domain": "www.sanders.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.51,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 5,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:vt",
+            "office": "",
+            "phone": "202-224-5141",
+            "fax": "",
+            "state": "VT",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S313",
+            "missed_votes_pct": 3.31,
+            "votes_with_party_pct": 86.30
+          },
+          {
+            "id": "S000148",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S000148.json",
+            "first_name": "Charles",
+            "middle_name": "E.",
+            "last_name": "Schumer",
+            "date_of_birth": "1950-11-23",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenSchumer",
+            "facebook_account": "senschumer",
+            "youtube_account": "SenatorSchumer",
+            "govtrack_id": "300087",
+            "cspan_id": "5929",
+            "votesmart_id": "26976",
+            "icpsr_id": "14858",
+            "crp_id": "N00001093",
+            "google_entity_id": "/m/01w74d",
+            "url": "https://www.schumer.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.schumer.senate.gov/contact/email-chuck",
+            "domain": "www.schumer.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.35,
+            "ideal_point": null,
+            "seniority": "19",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ny",
+            "office": "322 Hart Senate Office Building",
+            "phone": "202-224-6542",
+            "fax": "202-228-3027",
+            "state": "NY",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S270",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 94.04
+          },
+          {
+            "id": "S000320",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S000320.json",
+            "first_name": "Richard",
+            "middle_name": "C.",
+            "last_name": "Shelby",
+            "date_of_birth": "1934-05-06",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenShelby",
+            "facebook_account": "RichardShelby",
+            "youtube_account": "SenatorRichardShelby",
+            "govtrack_id": "300089",
+            "cspan_id": "1859",
+            "votesmart_id": "53266",
+            "icpsr_id": "94659",
+            "crp_id": "N00009920",
+            "google_entity_id": "/m/020yj1",
+            "url": "http://www.shelby.senate.gov",
+            "rss_url": "https://www.shelby.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.shelby.senate.gov/public/index.cfm/emailsenatorshelby",
+            "domain": "www.shelby.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.433,
+            "ideal_point": null,
+            "seniority": "31",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:al",
+            "office": "304 Russell Senate Office Building",
+            "phone": "202-224-5744",
+            "fax": "202-224-3416",
+            "state": "AL",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S184",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 99.33
+          },
+          {
+            "id": "S000770",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S000770.json",
+            "first_name": "Debbie",
+            "middle_name": null,
+            "last_name": "Stabenow",
+            "date_of_birth": "1950-04-29",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenStabenow",
+            "facebook_account": "",
+            "youtube_account": "senatorstabenow",
+            "govtrack_id": "300093",
+            "cspan_id": "45451",
+            "votesmart_id": "515",
+            "icpsr_id": "29732",
+            "crp_id": "N00004118",
+            "google_entity_id": "/m/01xh64",
+            "url": "http://www.stabenow.senate.gov",
+            "rss_url": "",
+            "contact_form": "http://www.stabenow.senate.gov/?p=contact",
+            "domain": "www.stabenow.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.327,
+            "ideal_point": null,
+            "seniority": "17",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mi",
+            "office": "731 Hart Senate Office Building",
+            "phone": "202-224-4822",
+            "fax": "202-228-0325",
+            "state": "MI",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S284",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 97.33
+          },
+          {
+            "id": "S001141",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001141.json",
+            "first_name": "Jeff",
+            "middle_name": null,
+            "last_name": "Sessions",
+            "date_of_birth": "1946-12-24",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorSessions",
+            "facebook_account": "jeffsessions",
+            "youtube_account": "SenatorSessions",
+            "govtrack_id": "300088",
+            "cspan_id": "44441",
+            "votesmart_id": "",
+            "icpsr_id": "49700",
+            "crp_id": "",
+            "google_entity_id": "/m/020yjg",
+            "url": "http://www.sessions.senate.gov/public",
+            "rss_url": "",
+            "contact_form": "",
+            "domain": "sessions.senate.gov",
+            "in_office": "false",
+            "dw_nominate": 0.549,
+            "ideal_point": null,
+            "seniority": "21",
+            "next_election": "2020",
+            "total_votes": 60,
+            "missed_votes": 39,
+            "total_present": 2,
+            "ocd_id": "ocd-division/country:us/state:al",
+            "office": "",
+            "phone": "202-224-4124",
+            "fax": "",
+            "state": "AL",
+            "senate_class": "2",
+            "state_rank": "",
+            "lis_id": "S261",
+            "missed_votes_pct": 65.00,
+            "votes_with_party_pct": 90.48
+          },
+          {
+            "id": "S001181",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001181.json",
+            "first_name": "Jeanne",
+            "middle_name": null,
+            "last_name": "Shaheen",
+            "date_of_birth": "1947-01-28",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorShaheen",
+            "facebook_account": "SenatorShaheen",
+            "youtube_account": "senatorshaheen",
+            "govtrack_id": "412323",
+            "cspan_id": "22850",
+            "votesmart_id": "1663",
+            "icpsr_id": "40906",
+            "crp_id": "N00024790",
+            "google_entity_id": "/m/01rrm2",
+            "url": "https://www.shaheen.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.shaheen.senate.gov/contact/contact-jeanne",
+            "domain": "www.shaheen.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.272,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nh",
+            "office": "506 Hart Senate Office Building",
+            "phone": "202-224-2841",
+            "fax": "202-228-3194",
+            "state": "NH",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S324",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 96.69
+          },
+          {
+            "id": "S001184",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001184.json",
+            "first_name": "Tim",
+            "middle_name": null,
+            "last_name": "Scott",
+            "date_of_birth": "1965-09-19",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorTimScott",
+            "facebook_account": "SenatorTimScott",
+            "youtube_account": "SenatorTimScott",
+            "govtrack_id": "412471",
+            "cspan_id": "623506",
+            "votesmart_id": "11940",
+            "icpsr_id": "21173",
+            "crp_id": "N00031782",
+            "google_entity_id": "/m/0c407g6",
+            "url": "https://www.scott.senate.gov",
+            "rss_url": "https://www.scott.senate.gov/rss.xml",
+            "contact_form": "https://www.scott.senate.gov/contact/email-me",
+            "domain": "scott.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.669,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:sc",
+            "office": "717 Hart Senate Office Building",
+            "phone": "202-224-6121",
+            "fax": "202-225-3407",
+            "state": "SC",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S365",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.68
+          },
+          {
+            "id": "S001194",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001194.json",
+            "first_name": "Brian",
+            "middle_name": null,
+            "last_name": "Schatz",
+            "date_of_birth": "1972-10-20",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenBrianSchatz",
+            "facebook_account": "SenBrianSchatz",
+            "youtube_account": "senbrianschatz",
+            "govtrack_id": "412507",
+            "cspan_id": "87784",
+            "votesmart_id": "17852",
+            "icpsr_id": "41112",
+            "crp_id": "N00028138",
+            "google_entity_id": "/m/0dd109",
+            "url": "http://www.schatz.senate.gov",
+            "rss_url": "https://www.schatz.senate.gov/rss/feeds/?press",
+            "contact_form": "https://www.schatz.senate.gov/contact",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": -0.389,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:hi",
+            "office": "722 Hart Senate Office Building",
+            "phone": "202-224-3934",
+            "fax": "202-228-1153",
+            "state": "HI",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S353",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 94.63
+          },
+          {
+            "id": "S001197",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001197.json",
+            "first_name": "Ben",
+            "middle_name": "",
+            "last_name": "Sasse",
+            "date_of_birth": "1972-02-22",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenSasse",
+            "facebook_account": "SenatorSasse",
+            "youtube_account": "",
+            "govtrack_id": "412671",
+            "cspan_id": "77429",
+            "votesmart_id": "150182",
+            "icpsr_id": "41503",
+            "crp_id": "N00035544",
+            "google_entity_id": "/m/0j5wk_6",
+            "url": "http://www.sasse.senate.gov/public",
+            "rss_url": "https://www.sasse.senate.gov/public/?a=rss.feed",
+            "contact_form": "http://www.sasse.senate.gov/public/index.cfm/email-ben",
+            "domain": "www.sasse.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.833,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ne",
+            "office": "136 Russell Senate Office Building",
+            "phone": "202-224-4224",
+            "fax": "",
+            "state": "NE",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S382",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 96.62
+          },
+          {
+            "id": "S001198",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001198.json",
+            "first_name": "Dan",
+            "middle_name": null,
+            "last_name": "Sullivan",
+            "date_of_birth": "1964-11-13",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenDanSullivan",
+            "facebook_account": "SenDanSullivan",
+            "youtube_account": "",
+            "govtrack_id": "412665",
+            "cspan_id": "1023262",
+            "votesmart_id": "114964",
+            "icpsr_id": "41500",
+            "crp_id": "N00035774",
+            "google_entity_id": "/m/07s4r4q",
+            "url": "http://www.sullivan.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.sullivan.senate.gov/contact/email",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.46,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 4,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ak",
+            "office": "702 Hart Senate Office Building",
+            "phone": "202-224-3004",
+            "fax": "",
+            "state": "AK",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S383",
+            "missed_votes_pct": 2.65,
+            "votes_with_party_pct": 99.32
+          },
+          {
+            "id": "S001202",
+            "api_uri": "https://api.propublica.org/congress/v1/members/S001202.json",
+            "first_name": "Luther",
+            "middle_name": null,
+            "last_name": "Strange",
+            "date_of_birth": "1953-03-01",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorStrange",
+            "facebook_account": "SenatorLutherStrange",
+            "youtube_account": "",
+            "govtrack_id": "412734",
+            "cspan_id": "9278255",
+            "votesmart_id": "",
+            "icpsr_id": "",
+            "crp_id": "",
+            "google_entity_id": "/m/06w5pjw",
+            "url": "https://www.strange.senate.gov/",
+            "rss_url": "",
+            "contact_form": "https://www.strange.senate.gov/content/contact-senator",
+            "domain": "www.strange.senate.gov",
+            "in_office": "true",
+            "dw_nominate": null,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2020",
+            "total_votes": 91,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:al",
+            "office": "326 Russell Senate Office Building",
+            "phone": "202-224-4124",
+            "fax": "202-224-3149",
+            "state": "AL",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S392",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.90
+          },
+          {
+            "id": "T000250",
+            "api_uri": "https://api.propublica.org/congress/v1/members/T000250.json",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Thune",
+            "date_of_birth": "1961-01-07",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenJohnThune",
+            "facebook_account": "",
+            "youtube_account": "johnthune",
+            "govtrack_id": "400546",
+            "cspan_id": "45552",
+            "votesmart_id": "398",
+            "icpsr_id": "29754",
+            "crp_id": "N00004572",
+            "google_entity_id": "/m/03ybyn",
+            "url": "https://www.thune.senate.gov",
+            "rss_url": "https://www.thune.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.thune.senate.gov/public/index.cfm/contact",
+            "domain": "www.thune.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.409,
+            "ideal_point": null,
+            "seniority": "13",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:sd",
+            "office": "511 Dirksen Senate Office Building",
+            "phone": "202-224-2321",
+            "fax": "202-228-5429",
+            "state": "SD",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S303",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 99.34
+          },
+          {
+            "id": "T000461",
+            "api_uri": "https://api.propublica.org/congress/v1/members/T000461.json",
+            "first_name": "Patrick",
+            "middle_name": "J.",
+            "last_name": "Toomey",
+            "date_of_birth": "1961-11-17",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenToomey",
+            "facebook_account": "senatortoomey",
+            "youtube_account": "sentoomey",
+            "govtrack_id": "400408",
+            "cspan_id": "7958",
+            "votesmart_id": "24096",
+            "icpsr_id": "29935",
+            "crp_id": "N00001489",
+            "google_entity_id": "/m/02_kk7",
+            "url": "http://www.toomey.senate.gov",
+            "rss_url": "https://www.toomey.senate.gov/rss/",
+            "contact_form": "https://www.toomey.senate.gov/?p=contact",
+            "domain": "",
+            "in_office": "true",
+            "dw_nominate": 0.63,
+            "ideal_point": null,
+            "seniority": "7",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 5,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:pa",
+            "office": "248 Russell Senate Office Building",
+            "phone": "202-224-4254",
+            "fax": "202-228-0284",
+            "state": "PA",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S351",
+            "missed_votes_pct": 3.31,
+            "votes_with_party_pct": 97.95
+          },
+          {
+            "id": "T000464",
+            "api_uri": "https://api.propublica.org/congress/v1/members/T000464.json",
+            "first_name": "Jon",
+            "middle_name": null,
+            "last_name": "Tester",
+            "date_of_birth": "1956-08-21",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorTester",
+            "facebook_account": "senatortester",
+            "youtube_account": "senatorjontester",
+            "govtrack_id": "412244",
+            "cspan_id": "1020176",
+            "votesmart_id": "20928",
+            "icpsr_id": "40702",
+            "crp_id": "N00027605",
+            "google_entity_id": "/m/066cdp",
+            "url": "http://www.tester.senate.gov",
+            "rss_url": "https://www.tester.senate.gov/rss/",
+            "contact_form": "https://www.tester.senate.gov/?p=email_senator",
+            "domain": "www.tester.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.214,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:mt",
+            "office": "311 Hart Senate Office Building",
+            "phone": "202-224-2644",
+            "fax": "202-224-8594",
+            "state": "MT",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S314",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 88.74
+          },
+          {
+            "id": "T000476",
+            "api_uri": "https://api.propublica.org/congress/v1/members/T000476.json",
+            "first_name": "Thom",
+            "middle_name": null,
+            "last_name": "Tillis",
+            "date_of_birth": "1960-08-30",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "senthomtillis",
+            "facebook_account": "SenatorThomTillis",
+            "youtube_account": "",
+            "govtrack_id": "412668",
+            "cspan_id": "77055",
+            "votesmart_id": "57717",
+            "icpsr_id": "41504",
+            "crp_id": "N00035492",
+            "google_entity_id": "/m/0fq0395",
+            "url": "https://www.tillis.senate.gov/public/index.cfm/home",
+            "rss_url": "https://www.tillis.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.tillis.senate.gov/public/index.cfm/email-me",
+            "domain": "www.tillis.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.441,
+            "ideal_point": null,
+            "seniority": "3",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 7,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nc",
+            "office": "185 Dirksen Senate Office Building",
+            "phone": "202-224-6342",
+            "fax": "",
+            "state": "NC",
+            "senate_class": "2",
+            "state_rank": "junior",
+            "lis_id": "S384",
+            "missed_votes_pct": 4.64,
+            "votes_with_party_pct": 100.00
+          },
+          {
+            "id": "U000039",
+            "api_uri": "https://api.propublica.org/congress/v1/members/U000039.json",
+            "first_name": "Tom",
+            "middle_name": null,
+            "last_name": "Udall",
+            "date_of_birth": "1948-05-18",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenatorTomUdall",
+            "facebook_account": "senatortomudall",
+            "youtube_account": "senatortomudall",
+            "govtrack_id": "400413",
+            "cspan_id": "10075",
+            "votesmart_id": "22658",
+            "icpsr_id": "29924",
+            "crp_id": "N00006561",
+            "google_entity_id": "/m/033t35",
+            "url": "http://www.tomudall.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.tomudall.senate.gov/?p=contact",
+            "domain": "www.tomudall.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.456,
+            "ideal_point": null,
+            "seniority": "10",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 2,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:nm",
+            "office": "531 Hart Senate Office Building",
+            "phone": "202-224-6621",
+            "fax": "202-228-3261",
+            "state": "NM",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S326",
+            "missed_votes_pct": 1.32,
+            "votes_with_party_pct": 91.28
+          },
+          {
+            "id": "V000128",
+            "api_uri": "https://api.propublica.org/congress/v1/members/V000128.json",
+            "first_name": "Chris",
+            "middle_name": null,
+            "last_name": "Van Hollen",
+            "date_of_birth": "1959-01-10",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "ChrisVanHollen",
+            "facebook_account": "chrisvanhollen",
+            "youtube_account": "RepChrisVanHollen",
+            "govtrack_id": "400415",
+            "cspan_id": "20756",
+            "votesmart_id": "6098",
+            "icpsr_id": "20330",
+            "crp_id": "N00013820",
+            "google_entity_id": "/m/025kb5",
+            "url": "https://www.vanhollen.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.vanhollen.senate.gov/content/contact-senator",
+            "domain": "www.vanhollen.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.4,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 1,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:md",
+            "office": "110 Hart Senate Office Building",
+            "phone": "202-224-4654",
+            "fax": "202-225-0375",
+            "state": "MD",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S390",
+            "missed_votes_pct": 0.66,
+            "votes_with_party_pct": 96.67
+          },
+          {
+            "id": "W000437",
+            "api_uri": "https://api.propublica.org/congress/v1/members/W000437.json",
+            "first_name": "Roger",
+            "middle_name": null,
+            "last_name": "Wicker",
+            "date_of_birth": "1951-07-05",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "SenatorWicker",
+            "facebook_account": "SenatorWicker",
+            "youtube_account": "SenatorWicker",
+            "govtrack_id": "400432",
+            "cspan_id": "18203",
+            "votesmart_id": "21926",
+            "icpsr_id": "29534",
+            "crp_id": "N00003280",
+            "google_entity_id": "/m/025xxb",
+            "url": "https://www.wicker.senate.gov",
+            "rss_url": "https://www.wicker.senate.gov/public/?a=rss.feed",
+            "contact_form": "https://www.wicker.senate.gov/public/index.cfm/contact",
+            "domain": "www.wicker.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.376,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ms",
+            "office": "555 Dirksen Senate Office Building",
+            "phone": "202-224-6253",
+            "fax": "202-228-0378",
+            "state": "MS",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S318",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.01
+          },
+          {
+            "id": "W000779",
+            "api_uri": "https://api.propublica.org/congress/v1/members/W000779.json",
+            "first_name": "Ron",
+            "middle_name": null,
+            "last_name": "Wyden",
+            "date_of_birth": "1949-05-03",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "RonWyden",
+            "facebook_account": "",
+            "youtube_account": "senronwyden",
+            "govtrack_id": "300100",
+            "cspan_id": "1962",
+            "votesmart_id": "27036",
+            "icpsr_id": "14871",
+            "crp_id": "N00007724",
+            "google_entity_id": "/m/0178p9",
+            "url": "https://www.wyden.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.wyden.senate.gov/contact/",
+            "domain": "www.wyden.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.314,
+            "ideal_point": null,
+            "seniority": "22",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 1,
+            "ocd_id": "ocd-division/country:us/state:or",
+            "office": "221 Dirksen Senate Office Building",
+            "phone": "202-224-5244",
+            "fax": "202-228-2717",
+            "state": "OR",
+            "senate_class": "3",
+            "state_rank": "senior",
+            "lis_id": "S247",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 92.72
+          },
+          {
+            "id": "W000802",
+            "api_uri": "https://api.propublica.org/congress/v1/members/W000802.json",
+            "first_name": "Sheldon",
+            "middle_name": null,
+            "last_name": "Whitehouse",
+            "date_of_birth": "1955-10-20",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenWhitehouse",
+            "facebook_account": "SenatorWhitehouse",
+            "youtube_account": "SenatorWhitehouse",
+            "govtrack_id": "412247",
+            "cspan_id": "92235",
+            "votesmart_id": "2572",
+            "icpsr_id": "40704",
+            "crp_id": "N00027533",
+            "google_entity_id": "/m/07qw94",
+            "url": "https://www.whitehouse.senate.gov",
+            "rss_url": "https://www.whitehouse.senate.gov/rss/feeds/?type=all&amp;cachebuster=1",
+            "contact_form": "",
+            "domain": "www.whitehouse.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.428,
+            "ideal_point": null,
+            "seniority": "11",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ri",
+            "office": "",
+            "phone": "202-224-2921",
+            "fax": "",
+            "state": "RI",
+            "senate_class": "1",
+            "state_rank": "junior",
+            "lis_id": "S316",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 96.03
+          },
+          {
+            "id": "W000805",
+            "api_uri": "https://api.propublica.org/congress/v1/members/W000805.json",
+            "first_name": "Mark",
+            "middle_name": null,
+            "last_name": "Warner",
+            "date_of_birth": "1954-12-15",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "MarkWarner",
+            "facebook_account": "MarkRWarner",
+            "youtube_account": "SenatorMarkWarner",
+            "govtrack_id": "412321",
+            "cspan_id": "7630",
+            "votesmart_id": "535",
+            "icpsr_id": "40909",
+            "crp_id": "N00002097",
+            "google_entity_id": "/m/024mm1",
+            "url": "http://www.warner.senate.gov",
+            "rss_url": "https://www.warner.senate.gov/public/?a=RSS.Feed",
+            "contact_form": "http://www.warner.senate.gov/public/index.cfm?p=Contact",
+            "domain": "www.warner.senate.gov/public/",
+            "in_office": "true",
+            "dw_nominate": -0.197,
+            "ideal_point": null,
+            "seniority": "9",
+            "next_election": "2020",
+            "total_votes": 151,
+            "missed_votes": 3,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:va",
+            "office": "703 Hart Senate Office Building",
+            "phone": "202-224-2023",
+            "fax": "202-224-6295",
+            "state": "VA",
+            "senate_class": "2",
+            "state_rank": "senior",
+            "lis_id": "S327",
+            "missed_votes_pct": 1.99,
+            "votes_with_party_pct": 85.14
+          },
+          {
+            "id": "W000817",
+            "api_uri": "https://api.propublica.org/congress/v1/members/W000817.json",
+            "first_name": "Elizabeth",
+            "middle_name": null,
+            "last_name": "Warren",
+            "date_of_birth": "1949-06-22",
+            "party": "D",
+            "leadership_role": "",
+            "twitter_account": "SenWarren",
+            "facebook_account": "senatorelizabethwarren",
+            "youtube_account": "senelizabethwarren",
+            "govtrack_id": "412542",
+            "cspan_id": "1023023",
+            "votesmart_id": "141272",
+            "icpsr_id": "41301",
+            "crp_id": "N00033492",
+            "google_entity_id": "/m/01qh39",
+            "url": "https://www.warren.senate.gov",
+            "rss_url": "https://www.warren.senate.gov/rss/",
+            "contact_form": "https://www.warren.senate.gov/?p=email_senator",
+            "domain": "www.warren.senate.gov",
+            "in_office": "true",
+            "dw_nominate": -0.738,
+            "ideal_point": null,
+            "seniority": "5",
+            "next_election": "2018",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:ma",
+            "office": "317 Hart Senate Office Building",
+            "phone": "202-224-4543",
+            "fax": "202-228-2072",
+            "state": "MA",
+            "senate_class": "1",
+            "state_rank": "senior",
+            "lis_id": "S366",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 85.43
+          },
+          {
+            "id": "Y000064",
+            "api_uri": "https://api.propublica.org/congress/v1/members/Y000064.json",
+            "first_name": "Todd",
+            "middle_name": null,
+            "last_name": "Young",
+            "date_of_birth": "1972-08-24",
+            "party": "R",
+            "leadership_role": "",
+            "twitter_account": "RepToddYoung",
+            "facebook_account": "SenatorToddYoung",
+            "youtube_account": "RepToddYoung",
+            "govtrack_id": "412428",
+            "cspan_id": "1033743",
+            "votesmart_id": "120345",
+            "icpsr_id": "21133",
+            "crp_id": "N00030670",
+            "google_entity_id": "/m/0ds030m",
+            "url": "https://www.young.senate.gov",
+            "rss_url": "",
+            "contact_form": "https://www.young.senate.gov/content/contact-senator",
+            "domain": "www.young.senate.gov",
+            "in_office": "true",
+            "dw_nominate": 0.489,
+            "ideal_point": null,
+            "seniority": "1",
+            "next_election": "2022",
+            "total_votes": 151,
+            "missed_votes": 0,
+            "total_present": 0,
+            "ocd_id": "ocd-division/country:us/state:in",
+            "office": "B33 Russell Senate Office Building",
+            "phone": "202-224-5623",
+            "fax": "202-226-6866",
+            "state": "IN",
+            "senate_class": "3",
+            "state_rank": "junior",
+            "lis_id": "S391",
+            "missed_votes_pct": 0.00,
+            "votes_with_party_pct": 98.01
+          }
+        ]
+      }
+    ]
+  }`
 };

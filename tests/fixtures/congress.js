@@ -16,7 +16,11 @@ export const COMPLETE_CONGRESS = {
       },
       title: 'Rep.',
       party: 'Democrat',
-      phone: '(202) 225-4965'
+      phone: '202-225-4965',
+      twitter: 'NancyPelosi',
+      govtrack: '400314',
+      cspan: '6153',
+      next_election: '2018'
     }
   ],
   senators: [
@@ -27,7 +31,11 @@ export const COMPLETE_CONGRESS = {
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3841'
+      phone: '202-224-3841',
+      twitter: 'SenFeinstein',
+      govtrack: '300043',
+      cspan: '13061',
+      next_election: '2018'
     }, {
       person: {
         firstname: 'Kamala D.',
@@ -35,7 +43,11 @@ export const COMPLETE_CONGRESS = {
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3553'
+      phone: '202-224-3553',
+      twitter: 'SenKamalaHarris',
+      govtrack: '412678',
+      cspan: '1018696',
+      next_election: '2022'
     }
   ]
 };
@@ -49,7 +61,11 @@ export const NO_DISTRICT = {
       },
       title: 'Rep.',
       party: 'Democrat',
-      phone: '(202) 225-4965'
+      phone: '202-225-4965',
+      twitter: 'NancyPelosi',
+      govtrack: '400314',
+      cspan: '6153',
+      next_election: '2018'
     }
   ],
   senators: [
@@ -60,7 +76,11 @@ export const NO_DISTRICT = {
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3841'
+      phone: '202-224-3841',
+      twitter: 'SenFeinstein',
+      govtrack: '300043',
+      cspan: '13061',
+      next_election: '2018'
     }, {
       person: {
         firstname: 'Kamala D.',
@@ -68,7 +88,11 @@ export const NO_DISTRICT = {
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3553'
+      phone: '202-224-3553',
+      twitter: 'SenKamalaHarris',
+      govtrack: '412678',
+      cspan: '1018696',
+      next_election: '2022'
     }
   ]
 };
@@ -103,7 +127,11 @@ export const NO_SENATORS = {
       },
       title: 'Rep.',
       party: 'Democrat',
-      phone: '(202) 225-4965'
+      phone: '202-225-4965',
+      twitter: 'NancyPelosi',
+      govtrack: '400314',
+      cspan: '6153',
+      next_election: '2018'
     }
-  ]
+  ],
 };

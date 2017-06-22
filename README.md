@@ -4,7 +4,7 @@
 
 Call My Congress is a small application that helps US citizens quickly find contact information for their congressional representatives.
 
-It is built using data freely provided by the [US Census Geocoding Services](https://geocoding.geo.census.gov/) and [GovTrack.us](https://www.govtrack.us/developers).
+It is built using data freely provided by the [US Census Geocoding Services](https://geocoding.geo.census.gov/) and [ProPublica](https://www.propublica.org/datastore/apis).
 
 The app consists of an Ember client app and an Express server. All the front end application code can be found in [`app/`](app/). The back end application code can be found in [`backend/app/`](backend/app/).
 

@@ -1,15 +1,20 @@
-<div class="u-full-width display-congressperson__name">
-  {{#if congressperson.vacant}}
-    <h5>{{t "congress.vacancy"}}</h5>
-    <p>{{congressperson.footnote}}</p>
-  {{else}}
+{{#if congressperson.vacant}}
+  <div class="u-full-width display-congressperson__name">
+    <h5>
+      {{t "congress.vacancy"}}
+    </h5>
+
+    <p>{{t "congress.vacancySuccessor" title=congressperson.title
+                                       firstName=congressperson.person.firstname
+                                       lastName=congressperson.person.lastname}}</p>
+  </div>
+{{else}}
+  <div class="u-full-width display-congressperson__name">
     <h5>{{t "format.name" title=congressperson.title
                           firstName=congressperson.person.firstname
                           lastName=congressperson.person.lastname}}</h5>
-  {{/if}}
-</div>
+  </div>
 
-{{#unless congressperson.vacant}}
   <table class="u-full-width">
     <tbody>
       {{#if congressperson.phone}}
@@ -20,12 +25,48 @@
           </td>
         </tr>
       {{/if}}
+
       {{#if congressperson.party}}
       <tr class="display-congressperson__party">
         <td><strong>{{t "congress.partyAffiliation"}}</strong></td>
         <td>{{congressperson.party}}</td>
       </tr>
       {{/if}}
+
+      {{#if congressperson.next_election}}
+      <tr class="display-congressperson__next-election">
+        <td><strong>{{t "congress.nextElection"}}</strong></td>
+        <td>{{congressperson.next_election}}</td>
+      </tr>
+      {{/if}}
+
+      {{#if congressperson.twitter}}
+      <tr class="display-congressperson__twitter">
+        <td><strong>{{t "general.twitter"}}</strong></td>
+        <td>
+           <a href="https://twitter.com/{{congressperson.twitter}}">@{{congressperson.twitter}}</a>
+        </td>
+      </tr>
+      {{/if}}
+
+      {{#if congressperson.govtrack}}
+      <tr class="display-congressperson__govtrack">
+        <td><strong>{{t "congress.govtrack"}}</strong></td>
+        <td>
+           <a href="https://www.govtrack.us/congress/members/{{congressperson.govtrack}}">{{t "congress.govtrackLink"}}</a>
+        </td>
+      </tr>
+      {{/if}}
+
+      {{#if congressperson.cspan}}
+      <tr class="display-congressperson__cspan">
+        <td><strong>{{t "congress.cspan"}}</strong></td>
+        <td>
+           <a href="https://www.c-span.org/person/?{{congressperson.cspan}}">{{t "congress.cspanLink"}}</a>
+        </td>
+      </tr>
+      {{/if}}
     </tbody>
   </table>
-{{/unless}}
+{{/if}}
+

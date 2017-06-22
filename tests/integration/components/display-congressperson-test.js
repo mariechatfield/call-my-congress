@@ -15,8 +15,12 @@ test('it renders', function(assert) {
   this.render(hbs`{{display-congressperson congressperson=congressperson}}`);
 
   assert.ok(this.$('.display-congressperson__name').text().match('Rep. Nancy Pelosi'), 'displays correctly formatted full name');
-  assert.ok(this.$('.display-congressperson__phone').text().match(/\(202\) 225-4965/), 'displays phone number');
+  assert.ok(this.$('.display-congressperson__phone').text().match('202-225-4965'), 'displays phone number');
   assert.ok(this.$('.display-congressperson__party').text().match('Democrat'), 'displays party affiliation');
+  assert.ok(this.$('.display-congressperson__next-election').text().match('2018'), 'displays next election year');
+  assert.ok(this.$('.display-congressperson__govtrack').text().match('GovTrack.us Record'), 'displays voting record link');
+  assert.ok(this.$('.display-congressperson__cspan').text().match('Video Appearances in Congress'), 'displays C-SPAN link');
+
 });
 
 test('it handles incomplete data', function(assert) {
@@ -33,6 +37,6 @@ test('it handles vacant seat', function(assert) {
   this.render(hbs`{{display-congressperson congressperson=congressperson}}`);
 
   assert.ok(this.$('.display-congressperson__name').text().match('Vacant Seat'), 'displays vacant seat title');
-  assert.ok(this.$('.display-congressperson__name').text().match('Vacancy due to the resignation of Ryan K. Zinke, March 1, 2017'), 'displays vacant seat footnote');
+  assert.ok(this.$('.display-congressperson__name').text().match('This seat was vacated by Rep. Ryan K. Zinke'), 'displays vacant seat footnote');
   assert.equal(this.$('.display-congressperson__phone').length, 0, 'does not render attributes even if they exist');
 });

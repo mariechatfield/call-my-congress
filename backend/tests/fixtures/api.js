@@ -377,7 +377,11 @@ const CONGRESS_RESPONSE = {
       },
       title: 'Rep.',
       party: 'Democrat',
-      phone: '(202) 225-4965'
+      phone: '202-225-4965',
+      twitter: 'NancyPelosi',
+      govtrack: '400314',
+      cspan: '6153',
+      next_election: '2018'
     }
   ],
   senators: [
@@ -388,15 +392,23 @@ const CONGRESS_RESPONSE = {
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3841'
+      phone: '202-224-3841',
+      twitter: 'SenFeinstein',
+      govtrack: '300043',
+      cspan: '13061',
+      next_election: '2018'
     }, {
       person: {
-        firstname: 'Kamala D.',
+        firstname: 'Kamala',
         lastname: 'Harris'
       },
       title: 'Sen.',
       party: 'Democrat',
-      phone: '(202) 224-3553'
+      phone: '202-224-3553',
+      twitter: 'SenKamalaHarris',
+      govtrack: '412678',
+      cspan: '1018696',
+      next_election: '2022'
     }
   ]
 };
@@ -419,7 +431,11 @@ const AT_LARGE_CONGRESS_RESPONSE = {
       },
       title: 'Rep.',
       party: 'Republican',
-      phone: '(202) 225-5765'
+      phone: '202-225-5765',
+      twitter: 'RepDonYoung',
+      govtrack: '400440',
+      cspan: '1897',
+      next_election: '2018'
     }
   ],
   senators: [
@@ -430,7 +446,11 @@ const AT_LARGE_CONGRESS_RESPONSE = {
       },
       title: 'Sen.',
       party: 'Republican',
-      phone: '(202) 224-6665'
+      phone: '202-224-6665',
+      twitter: 'LisaMurkowski',
+      govtrack: '300075',
+      cspan: '1004138',
+      next_election: '2022'
     }, {
       person: {
         firstname: 'Dan',
@@ -438,7 +458,11 @@ const AT_LARGE_CONGRESS_RESPONSE = {
       },
       title: 'Sen.',
       party: 'Republican',
-      phone: '(202) 224-3004'
+      phone: '202-224-3004',
+      twitter: 'SenDanSullivan',
+      govtrack: '412665',
+      cspan: '1023262',
+      next_election: '2020'
     }
   ]
 };
