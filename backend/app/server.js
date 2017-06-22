@@ -4,15 +4,21 @@
 const request = require('request');
 const express = require('express');
 const querystring = require('querystring');
-const convert = require('xml-js');
 const app = express();
 
-const HOUSE_BASE_URL = 'http://clerk.house.gov/xml/lists/MemberData.xml';
-const SENATOR_BASE_URL = 'https://www.senate.gov/general/contact_information/senators_cfm.xml';
+const CURRENT_CONGRESS = 115;
+
+const HOUSE_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/house/members.json`;
+const SENATOR_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/senate/members.json`;
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
 
 const AT_LARGE_DISTRICT_NAME = '(at Large)';
 const AT_LARGE_DISTRICT_NUMBER = 0;
+const PROPUBLICA_AT_LARGE_DISTRICT_NUMBER = 1;
+
+const PROPUBLICA_HEADERS = {
+  'X-API-Key': process.env.PROPUBLICA_API_KEY
+};
 
 const DEFAULT_PORT = 3000;
 
@@ -40,15 +46,9 @@ function getPartyName(shorthand) {
   }
 }
 
-function getFormattedDistrictNumber(number) {
-  // Prefix number with a leading zero, but return only the last two digits
-  // e.g. '00' or '12' or '09'.
-  return `0${number}`.slice(-2);
-}
-
-function performGETRequest(url, processResult, attemptParse = true) {
+function performGETRequest(options, processResult, attemptParse = true) {
   return new Promise((resolve, reject) => {
-    request.get(url, function (error, response, body) {
+    request.get(options, function (error, response, body) {
       try {
         if (!error && response.statusCode === 200) {
           if (attemptParse) {
@@ -77,7 +77,7 @@ function getDistricts(geography) {
     zip: geography.zip
   };
 
-  return performGETRequest(buildURL(GEOGRAPHY_BASE_URL, params), result => {
+  return performGETRequest({ url: buildURL(GEOGRAPHY_BASE_URL, params) }, result => {
     if (result.result.addressMatches.length === 0) {
       throw new AppError('INVALID_ADDRESS');
     }
@@ -102,58 +102,73 @@ function getDistricts(geography) {
 
 function getRepresentatives(districts) {
   const district = districts.districts[0];
-  const districtNumber = getFormattedDistrictNumber(district.number);
-  const districtID = `${district.state}${districtNumber}`;
 
-  return performGETRequest(HOUSE_BASE_URL, result => {
-    const responseData = convert.xml2js(result, { compact: true });
-    const allMembers = responseData.MemberData.members.member;
-    const repsForDistrict = allMembers.filter(member => member.statedistrict._text === districtID);
+  const districtNumber = Number(district.number) === AT_LARGE_DISTRICT_NUMBER ?
+    `${PROPUBLICA_AT_LARGE_DISTRICT_NUMBER}` :
+    district.number;
+
+  return performGETRequest({ url: HOUSE_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
+    const allMembers = result.results[0].members;
+    const repsForDistrict = allMembers.filter(member => member.state === district.state && member.district === districtNumber);
 
     const representatives = repsForDistrict.map(representative => {
       const data = {
         title: 'Rep.',
         person: {
-          firstname: representative['member-info'].firstname._text,
-          lastname: representative['member-info'].lastname._text,
+          firstname: representative.first_name,
+          lastname: representative.last_name,
         },
-        party: getPartyName(representative['member-info'].party._text),
-        phone: representative['member-info'].phone._text
+        party: getPartyName(representative.party),
+        phone: representative.phone,
+        twitter: representative.twitter_account,
+        govtrack: representative.govtrack_id,
+        cspan: representative.cspan_id,
+        next_election: representative.next_election
       };
 
-      if (representative['member-info'].footnote) {
+      if (representative.in_office === "false") {
         data.vacant = true;
-        data.footnote = representative['member-info'].footnote._text;
       }
 
       return data;
     });
 
     return { representatives };
-  }, false);
+  });
 }
 
 
 function getSenators(districts) {
   const district = districts.districts[0];
 
-  return performGETRequest(SENATOR_BASE_URL, result => {
-    const responseData = convert.xml2js(result, { compact: true });
-    const allMembers = responseData.contact_information.member;
-    const senatorsForDistrict = allMembers.filter(member => member.state._text === district.state);
+  return performGETRequest({ url: SENATOR_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
+    const allMembers = result.results[0].members;
+    const senatorsForDistrict = allMembers.filter(member => member.state === district.state);
 
-    const senators = senatorsForDistrict.map(senator => ({
-      title: 'Sen.',
-      person: {
-        firstname: senator.first_name._text,
-        lastname: senator.last_name._text,
-      },
-      party: getPartyName(senator.party._text),
-      phone: senator.phone._text
-    }));
+    const senators = senatorsForDistrict.map(senator => {
+      const data = {
+        title: 'Sen.',
+        person: {
+          firstname: senator.first_name,
+          lastname: senator.last_name,
+        },
+        party: getPartyName(senator.party),
+        phone: senator.phone,
+        twitter: senator.twitter_account,
+        govtrack: senator.govtrack_id,
+        cspan: senator.cspan_id,
+        next_election: senator.next_election
+      };
+
+      if (senator.in_office === "false") {
+        data.vacant = true;
+      }
+
+      return data;
+    });
 
     return { senators };
-  }, false);
+  });
 }
 
 function buildCongress(district) {
