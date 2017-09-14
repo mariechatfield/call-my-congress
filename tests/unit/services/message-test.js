@@ -2,6 +2,8 @@ import { moduleFor, test } from 'ember-qunit';
 import setupStubs from '../../helpers/setup-stubs';
 
 moduleFor('service:message', 'Unit | Service | message', {
+  needs: ['service:i18n'],
+
   beforeEach() {
     this.stubs = setupStubs([
       {
