@@ -52,11 +52,6 @@ export default Ember.Component.extend({
       return;
     }
 
-    if (Ember.isNone(this.get('lookupData.street'))) {
-      this.get('message').display('errors.server.MISSING_STREET');
-      return;
-    }
-
     this.lookupDistrict();
   }
 });

@@ -6,11 +6,18 @@ const express = require('express');
 const querystring = require('querystring');
 const app = express();
 
+const { zipCodeToNonVotingUSPSCode } = require('./non-voting-districts');
+
 const CURRENT_CONGRESS = 115;
 
 const HOUSE_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/house/members.json`;
 const SENATOR_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/senate/members.json`;
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
+const ZIP_ONLY_BASE_URL = 'http://whoismyrepresentative.com/getall_mems.php';
+
+// When zip code is not found, the response succeeds with code 200 but the body
+// has this message instead of a JSON object.
+const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found' />`;
 
 const AT_LARGE_DISTRICT_NAME = '(at Large)';
 const AT_LARGE_DISTRICT_NUMBER = 0;
@@ -65,6 +72,62 @@ function performGETRequest(options, processResult, attemptParse = true) {
       }
     });
   });
+}
+
+function getDistrictsZipOnly(geography) {
+  const params = {
+    output: 'json',
+    zip: geography.zip
+  };
+
+  return performGETRequest({ url: buildURL(ZIP_ONLY_BASE_URL, params) }, body => {
+
+    if (body === ZIP_ONLY_ERROR_BODY) {
+      // Current API used for zip-only addresses does not handle non-voting
+      // congressional districts. Manually verify if the given zip belongs
+      // to a non-voting district, and if so return that district. Otherwise,
+      // zip code does not map to any district and is invalid.
+      const state = zipCodeToNonVotingUSPSCode(geography.zip);
+
+      if (state !== null) {
+        const number = AT_LARGE_DISTRICT_NUMBER;
+
+        return {
+          districts: [
+            {
+              state,
+              number,
+              id: `${state}-${number}`
+            }
+          ]
+        };
+      }
+
+      throw new AppError('INVALID_ADDRESS');
+    }
+
+    const result = JSON.parse(body);
+    const state = result.results[0].state;
+
+    const districtNumbers = result.results
+      .map(representative => representative.district)
+      // Filter out all non-numeric districts (i.e. "Junior Seat" for senators)
+      .filter(district => district && !isNaN(district));
+
+    if (state && districtNumbers.length === 0) {
+      districtNumbers.push(AT_LARGE_DISTRICT_NUMBER);
+    }
+
+    const districts = districtNumbers.map(number => {
+      return {
+        state,
+        number,
+        id: `${state}-${number}`
+      };
+    });
+
+    return { districts };
+  }, false);
 }
 
 function getDistricts(geography) {
@@ -198,13 +261,10 @@ app.get('/api/district-from-address', (req, res) => {
     return;
   }
 
-  if (req.query.street === undefined || req.query.street === null) {
-    res.status(400).send({ translationKey: 'MISSING_STREET' });
-    return;
-  }
+  const getDistrictsFunction = req.query.street ? getDistricts : getDistrictsZipOnly;
 
   try {
-    getDistricts(req.query)
+    getDistrictsFunction(req.query)
       .then(district => res.send(district))
       .catch(err => {
         const translationKey = err instanceof AppError ? err.message : 'UNKNOWN';
