@@ -1,5 +1,7 @@
 # Call My Congress
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mchat/call-my-congress.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/mchat/call-my-congress.svg?branch=master)](https://travis-ci.org/mchat/call-my-congress)
 
 Call My Congress is a small application that helps US citizens quickly find contact information for their congressional representatives.
