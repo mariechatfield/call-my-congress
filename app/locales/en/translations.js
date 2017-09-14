@@ -40,7 +40,7 @@ export default {
   },
 
   about: {
-    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}} and {{link-propublica}}ProPublica{{/link-propublica}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
+    attribution: "This app runs off data made freely available by the {{link-census}}US Census Geocoding Services{{/link-census}}, {{link-propublica}}ProPublica{{/link-propublica}}, and {{link-whois}}WhoIsMyRepresentative.com{{/link-whois}}. It was created by {{link-marie}}Marie Chatfield{{/link-marie}}. View the source code or contribute changes on {{link-github}}GitHub{{/link-github}}."
   },
 
   errors: {
