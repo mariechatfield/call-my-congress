@@ -467,6 +467,34 @@ const AT_LARGE_CONGRESS_RESPONSE = {
   ]
 };
 
+const NON_VOTING_AT_LARGE_CONGRESS_RESPONSE = {
+  district: {
+    districts: [
+      {
+        state: 'PR',
+        number: '0',
+        id: 'PR-0'
+      }
+    ]
+  },
+  representatives: [
+    {
+      title: 'Rep.',
+      person: {
+        firstname: 'Jenniffer',
+        lastname: 'González-Colón'
+      },
+      party: 'Republican',
+      phone: '',
+      twitter: 'repjenniffer',
+      govtrack: '412723',
+      cspan: '67353',
+      next_election: '2018'
+    }
+  ],
+  senators: []
+};
+
 module.exports = {
   DISTRICT,
   AT_LARGE_DISTRICT,
@@ -479,5 +507,6 @@ module.exports = {
   AT_LARGE_DISTRICT_RESPONSE,
   NON_VOTING_DISTRICT_RESPONSE,
   CONGRESS_RESPONSE,
-  AT_LARGE_CONGRESS_RESPONSE
+  AT_LARGE_CONGRESS_RESPONSE,
+  NON_VOTING_AT_LARGE_CONGRESS_RESPONSE
 };
