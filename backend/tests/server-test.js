@@ -18,7 +18,7 @@ function stubRequest(url, body, error = false, response = VALID_RESPONSE) {
 
 describe('server', function() {
   before(function() {
-    sinon.stub(request, 'get', function(options, callback) {
+    sinon.stub(request, 'get').callsFake(function(options, callback) {
       if (requests[options.url]) {
         callback(...requests[options.url]);
       } else {

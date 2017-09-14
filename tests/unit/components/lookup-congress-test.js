@@ -10,6 +10,7 @@ const ZIP = '20500';
 
 moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
   unit: true,
+  needs: ['service:message', 'service:lookupData'],
 
   beforeEach() {
     this.stubs = setupStubs([
