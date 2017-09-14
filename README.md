@@ -29,7 +29,9 @@ You will need the following things properly installed on your computer.
 
 Since this application includes both a front end and a back end, you will need to start up two servers to begin development.
 
-* `npm run backend`
+*Note: Running the backend requires access to ProPublica. You'll need access to an API key to make valid requests.*
+
+* `PROPUBLICA_API_KEY=[...] npm run backend`
 * `npm run frontend`
 * Visit [http://localhost:4200](http://localhost:4200) to see the app running locally.
 
