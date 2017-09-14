@@ -21,7 +21,6 @@ const ZIP_ONLY_ERROR_BODY = `<result message='No Data Found' />`;
 
 const AT_LARGE_DISTRICT_NAME = '(at Large)';
 const AT_LARGE_DISTRICT_NUMBER = 0;
-const PROPUBLICA_AT_LARGE_DISTRICT_NUMBER = 1;
 
 const PROPUBLICA_HEADERS = {
   'X-API-Key': process.env.PROPUBLICA_API_KEY
@@ -165,14 +164,14 @@ function getDistricts(geography) {
 
 function getRepresentatives(districts) {
   const district = districts.districts[0];
-
-  const districtNumber = Number(district.number) === AT_LARGE_DISTRICT_NUMBER ?
-    `${PROPUBLICA_AT_LARGE_DISTRICT_NUMBER}` :
-    district.number;
+  const districtIsAtLarge = Number(district.number) === AT_LARGE_DISTRICT_NUMBER;
 
   return performGETRequest({ url: HOUSE_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
     const allMembers = result.results[0].members;
-    const repsForDistrict = allMembers.filter(member => member.state === district.state && member.district === districtNumber);
+
+    const repsForDistrict = allMembers.filter(member => {
+      return member.state === district.state && (districtIsAtLarge || member.district === district.number);
+    });
 
     const representatives = repsForDistrict.map(representative => {
       const data = {
@@ -189,7 +188,7 @@ function getRepresentatives(districts) {
         next_election: representative.next_election
       };
 
-      if (representative.in_office === "false") {
+      if (representative.in_office === 'false') {
         data.vacant = true;
       }
 

@@ -180,6 +180,15 @@ describe('server', function() {
           .expect(200, fixtures.AT_LARGE_CONGRESS_RESPONSE, done);
       });
 
+      it('with a non-voting state with an at-large district, returns correctly formatted response', function testSlash(done) {
+        stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
+        stubRequest(validSenatorURL, senateFixtures.SENATORS);
+
+        supertest(this.server)
+          .get('/api/congress-from-district?id=PR-0')
+          .expect(200, fixtures.NON_VOTING_AT_LARGE_CONGRESS_RESPONSE, done);
+      });
+
       it('with failed API calls, returns correctly formatted error response', function testSlash(done) {
         stubRequest(validRepresentativeURL, { message: 'failed with some error' }, true);
         stubRequest(validSenatorURL, { message: 'another error' }, true);
