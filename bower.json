@@ -1,6 +1,0 @@
-{
-  "name": "call-my-congress",
-  "dependencies": {
-    "ember": "~2.15.0"
-  }
-}
