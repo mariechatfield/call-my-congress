@@ -29,7 +29,7 @@ You will need the following things properly installed on your computer.
 
 Since this application includes both a front end and a back end, you will need to start up two servers to begin development.
 
-*Note: Running the backend requires access to ProPublica. You'll need access to an API key to make valid requests.*
+*Note: Running the backend requires access to ProPublica. You'll need to obtain an API key for the [ProPublica Congress API](https://www.propublica.org/datastore/api/propublica-congress-api) to make valid requests.*
 
 * `PROPUBLICA_API_KEY=[...] npm run backend`
 * `npm run frontend`
