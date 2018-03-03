@@ -5,14 +5,16 @@ node_js:
 
 sudo: false
 
+addons:
+  chrome: stable
+
 cache:
   directories:
     - node_modules
 
 before_install:
   - npm config set spin false
-  - npm install phantomjs-prebuilt
-  - node_modules/phantomjs-prebuilt/bin/phantomjs --version
+  - google-chrome-stable --version
 
 install:
   - npm install
