@@ -26,13 +26,15 @@ module('Integration | Component | display congress', function(hooks) {
     this.set('congress', COMPLETE_CONGRESS);
     await render(hbs`{{display-congress congress=congress}}`);
 
-    assert.ok(find('.display-congress__state').textContent.match('CA'), 'renders the state');
-    assert.ok(find('.display-congress__district').textContent.match('12'), 'renders the district number');
-    assert.ok(find('.display-congress__permalink').textContent.match('CA-12'), 'renders the permalink');
+    assert.ok(find('[data-test-display-congress__state]').textContent.match('CA'), 'renders the state');
+    assert.ok(find('[data-test-display-congress__district]').textContent.match('12'), 'renders the district number');
+    assert.ok(find('[data-test-display-congress__permalink]').textContent.match('CA-12'), 'renders the permalink');
 
-    assert.equal(findAll('.display-congressperson').length, 3, 'renders three congress people');
+    assert.equal(findAll('[data-test-display-congressperson]').length, 3, 'renders three congress people');
+    assert.equal(findAll('[data-test-display-congressperson="representative"]').length, 1, 'renders one representative');
+    assert.equal(findAll('[data-test-display-congressperson="senator"]').length, 2, 'renders two senators');
 
-    assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
+    assert.equal(findAll('[data-test-display-congress__back]').length, 1, 'renders back button');
   });
 
   test('back button', async function(assert) {
@@ -42,7 +44,7 @@ module('Integration | Component | display congress', function(hooks) {
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'router.transitionTo has not been called yet');
 
-    this.$('.button-primary:contains(Search Again)').click();
+    this.$('[data-test-display-congress__back]').click();
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'router.transitionTo was called once');
     assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['index'], 'router.transitionTo was called with "index"');
@@ -52,13 +54,13 @@ module('Integration | Component | display congress', function(hooks) {
     this.set('congress', NO_SENATORS);
     await render(hbs`{{display-congress congress=congress}}`);
 
-    assert.ok(find('.display-congress__state').textContent.match('CA'), 'renders the state');
-    assert.ok(find('.display-congress__district').textContent.match('12'), 'renders the district number');
-    assert.ok(find('.display-congress__permalink').textContent.match('CA-12'), 'renders the permalink');
+    assert.ok(find('[data-test-display-congress__state]').textContent.match('CA'), 'renders the state');
+    assert.ok(find('[data-test-display-congress__district]').textContent.match('12'), 'renders the district number');
+    assert.ok(find('[data-test-display-congress__permalink]').textContent.match('CA-12'), 'renders the permalink');
 
-    assert.equal(findAll('.display-congressperson').length, 1, 'renders the representative');
+    assert.equal(findAll('[data-test-display-congressperson]').length, 1, 'renders the representative');
 
-    assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
+    assert.equal(findAll('[data-test-display-congress__back]').length, 1, 'renders back button');
   });
 
   function testIncompleteFixture(fixture) {
@@ -66,9 +68,9 @@ module('Integration | Component | display congress', function(hooks) {
       this.set('congress', fixture);
       await this.render(hbs`{{display-congress congress=congress}}`);
 
-      assert.equal(findAll('.display-congress__state').length, 0, 'does not render district information');
-      assert.equal(findAll('.display-congressperson').length, 0, 'does not render congress people');
-      assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
+      assert.equal(findAll('[data-test-display-congress__state]').length, 0, 'does not render district information');
+      assert.equal(findAll('[data-test-display-congressperson]').length, 0, 'does not render congress people');
+      assert.equal(findAll('[data-test-display-congress__back]').length, 1, 'renders back button');
     });
   }
 

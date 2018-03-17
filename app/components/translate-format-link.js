@@ -12,15 +12,13 @@ export function endPlaceholder(linkName) {
 }
 
 export default Component.extend({
-  classNames: ['translate-format-link'],
-
   key: null,
   links: null,
 
   i18n: service(),
 
   startLink(url) {
-    return `<a href="${url}" target="_blank" class="translate-format-link__link">`;
+    return `<a href="${url}" target="_blank" data-test-translate-link>`;
   },
 
   endLink() {

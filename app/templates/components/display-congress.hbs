@@ -1,15 +1,15 @@
 {{#if successfulLoad}}
-  <div class="row display-congress__state">
+  <div class="row" data-test-display-congress__state>
     <div class="one-half column"><strong>{{t "geography.state"}}</strong></div>
     <div class="one-half column">{{district.state}}</div>
   </div>
 
-  <div class="row display-congress__district">
+  <div class="row" data-test-display-congress__district>
     <div class="one-half column"><strong>{{t "geography.district"}}</strong></div>
     <div class="one-half column">{{district.number}}</div>
   </div>
 
-  <div class="row display-congress__permalink">
+  <div class="row" data-test-display-congress__permalink>
     <div class="one-half column"><strong>{{t "displayCongress.permalink"}}</strong></div>
     <div class="one-half column">
       <a href="{{permalink}}">{{permalink}}</a>
@@ -17,14 +17,21 @@
   </div>
 
   {{#each congress.representatives as |representative|}}
-    {{display-congressperson congressperson=representative}}
+    {{display-congressperson congressperson=representative
+                             class="row--extra-space"
+                             data-test-display-congressperson="representative"}}
   {{/each}}
 
   {{#each congress.senators as |senator|}}
-    {{display-congressperson congressperson=senator}}
+    {{display-congressperson congressperson=senator
+                             class="row--extra-space"
+                             data-test-display-congressperson="senator"}}
   {{/each}}
 {{/if}}
 
-<div class="row--extra-space display-congress__back">
-  <button class="button-primary u-full-width" {{action "returnHome"}}>{{t "displayCongress.back"}}</button>
+<div class="row--extra-space">
+  <button data-test-display-congress__back
+          class="button-primary u-full-width" {{action "returnHome"}}>
+        {{t "displayCongress.back"}}
+  </button>
 </div>

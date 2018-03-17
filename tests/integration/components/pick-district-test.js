@@ -14,11 +14,11 @@ module('Integration | Component | pick district', function(hooks) {
     this.set('districts', SINGLE_DISTRICT.districts);
     await render(hbs`{{pick-district districts=districts}}`);
 
-    assert.equal(findAll('.pick-district__link').length, 1, 'shows a link for every district');
+    assert.equal(findAll('[data-test-pick-district__link]').length, 1, 'shows a link for every district');
 
     this.set('districts', MULTIPLE_DISTRICTS.districts);
 
-    const $districtLinks = this.$('.pick-district__link');
+    const $districtLinks = this.$('[data-test-pick-district__link]');
     const $firstLink = this.$($districtLinks[0]);
     const $secondLink = this.$($districtLinks[1]);
     assert.equal($districtLinks.length, 2, 'shows a link for every district');
