@@ -1,4 +1,7 @@
-import Ember from 'ember';
+import { htmlSafe } from '@ember/string';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
 export function startPlaceholder(linkName) {
   return `start-${linkName}`;
@@ -8,23 +11,21 @@ export function endPlaceholder(linkName) {
   return `end-${linkName}`;
 }
 
-export default Ember.Component.extend({
-  classNames: ['translate-format-link'],
-
+export default Component.extend({
   key: null,
   links: null,
 
-  i18n: Ember.inject.service(),
+  i18n: service(),
 
   startLink(url) {
-    return `<a href="${url}" target="_blank" class="translate-format-link__link">`;
+    return `<a href="${url}" target="_blank" data-test-translate-link>`;
   },
 
   endLink() {
     return '</a>';
   },
 
-  translation: Ember.computed('key', 'links', function() {
+  translation: computed('key', 'links', function() {
     const context = {};
     const key = this.get('key');
     const links = this.get('links');
@@ -52,6 +53,6 @@ export default Ember.Component.extend({
         .replace(endPlaceholder(linkName), this.endLink());
     }
 
-    return Ember.String.htmlSafe(translatedText);
+    return htmlSafe(translatedText);
   })
 });

@@ -1,13 +1,13 @@
 <form>
    <div class="row">
-    <div class="six columns lookup-congress__street">
+    <div class="six columns" data-test-lookup-congress__street>
       <label for="addressInput">{{t "geography.address"}}</label>
       {{input value=lookupData.street
               placeholder="1600 Pennsylvania Ave"
               id="addressInput"
               class="u-full-width"}}
     </div>
-    <div class="six columns lookup-congress__zip">
+    <div class="six columns" data-test-lookup-congress__zip>
       <label for="zipCodeInput">{{t "geography.zipCode"}}</label>
       {{input value=lookupData.zip
               placeholder="20500"
@@ -19,8 +19,9 @@
   </div>
 
   <div class="row">
-    {{input value=(t "lookupCongress.search")
-            class="button-primary lookup-congress__search"
+    {{input data-test-lookup-congress__search
+            value=(t "lookupCongress.search")
+            class="button-primary"
             type="submit"}}
   </div>
 </form>
@@ -30,5 +31,5 @@
 {{/if}}
 
 {{#if lookupData.districtsToPickFrom}}
-  {{pick-district districts=lookupData.districtsToPickFrom}}
+  {{pick-district data-test-pick-district districts=lookupData.districtsToPickFrom}}
 {{/if}}

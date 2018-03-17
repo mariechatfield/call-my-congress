@@ -1,26 +1,28 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { alias, or, and } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  classNames: ['display-congress'],
-  message: Ember.inject.service(),
-  lookupData: Ember.inject.service(),
+export default Component.extend({
+  message: service(),
+  lookupData: service(),
 
   congress: null,
 
   // We can assume only one district per congress response from the server
-  district: Ember.computed.alias('congress.district.districts.firstObject'),
+  district: alias('congress.district.districts.firstObject'),
 
-  hasRepresentativesOrSenators: Ember.computed.or(
+  hasRepresentativesOrSenators: or(
     'congress.representatives.length',
     'congress.senators.length'
   ),
 
-  successfulLoad: Ember.computed.and(
+  successfulLoad: and(
     'district.id',
     'hasRepresentativesOrSenators'
   ),
 
-  permalink: Ember.computed('district.id', function() {
+  permalink: computed('district.id', function() {
     return `https://www.callmycongress.com/${this.get('district.id')}`;
   }),
 

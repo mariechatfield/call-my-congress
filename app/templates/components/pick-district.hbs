@@ -2,7 +2,7 @@
 
 <ul class="row--extra-space">
 {{#each districts as |district|}}
-  <li class="pick-district__link">
+  <li data-test-pick-district__link>
     {{link-to district.id 'district' district.id}}
   </li>
 {{/each}}

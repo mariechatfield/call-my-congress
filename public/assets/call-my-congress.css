@@ -75,10 +75,6 @@ body {
   padding-top: var(--padding--large);
 }
 
-.display-congressperson {
-  padding-top: var(--padding--large);
-}
-
 .app-message {
   padding: var(--padding--small);
   background-color: var(--color-gray);

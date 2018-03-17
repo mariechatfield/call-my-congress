@@ -1,6 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import { resolve, reject } from 'rsvp';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 import $ from 'jquery';
-import Ember from 'ember';
 import setupStubs from '../../helpers/setup-stubs';
 
 const VALID_PARAMS = {
@@ -13,10 +14,10 @@ const VALID_RESULT = {
   }
 };
 
-moduleFor('route:district', 'Unit | Route | district', {
-  needs: ['service:message'],
+module('Unit | Route | district', function(hooks) {
+  setupTest(hooks);
 
-  beforeEach() {
+  hooks.beforeEach(function() {
     this.stubs = setupStubs([
       {
         name: 'message',
@@ -27,9 +28,9 @@ moduleFor('route:district', 'Unit | Route | district', {
           name: 'getJSON',
           override: () => {
             if (this.responseSuccessful) {
-              return Ember.RSVP.resolve(this.response);
+              return resolve(this.response);
             } else {
-              return Ember.RSVP.reject(this.response);
+              return reject(this.response);
             }
           }
         }]
@@ -39,48 +40,48 @@ moduleFor('route:district', 'Unit | Route | district', {
     this.orginalGetJSON = $.getJSON;
     $.getJSON = this.stubs.objects.$.getJSON;
 
-    this.route = this.subject();
+    this.route = this.owner.lookup('route:district');
     this.route.set('message', this.stubs.objects.message);
-  },
+  });
 
-  afterEach() {
+  hooks.afterEach(function() {
     $.getJSON = this.orginalGetJSON;
-  }
-});
-
-test('model > returns successful response', function(assert) {
-  this.responseSuccessful = true;
-  this.response = VALID_RESULT;
-
-  const done = assert.async();
-
-  this.route.model(VALID_PARAMS).then((result) => {
-    assert.deepEqual(result, VALID_RESULT, 'returns valid result directly from promise');
-    assert.equal(this.stubs.calls.message.displayFromServer.length, 0, 'does not display an error');
-    done();
   });
-});
 
-test('model > shows error when response fails', function(assert) {
-  this.responseSuccessful = false;
-  this.response = 'some error';
+  test('model > returns successful response', function(assert) {
+    this.responseSuccessful = true;
+    this.response = VALID_RESULT;
 
-  const done = assert.async();
+    const done = assert.async();
 
-  this.route.model(VALID_PARAMS).then(() => {
-    assert.equal(this.stubs.calls.message.displayFromServer.length, 1, 'displays an error');
-    done();
+    this.route.model(VALID_PARAMS).then((result) => {
+      assert.deepEqual(result, VALID_RESULT, 'returns valid result directly from promise');
+      assert.equal(this.stubs.calls.message.displayFromServer.length, 0, 'does not display an error');
+      done();
+    });
   });
-});
 
-test('model > shows error when params are malformed', function(assert) {
-  this.responseSuccessful = false;
-  this.response = 'some error';
+  test('model > shows error when response fails', function(assert) {
+    this.responseSuccessful = false;
+    this.response = 'some error';
 
-  const done = assert.async();
+    const done = assert.async();
 
-  this.route.model({}).then(() => {
-    assert.equal(this.stubs.calls.message.displayFromServer.length, 1, 'displays an error');
-    done();
+    this.route.model(VALID_PARAMS).then(() => {
+      assert.equal(this.stubs.calls.message.displayFromServer.length, 1, 'displays an error');
+      done();
+    });
+  });
+
+  test('model > shows error when params are malformed', function(assert) {
+    this.responseSuccessful = false;
+    this.response = 'some error';
+
+    const done = assert.async();
+
+    this.route.model({}).then(() => {
+      assert.equal(this.stubs.calls.message.displayFromServer.length, 1, 'displays an error');
+      done();
+    });
   });
 });

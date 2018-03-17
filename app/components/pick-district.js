@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  classNames: ['pick-district'],
-
+export default Component.extend({
   districts: null
 });
