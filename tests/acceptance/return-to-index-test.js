@@ -1,10 +1,12 @@
-import { test } from 'qunit';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import $ from 'jquery';
-import moduleForAcceptance from 'call-my-congress/tests/helpers/module-for-acceptance';
 import setupStubs from '../helpers/setup-stubs';
 
-moduleForAcceptance('Acceptance | return to index', {
-  beforeEach() {
+module('Acceptance | return to index', function(hooks) {
+  setupApplicationTest(hooks);
+
+  hooks.beforeEach(function() {
     this.stubs = setupStubs([
       {
         name: '$',
@@ -21,27 +23,23 @@ moduleForAcceptance('Acceptance | return to index', {
 
     this.orginalGetJSON = $.getJSON;
     $.getJSON = this.stubs.objects.$.getJSON;
-  },
+  });
 
-  afterEach() {
+  hooks.afterEach(function() {
     $.getJSON = this.orginalGetJSON;
-  }
-});
+  });
 
-test('visiting index', function(assert) {
-  visit('/');
-  click('.header');
+  test('visiting index', async function(assert) {
+    await visit('/');
+    await click('.header');
 
-  andThen(function() {
     assert.equal(currentURL(), '/', 'clicking header on index does not change URL');
   });
-});
 
-test('visiting district', function(assert) {
-  visit('/CA-12');
-  click('.header');
+  test('visiting district', async function(assert) {
+    await visit('/CA-12');
+    await click('.header');
 
-  andThen(function() {
     assert.equal(currentURL(), '/', 'clicking header on district page transitions to index');
   });
 });
