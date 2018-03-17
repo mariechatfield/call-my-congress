@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, findAll, find } from '@ember/test-helpers';
+import { render, findAll, find, click } from '@ember/test-helpers';
 import {
   COMPLETE_CONGRESS,
   NO_DISTRICT,
@@ -44,7 +44,7 @@ module('Integration | Component | display congress', function(hooks) {
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'router.transitionTo has not been called yet');
 
-    this.$('[data-test-display-congress__back]').click();
+    await click('[data-test-display-congress__back]');
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'router.transitionTo was called once');
     assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['index'], 'router.transitionTo was called with "index"');

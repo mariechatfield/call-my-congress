@@ -8,7 +8,7 @@ module('Integration | Component | app message', function(hooks) {
 
   test('it renders', async function(assert) {
     await render(hbs`{{app-message}}`);
-    assert.ok(this.$('.app-message').is(':empty'), 'renders nothing when no key provided');
+    assert.equal(find('.app-message').textContent.trim(), '', 'renders nothing when no key provided');
 
     await render(hbs`{{app-message messageKey='general.phone'}}`);
     assert.equal(find('.app-message').textContent.trim(), 'Phone', 'renders translation when key provided');

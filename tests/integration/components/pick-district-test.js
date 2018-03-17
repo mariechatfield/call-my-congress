@@ -18,11 +18,10 @@ module('Integration | Component | pick district', function(hooks) {
 
     this.set('districts', MULTIPLE_DISTRICTS.districts);
 
-    const $districtLinks = this.$('[data-test-pick-district__link]');
-    const $firstLink = this.$($districtLinks[0]);
-    const $secondLink = this.$($districtLinks[1]);
-    assert.equal($districtLinks.length, 2, 'shows a link for every district');
-    assert.equal($firstLink.text().trim(), 'TX-7', 'displays name of first district');
-    assert.equal($secondLink.text().trim(), 'TX-9', 'displays name of second district');
+    const districtLinks = findAll('[data-test-pick-district__link]');
+    const [ firstLink, secondLink ] = districtLinks;
+    assert.equal(districtLinks.length, 2, 'shows a link for every district');
+    assert.equal(firstLink.textContent.trim(), 'TX-7', 'displays name of first district');
+    assert.equal(secondLink.textContent.trim(), 'TX-9', 'displays name of second district');
   });
 });

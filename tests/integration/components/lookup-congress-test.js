@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, findAll } from '@ember/test-helpers';
+import { render, find, findAll } from '@ember/test-helpers';
 import { MULTIPLE_DISTRICTS } from '../../fixtures/districts';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -10,9 +10,9 @@ module('Integration | Component | lookup congress', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{lookup-congress}}`);
 
-    assert.ok(this.$('[data-test-lookup-congress__street]').is(':visible'), 'renders street address input');
-    assert.ok(this.$('[data-test-lookup-congress__zip]').is(':visible'), 'renders zip code input');
-    assert.ok(this.$('[data-test-lookup-congress__search]').is(':visible'), 'renders search button');
+    assert.ok(find('[data-test-lookup-congress__street]'), 'renders street address input');
+    assert.ok(find('[data-test-lookup-congress__zip]'), 'renders zip code input');
+    assert.ok(find('[data-test-lookup-congress__search]'), 'renders search button');
 
     assert.equal(findAll('[data-test-pick-district]').length, 0, 'does not render pick-district');
   });

@@ -4,8 +4,8 @@ import { render, find, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import tHelper from 'ember-i18n/helper';
 
-const URL1 = 'http://www.callmycongress.com';
-const URL2 = 'http://www.callmycongress.com/CA-12';
+const URL1 = 'http://www.callmycongress.com/';
+const URL2 = 'http://www.callmycongress.com/CA-12/';
 
 module('Integration | Component | translate format link', function(hooks) {
   setupRenderingTest(hooks);
@@ -38,9 +38,17 @@ module('Integration | Component | translate format link', function(hooks) {
     });
 
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world!', 'renders correct translation');
-    assert.equal(findAll('[data-test-translate-link]').length, 2, 'added one link');
-    assert.equal(this.$('[data-test-translate-link]:contains(Hello)').attr('href'), URL1, 'adds correct url to link');
-    assert.equal(this.$('[data-test-translate-link]:contains(world)').attr('href'), URL2, 'adds correct url to link');
+
+    const links = findAll('[data-test-translate-link]');
+    const [firstLink, secondLink] = links;
+
+    assert.equal(links.length, 2, 'added two links');
+
+    assert.equal(firstLink.textContent.trim(), 'Hello', 'renders correct text inside first link');
+    assert.equal(firstLink.href, URL1, 'adds correct url to first link');
+
+    assert.equal(secondLink.textContent.trim(), 'world', 'renders correct text inside second link');
+    assert.equal(secondLink.href, URL2, 'adds correct url to second link');
   });
 
   test('it gracefully handles finding no valid links', async function(assert) {
