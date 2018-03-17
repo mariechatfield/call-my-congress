@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, find, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import tHelper from 'ember-i18n/helper';
 
@@ -28,17 +28,17 @@ module('Integration | Component | translate format link', function(hooks) {
     });
     await render(hbs`{{translate-format-link key=key links=links}}`);
 
-    assert.equal(this.$().text().trim(), 'Hello world?', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 1, 'added one link');
-    assert.equal(this.$('.translate-format-link__link').attr('href'), URL1, 'adds correct url to link');
+    assert.equal(find('*').textContent.trim(), 'Hello world?', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 1, 'added one link');
+    assert.equal(find('.translate-format-link__link').getAttribute('href'), URL1, 'adds correct url to link');
 
     this.setProperties({
       key: 'twoLinks',
       links: { hello: URL1, world: URL2 }
     });
 
-    assert.equal(this.$().text().trim(), 'Hello world!', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 2, 'added one link');
+    assert.equal(find('*').textContent.trim(), 'Hello world!', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 2, 'added one link');
     assert.equal(this.$('.translate-format-link__link:contains(Hello)').attr('href'), URL1, 'adds correct url to link');
     assert.equal(this.$('.translate-format-link__link:contains(world)').attr('href'), URL2, 'adds correct url to link');
   });
@@ -50,16 +50,16 @@ module('Integration | Component | translate format link', function(hooks) {
     });
     await render(hbs`{{translate-format-link key=key links=links}}`);
 
-    assert.equal(this.$().text().trim(), 'Hello world.', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 0, 'did not add any links');
+    assert.equal(find('*').textContent.trim(), 'Hello world.', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 0, 'did not add any links');
 
     this.set('links', [{ 'notARealLink': 'http://www.callmycongress.com' }]);
-    assert.equal(this.$().text().trim(), 'Hello world.', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 0, 'did not add any links');
+    assert.equal(find('*').textContent.trim(), 'Hello world.', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 0, 'did not add any links');
 
     this.set('key', 'oneLink');
-    assert.equal(this.$().text().trim(), 'Hello world?', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 0, 'did not add any links');
+    assert.equal(find('*').textContent.trim(), 'Hello world?', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 0, 'did not add any links');
   });
 
   test('it gracefully handles extra link definitions', async function(assert) {
@@ -69,19 +69,19 @@ module('Integration | Component | translate format link', function(hooks) {
     });
     await render(hbs`{{translate-format-link key=key links=links}}`);
 
-    assert.equal(this.$().text().trim(), 'Hello world.', 'renders correct translation');
-    assert.equal(this.$('.translate-format-link__link').length, 0, 'did not add any links');
+    assert.equal(find('*').textContent.trim(), 'Hello world.', 'renders correct translation');
+    assert.equal(findAll('.translate-format-link__link').length, 0, 'did not add any links');
   });
 
   test('it gracefully handles being given invalid parameters', async function(assert) {
     await render(hbs`{{translate-format-link key=key links=links}}`);
 
-    assert.equal(this.$().text().trim(), 'ERROR: Must provide key parameter to translate-format-link', 'displays error message for missing key param');
+    assert.equal(find('*').textContent.trim(), 'ERROR: Must provide key parameter to translate-format-link', 'displays error message for missing key param');
 
     this.set('key', 'fakeKey');
-    assert.equal(this.$().text().trim(), 'ERROR: Must provide links parameter to translate-format-link', 'displays error message for missing links param');
+    assert.equal(find('*').textContent.trim(), 'ERROR: Must provide links parameter to translate-format-link', 'displays error message for missing links param');
 
     this.set('links', {});
-    assert.equal(this.$().text().trim(), 'Missing translation: fakeKey', 'displays generic error message for missing translation');
+    assert.equal(find('*').textContent.trim(), 'Missing translation: fakeKey', 'displays generic error message for missing translation');
   });
 });

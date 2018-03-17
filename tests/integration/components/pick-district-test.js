@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, findAll } from '@ember/test-helpers';
 import {
   SINGLE_DISTRICT,
   MULTIPLE_DISTRICTS
@@ -14,7 +14,7 @@ module('Integration | Component | pick district', function(hooks) {
     this.set('districts', SINGLE_DISTRICT.districts);
     await render(hbs`{{pick-district districts=districts}}`);
 
-    assert.equal(this.$('.pick-district__link').length, 1, 'shows a link for every district');
+    assert.equal(findAll('.pick-district__link').length, 1, 'shows a link for every district');
 
     this.set('districts', MULTIPLE_DISTRICTS.districts);
 

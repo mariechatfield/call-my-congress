@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | app message', function(hooks) {
@@ -11,6 +11,6 @@ module('Integration | Component | app message', function(hooks) {
     assert.ok(this.$('.app-message').is(':empty'), 'renders nothing when no key provided');
 
     await render(hbs`{{app-message messageKey='general.phone'}}`);
-    assert.equal(this.$('.app-message').text().trim(), 'Phone', 'renders translation when key provided');
+    assert.equal(find('.app-message').textContent.trim(), 'Phone', 'renders translation when key provided');
   });
 });

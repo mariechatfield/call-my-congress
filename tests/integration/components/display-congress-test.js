@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, findAll, find } from '@ember/test-helpers';
 import {
   COMPLETE_CONGRESS,
   NO_DISTRICT,
@@ -26,13 +26,13 @@ module('Integration | Component | display congress', function(hooks) {
     this.set('congress', COMPLETE_CONGRESS);
     await render(hbs`{{display-congress congress=congress}}`);
 
-    assert.ok(this.$('.display-congress__state').text().match('CA'), 'renders the state');
-    assert.ok(this.$('.display-congress__district').text().match('12'), 'renders the district number');
-    assert.ok(this.$('.display-congress__permalink').text().match('CA-12'), 'renders the permalink');
+    assert.ok(find('.display-congress__state').textContent.match('CA'), 'renders the state');
+    assert.ok(find('.display-congress__district').textContent.match('12'), 'renders the district number');
+    assert.ok(find('.display-congress__permalink').textContent.match('CA-12'), 'renders the permalink');
 
-    assert.equal(this.$('.display-congressperson').length, 3, 'renders three congress people');
+    assert.equal(findAll('.display-congressperson').length, 3, 'renders three congress people');
 
-    assert.equal(this.$('.display-congress__back').length, 1, 'renders back button');
+    assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
   });
 
   test('back button', async function(assert) {
@@ -52,23 +52,23 @@ module('Integration | Component | display congress', function(hooks) {
     this.set('congress', NO_SENATORS);
     await render(hbs`{{display-congress congress=congress}}`);
 
-    assert.ok(this.$('.display-congress__state').text().match('CA'), 'renders the state');
-    assert.ok(this.$('.display-congress__district').text().match('12'), 'renders the district number');
-    assert.ok(this.$('.display-congress__permalink').text().match('CA-12'), 'renders the permalink');
+    assert.ok(find('.display-congress__state').textContent.match('CA'), 'renders the state');
+    assert.ok(find('.display-congress__district').textContent.match('12'), 'renders the district number');
+    assert.ok(find('.display-congress__permalink').textContent.match('CA-12'), 'renders the permalink');
 
-    assert.equal(this.$('.display-congressperson').length, 1, 'renders the representative');
+    assert.equal(findAll('.display-congressperson').length, 1, 'renders the representative');
 
-    assert.equal(this.$('.display-congress__back').length, 1, 'renders back button');
+    assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
   });
 
   function testIncompleteFixture(fixture) {
-    test('it handles incomplete data', function(assert) {
+    test('it handles incomplete data', async function(assert) {
       this.set('congress', fixture);
-      this.render(hbs`{{display-congress congress=congress}}`);
+      await this.render(hbs`{{display-congress congress=congress}}`);
 
-      assert.equal(this.$('.display-congress__state').length, 0, 'does not render district information');
-      assert.equal(this.$('.display-congressperson').length, 0, 'does not render congress people');
-      assert.equal(this.$('.display-congress__back').length, 1, 'renders back button');
+      assert.equal(findAll('.display-congress__state').length, 0, 'does not render district information');
+      assert.equal(findAll('.display-congressperson').length, 0, 'does not render congress people');
+      assert.equal(findAll('.display-congress__back').length, 1, 'renders back button');
     });
   }
 
