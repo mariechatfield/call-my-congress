@@ -1,9 +1,11 @@
+import { isNone } from '@ember/utils';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import $ from 'jquery';
-import Ember from 'ember';
 
-export default Ember.Component.extend({
-  message: Ember.inject.service(),
-  lookupData: Ember.inject.service(),
+export default Component.extend({
+  message: service(),
+  lookupData: service(),
 
   isLoading: false,
 
@@ -47,7 +49,7 @@ export default Ember.Component.extend({
     event.preventDefault();
     this.get('message').clear();
 
-    if (Ember.isNone(this.get('lookupData.zip'))) {
+    if (isNone(this.get('lookupData.zip'))) {
       this.get('message').display('errors.server.MISSING_ZIP');
       return;
     }

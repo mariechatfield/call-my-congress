@@ -1,5 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
-import { SINGLE_DISTRICT, MULTIPLE_DISTRICTS } from '../../fixtures/districts';
+import {
+  SINGLE_DISTRICT,
+  MULTIPLE_DISTRICTS
+} from '../../fixtures/districts';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('pick-district', 'Integration | Component | pick district', {

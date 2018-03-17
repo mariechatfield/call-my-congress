@@ -1,6 +1,9 @@
+import { resolve, reject } from 'rsvp';
 import { moduleForComponent, test } from 'ember-qunit';
-import { SINGLE_DISTRICT, MULTIPLE_DISTRICTS } from '../../fixtures/districts';
-import Ember from 'ember';
+import {
+  SINGLE_DISTRICT,
+  MULTIPLE_DISTRICTS
+} from '../../fixtures/districts';
 import $ from 'jquery';
 import setupStubs from '../../helpers/setup-stubs';
 
@@ -31,9 +34,9 @@ moduleForComponent('lookup-congress', 'Unit | Component | lookup congress', {
           name: 'getJSON',
           override: () => {
             if (this.responseSuccessful) {
-              return Ember.RSVP.resolve(this.response);
+              return resolve(this.response);
             } else {
-              return Ember.RSVP.reject(this.response);
+              return reject(this.response);
             }
           }
         }]

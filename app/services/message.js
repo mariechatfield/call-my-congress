@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Service, { inject as service } from '@ember/service';
 
 const MESSAGE_DURATION = 7000;
 
-export default Ember.Service.extend({
-  i18n: Ember.inject.service(),
+export default Service.extend({
+  i18n: service(),
 
   messageKey: null,
   isVisible: false,

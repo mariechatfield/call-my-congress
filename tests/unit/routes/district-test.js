@@ -1,6 +1,6 @@
+import { resolve, reject } from 'rsvp';
 import { moduleFor, test } from 'ember-qunit';
 import $ from 'jquery';
-import Ember from 'ember';
 import setupStubs from '../../helpers/setup-stubs';
 
 const VALID_PARAMS = {
@@ -27,9 +27,9 @@ moduleFor('route:district', 'Unit | Route | district', {
           name: 'getJSON',
           override: () => {
             if (this.responseSuccessful) {
-              return Ember.RSVP.resolve(this.response);
+              return resolve(this.response);
             } else {
-              return Ember.RSVP.reject(this.response);
+              return reject(this.response);
             }
           }
         }]
