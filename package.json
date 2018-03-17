@@ -55,6 +55,6 @@
   "dependencies": {
     "ember-source": "^3.0.0",
     "express": "^4.14.0",
-    "request": "^2.79.0"
+    "request": "^2.85.0"
   }
 }
