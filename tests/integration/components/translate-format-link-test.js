@@ -9,10 +9,10 @@ moduleForComponent('translate-format-link', 'Integration | Component | translate
   integration: true,
 
   beforeEach() {
-    this.container.lookup('service:i18n').set('locale', 'test');
+    this.container.lookup('service:i18n').set('locale', 'en');
     this.registry.register('helper:t', tHelper);
 
-    this.container.lookup('service:i18n').addTranslations('test', {
+    this.container.lookup('service:i18n').addTranslations('en', {
       'noLinks': 'Hello world.',
       'oneLink': '{{link-hello}}Hello world{{/link-hello}}?',
       'twoLinks': '{{link-hello}}Hello{{/link-hello}} {{link-world}}world{{/link-world}}!'
