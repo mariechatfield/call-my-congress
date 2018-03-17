@@ -18,8 +18,8 @@ test('it renders', function(assert) {
   this.set('districts', MULTIPLE_DISTRICTS.districts);
 
   const $districtLinks = this.$('.pick-district__link');
-  const $firstLink = $($districtLinks[0]);
-  const $secondLink = $($districtLinks[1]);
+  const $firstLink = this.$($districtLinks[0]);
+  const $secondLink = this.$($districtLinks[1]);
   assert.equal($districtLinks.length, 2, 'shows a link for every district');
   assert.equal($firstLink.text().trim(), 'TX-7', 'displays name of first district');
   assert.equal($secondLink.text().trim(), 'TX-9', 'displays name of second district');

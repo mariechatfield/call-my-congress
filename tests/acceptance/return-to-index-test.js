@@ -19,6 +19,7 @@ moduleForAcceptance('Acceptance | return to index', {
       }
     ]);
 
+    this.orginalGetJSON = $.getJSON;
     $.getJSON = this.stubs.objects.$.getJSON;
   },
 
