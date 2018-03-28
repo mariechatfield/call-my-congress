@@ -40,7 +40,7 @@
     "ember-cli-shims": "1.1.0",
     "ember-cli-sri": "2.1.0",
     "ember-cli-test-loader": "2.2.0",
-    "ember-cli-uglify": "2.0.0",
+    "ember-cli-uglify": "2.1.0",
     "ember-export-application-global": "2.0.0",
     "ember-i18n": "5.2.0",
     "ember-load-initializers": "1.0.0",
