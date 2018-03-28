@@ -28,7 +28,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "2.4.5",
     "ember-ajax": "3.0.0",
-    "ember-cli": "3.0.1",
+    "ember-cli": "3.0.2",
     "ember-cli-app-version": "3.1.0",
     "ember-cli-babel": "6.8.2",
     "ember-cli-dependency-checker": "2.0.1",
@@ -48,7 +48,7 @@
     "ember-resolver": "4.5.5",
     "ember-test-selectors": "^0.3.8",
     "loader.js": "4.0.10",
-    "mocha": "5.0.0",
+    "mocha": "5.0.5",
     "nodemon": "1.11.0",
     "sinon": "5.0.0",
     "supertest": "3.0.0"
