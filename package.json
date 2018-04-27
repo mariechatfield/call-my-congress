@@ -46,7 +46,7 @@
     "ember-load-initializers": "1.1.0",
     "ember-qunit": "^3.3.2",
     "ember-resolver": "4.5.5",
-    "ember-test-selectors": "^0.3.8",
+    "ember-test-selectors": "^1.0.0",
     "loader.js": "4.7.0",
     "mocha": "5.1.1",
     "nodemon": "1.17.3",
