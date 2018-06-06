@@ -50,7 +50,7 @@
     "loader.js": "4.7.0",
     "mocha": "5.2.0",
     "nodemon": "1.17.5",
-    "sinon": "5.0.10",
+    "sinon": "5.1.0",
     "supertest": "3.1.0"
   },
   "dependencies": {
