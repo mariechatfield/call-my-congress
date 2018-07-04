@@ -1,7 +1,8 @@
 export default {
   general: {
     phone: 'Phone',
-    twitter: 'Twitter'
+    twitter: 'Twitter',
+    loading: 'Loading'
   },
 
   format: {
