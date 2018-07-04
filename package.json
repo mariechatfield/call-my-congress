@@ -50,11 +50,11 @@
     "loader.js": "4.7.0",
     "mocha": "5.2.0",
     "nodemon": "1.17.5",
-    "sinon": "6.0.0",
+    "sinon": "6.0.1",
     "supertest": "3.1.0"
   },
   "dependencies": {
-    "ember-source": "3.2.0",
+    "ember-source": "3.2.1",
     "express": "4.14.0",
     "request": "2.87.0"
   }
