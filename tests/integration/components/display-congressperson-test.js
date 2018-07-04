@@ -41,8 +41,8 @@ module('Integration | Component | display congressperson', function(hooks) {
     await render(hbs`{{display-congressperson congressperson=congressperson}}`);
     await a11yAudit();
 
-    assert.ok(find('[data-test-display-congressperson__name]').textContent.match('Vacant Seat'), 'displays vacant seat title');
-    assert.ok(find('[data-test-display-congressperson__name]').textContent.match('This seat was vacated by Rep. Ryan K. Zinke'), 'displays vacant seat footnote');
+    assert.equal(find('[data-test-display-congressperson__name]').textContent.trim(), '(Vacant Seat)', 'displays vacant seat title');
+    assert.equal(find('[data-test-display-congressperson__footnote]').textContent.trim(), 'This seat was vacated by Rep. Ryan K. Zinke.', 'displays vacant seat footnote');
     assert.equal(findAll('[data-test-display-congressperson__phone]').length, 0, 'does not render attributes even if they exist');
   });
 });

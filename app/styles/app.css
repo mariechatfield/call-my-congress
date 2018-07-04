@@ -117,6 +117,18 @@ a:hover {
   margin: var(--padding--large) auto;
 }
 
+.left-align {
+  text-align: left;
+}
+
+.larger-font {
+  font-size: larger;
+}
+
+.minimal-table th, .minimal-table td {
+  border-bottom: none;
+}
+
 /* Override default skeleton.css button colors. */
 .button.button-primary,
 button.button-primary,

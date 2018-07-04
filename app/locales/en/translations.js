@@ -20,6 +20,7 @@ export default {
   displayCongress: {
     back: 'Search Again',
     permalink: 'Permanent Link to This Page',
+    aboutDistrict: 'District Information'
  },
 
   geography: {
