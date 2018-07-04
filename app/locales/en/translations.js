@@ -1,7 +1,8 @@
 export default {
   general: {
     phone: 'Phone',
-    twitter: 'Twitter'
+    twitter: 'Twitter',
+    loading: 'Loading'
   },
 
   format: {
@@ -19,6 +20,7 @@ export default {
   displayCongress: {
     back: 'Search Again',
     permalink: 'Permanent Link to This Page',
+    aboutDistrict: 'District Information'
  },
 
   geography: {

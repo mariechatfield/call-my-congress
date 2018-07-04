@@ -1,25 +1,30 @@
 {{#if congressperson.vacant}}
-  <div class="u-full-width" data-test-display-congressperson__name>
-    <h5>
-      {{t "congress.vacancy"}}
-    </h5>
-
-    <p>{{t "congress.vacancySuccessor" title=congressperson.title
-                                       firstName=congressperson.person.firstname
-                                       lastName=congressperson.person.lastname}}</p>
-  </div>
+  <table class="u-full-width minimal-table">
+    <caption class="u-full-width left-align" data-test-display-congressperson__name>
+      <h5>{{t "congress.vacancy"}}</h5>
+    </caption>
+    <tbody>
+      <tr>
+        <td data-test-display-congressperson__footnote>
+          {{t "congress.vacancySuccessor" title=congressperson.title
+                                          firstName=congressperson.person.firstname
+                                          lastName=congressperson.person.lastname}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 {{else}}
-  <div class="u-full-width" data-test-display-congressperson__name>
-    <h5>{{t "format.name" title=congressperson.title
+  <table class="u-full-width">
+    <caption class="u-full-width left-align" data-test-display-congressperson__name>
+      <h5>{{t "format.name" title=congressperson.title
                           firstName=congressperson.person.firstname
                           lastName=congressperson.person.lastname}}</h5>
-  </div>
+    </caption>
 
-  <table class="u-full-width">
     <tbody>
       {{#if congressperson.phone}}
         <tr data-test-display-congressperson__phone>
-          <td><strong>{{t "general.phone"}}</strong></td>
+          <th scope="row">{{t "general.phone"}}</th>
           <td>
            <a href="tel:{{congressperson.phone}}">{{congressperson.phone}}</a>
           </td>
@@ -28,21 +33,21 @@
 
       {{#if congressperson.party}}
       <tr data-test-display-congressperson__party>
-        <td><strong>{{t "congress.partyAffiliation"}}</strong></td>
+        <th scope="row">{{t "congress.partyAffiliation"}}</th>
         <td>{{congressperson.party}}</td>
       </tr>
       {{/if}}
 
       {{#if congressperson.next_election}}
       <tr data-test-display-congressperson__next-election>
-        <td><strong>{{t "congress.nextElection"}}</strong></td>
+        <th scope="row">{{t "congress.nextElection"}}</th>
         <td>{{congressperson.next_election}}</td>
       </tr>
       {{/if}}
 
       {{#if congressperson.twitter}}
       <tr data-test-display-congressperson__twitter>
-        <td><strong>{{t "general.twitter"}}</strong></td>
+        <th scope="row">{{t "general.twitter"}}</th>
         <td>
            <a href="https://twitter.com/{{congressperson.twitter}}">@{{congressperson.twitter}}</a>
         </td>
@@ -51,7 +56,7 @@
 
       {{#if congressperson.govtrack}}
       <tr data-test-display-congressperson__govtrack>
-        <td><strong>{{t "congress.govtrack"}}</strong></td>
+        <th scope="row">{{t "congress.govtrack"}}</th>
         <td>
            <a href="https://www.govtrack.us/congress/members/{{congressperson.govtrack}}">{{t "congress.govtrackLink"}}</a>
         </td>
@@ -60,7 +65,7 @@
 
       {{#if congressperson.cspan}}
       <tr data-test-display-congressperson__cspan>
-        <td><strong>{{t "congress.cspan"}}</strong></td>
+        <th scope="row">{{t "congress.cspan"}}</th>
         <td>
            <a href="https://www.c-span.org/person/?{{congressperson.cspan}}">{{t "congress.cspanLink"}}</a>
         </td>

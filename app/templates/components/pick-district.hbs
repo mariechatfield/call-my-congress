@@ -1,9 +1,0 @@
-{{t "pickDistrict.helpText"}}
-
-<ul class="row--extra-space">
-{{#each districts as |district|}}
-  <li data-test-pick-district__link>
-    {{link-to district.id 'district' district.id}}
-  </li>
-{{/each}}
-</ul>

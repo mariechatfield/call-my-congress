@@ -1,12 +1,15 @@
-<div class="header" {{action "linkToIndex"}}>
-  <h1 class="header__title">Call My Congress</h1>
+<div class="header">
+  <h1 class="header__title"><a href="/">Call My Congress</a></h1>
 </div>
 
 <div class="container">
-  {{app-message messageKey=message.messageKey
-                isVisible=message.isVisible}}
+  {{#if message.isVisible}}
+    {{#focus-on-render}}
+      {{app-message messageKey=message.messageKey}}
+    {{/focus-on-render}}
+  {{/if}}
 
-  {{outlet}}
+  {{focusing-outlet}}
 </div>
 
 <div class="footer">

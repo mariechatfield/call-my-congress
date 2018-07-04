@@ -30,7 +30,7 @@ export default Component.extend({
     returnHome() {
       this.get('message').clear();
       this.get('lookupData').clear();
-      this.get('router').transitionTo('index');
+      this.get('router').transitionTo('search');
     }
   }
 });
