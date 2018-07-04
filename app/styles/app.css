@@ -1,4 +1,7 @@
 :root {
+  --color-skeleton-link: #1EAEDB;
+  --color-skeleton-link--hover: #0FA0CE;
+  --color-blue--light: #39649C;
   --color-blue: #0E4287;
   --color-blue--dark: #0B3266;
   --color-red: #960200;
@@ -34,6 +37,13 @@ body {
   min-height: 100%;
 }
 
+a {
+  color: var(--color-blue--light);
+}
+a:hover {
+  color: var(--color-blue--dark);
+}
+
 .header {
   margin: var(--margin--override-default);
   padding: var(--padding--default);
@@ -54,6 +64,14 @@ body {
   color: var(--color-white);
   background-color: var(--color-blue--dark);
   font-size: 0.8em;
+}
+
+/* Restore Skeleton default link colors for greater color contrast in footer. */
+.footer a {
+  color: var(--color-skeleton-link);
+}
+.footer a:hover {
+  color: var(--color-skeleton-link--hover);
 }
 
 /* Adjust spacing on base elements. */
