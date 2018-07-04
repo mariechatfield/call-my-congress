@@ -54,6 +54,14 @@ a:hover {
   cursor: pointer;
 }
 
+.header a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+.header a:hover {
+  color: var(--color-gray);
+}
+
 .footer {
   position: absolute;
   bottom: 0;
