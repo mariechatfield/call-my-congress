@@ -51,7 +51,7 @@ module('Integration | Component | display congress', function(hooks) {
     await a11yAudit();
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'router.transitionTo was called once');
-    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['index'], 'router.transitionTo was called with "index"');
+    assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['search'], 'router.transitionTo was called with "search"');
   });
 
   test('with partial data, it renders', async function(assert) {

@@ -3,8 +3,11 @@
 </div>
 
 <div class="container">
-  {{app-message messageKey=message.messageKey
-                isVisible=message.isVisible}}
+  {{#if message.isVisible}}
+    {{#focus-on-render}}
+      {{app-message messageKey=message.messageKey}}
+    {{/focus-on-render}}
+  {{/if}}
 
   {{focusing-outlet}}
 </div>

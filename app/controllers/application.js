@@ -6,7 +6,7 @@ export default Controller.extend({
 
   actions: {
     linkToIndex() {
-      this.transitionToRoute('index');
+      this.transitionToRoute('search');
     }
   }
 });

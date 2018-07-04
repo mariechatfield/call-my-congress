@@ -1,35 +1,32 @@
-<form>
+<form data-test-lookup-congress onsubmit={{action "lookupCongress"}}>
    <div class="row">
     <div class="six columns" data-test-lookup-congress__street>
       <label for="addressInput">{{t "geography.address"}}</label>
-      {{input value=lookupData.street
-              placeholder="1600 Pennsylvania Ave"
-              id="addressInput"
-              class="u-full-width"}}
+      <input value={{readonly lookupData.street}}
+             oninput={{action (mut lookupData.street) value="target.value"}}
+             data-test-lookup-congress__street-input
+             placeholder="1600 Pennsylvania Ave"
+             id="addressInput"
+             class="u-full-width"
+             type="text">
     </div>
     <div class="six columns" data-test-lookup-congress__zip>
       <label for="zipCodeInput">{{t "geography.zipCode"}}</label>
-      {{input value=lookupData.zip
-              placeholder="20500"
-              id="zipCodeInput"
-              class="u-full-width"
-              type="number"
-              pattern="\d*"}}
+      <input value={{readonly lookupData.zip}}
+             oninput={{action (mut lookupData.zip) value="target.value"}}
+             data-test-lookup-congress__zip-input
+             placeholder="20500"
+             id="zipCodeInput"
+             class="u-full-width"
+             type="number"
+             pattern="\d*">
     </div>
   </div>
 
   <div class="row">
-    {{input data-test-lookup-congress__search
-            value=(t "lookupCongress.search")
-            class="button-primary"
-            type="submit"}}
+    <input data-test-lookup-congress__search
+           value={{t "lookupCongress.search"}}
+           class="button-primary"
+           type="submit">
   </div>
 </form>
-
-{{#if isLoading}}
-  <img class="loading loading--nested" src="/assets/loading.svg" />
-{{/if}}
-
-{{#if lookupData.districtsToPickFrom}}
-  {{pick-district data-test-pick-district districts=lookupData.districtsToPickFrom}}
-{{/if}}
