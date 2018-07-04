@@ -3,6 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, find, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import tHelper from 'ember-i18n/helper';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 const URL1 = 'http://www.callmycongress.com/';
 const URL2 = 'http://www.callmycongress.com/CA-12/';
@@ -27,6 +28,7 @@ module('Integration | Component | translate format link', function(hooks) {
       links: { hello:  URL1}
     });
     await render(hbs`{{translate-format-link key=key links=links data-test-translation=true}}`);
+    await a11yAudit();
 
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world?', 'renders correct translation');
     assert.equal(findAll('[data-test-translate-link]').length, 1, 'added one link');
@@ -57,6 +59,7 @@ module('Integration | Component | translate format link', function(hooks) {
       links: {}
     });
     await render(hbs`{{translate-format-link key=key links=links data-test-translation=true}}`);
+    await a11yAudit();
 
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world.', 'renders correct translation');
     assert.equal(findAll('[data-test-translate-link]').length, 0, 'did not add any links');
@@ -76,6 +79,7 @@ module('Integration | Component | translate format link', function(hooks) {
       links: { test: URL1, adding: URL1, a: URL1, bunch: URL2, of: URL2, links: URL2 }
     });
     await render(hbs`{{translate-format-link key=key links=links data-test-translation=true}}`);
+    await a11yAudit();
 
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world.', 'renders correct translation');
     assert.equal(findAll('[data-test-translate-link]').length, 0, 'did not add any links');
@@ -83,6 +87,7 @@ module('Integration | Component | translate format link', function(hooks) {
 
   test('it gracefully handles being given invalid parameters', async function(assert) {
     await render(hbs`{{translate-format-link key=key links=links data-test-translation=true}}`);
+    await a11yAudit();
 
     assert.equal(find('[data-test-translation]').textContent.trim(), 'ERROR: Must provide key parameter to translate-format-link', 'displays error message for missing key param');
 

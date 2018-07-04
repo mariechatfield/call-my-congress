@@ -3,10 +3,11 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, findAll, find } from '@ember/test-helpers';
 import {
   COMPLETE_PROFILE,
-  NAME_ONLY,
+  ONLY_NAME,
   VACANT_SEAT
 } from '../../fixtures/congressperson';
 import hbs from 'htmlbars-inline-precompile';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 module('Integration | Component | display congressperson', function(hooks) {
   setupRenderingTest(hooks);
@@ -14,6 +15,7 @@ module('Integration | Component | display congressperson', function(hooks) {
   test('it renders', async function(assert) {
     this.set('congressperson', COMPLETE_PROFILE);
     await render(hbs`{{display-congressperson congressperson=congressperson}}`);
+    await a11yAudit();
 
     assert.ok(find('[data-test-display-congressperson__name]').textContent.match('Rep. Nancy Pelosi'), 'displays correctly formatted full name');
     assert.ok(find('[data-test-display-congressperson__phone]').textContent.match('202-225-4965'), 'displays phone number');
@@ -25,10 +27,11 @@ module('Integration | Component | display congressperson', function(hooks) {
   });
 
   test('it handles incomplete data', async function(assert) {
-    this.set('congressperson', NAME_ONLY);
+    this.set('congressperson', ONLY_NAME);
     await render(hbs`{{display-congressperson congressperson=congressperson}}`);
+    await a11yAudit();
 
-    assert.equal(findAll('[data-test-display-congressperson__name]').length, 1, 'name always exists');
+    assert.ok(find('[data-test-display-congressperson__name]').textContent.match('Rep. Nancy Pelosi'), 'displays correctly formatted full name');
     assert.equal(findAll('[data-test-display-congressperson__phone]').length, 0, 'does not render attributes that do not exist');
     assert.equal(findAll('[data-test-display-congressperson__party]').length, 0, 'does not render attributes that do not exist');
   });
@@ -36,6 +39,7 @@ module('Integration | Component | display congressperson', function(hooks) {
   test('it handles vacant seat', async function(assert) {
     this.set('congressperson', VACANT_SEAT);
     await render(hbs`{{display-congressperson congressperson=congressperson}}`);
+    await a11yAudit();
 
     assert.ok(find('[data-test-display-congressperson__name]').textContent.match('Vacant Seat'), 'displays vacant seat title');
     assert.ok(find('[data-test-display-congressperson__name]').textContent.match('This seat was vacated by Rep. Ryan K. Zinke'), 'displays vacant seat footnote');

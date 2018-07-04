@@ -6,6 +6,7 @@ import {
   MULTIPLE_DISTRICTS
 } from '../../fixtures/districts';
 import hbs from 'htmlbars-inline-precompile';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 module('Integration | Component | pick district', function(hooks) {
   setupRenderingTest(hooks);
@@ -13,6 +14,7 @@ module('Integration | Component | pick district', function(hooks) {
   test('it renders', async function(assert) {
     this.set('districts', SINGLE_DISTRICT.districts);
     await render(hbs`{{pick-district districts=districts}}`);
+    await a11yAudit();
 
     assert.equal(findAll('[data-test-pick-district__link]').length, 1, 'shows a link for every district');
 

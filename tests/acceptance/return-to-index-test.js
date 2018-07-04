@@ -3,6 +3,7 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import $ from 'jquery';
 import setupStubs from '../helpers/setup-stubs';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 module('Acceptance | return to index', function(hooks) {
   setupApplicationTest(hooks);
@@ -32,6 +33,7 @@ module('Acceptance | return to index', function(hooks) {
 
   test('visiting index', async function(assert) {
     await visit('/');
+    await a11yAudit();
     await click('.header');
 
     assert.equal(currentURL(), '/', 'clicking header on index does not change URL');
@@ -39,6 +41,7 @@ module('Acceptance | return to index', function(hooks) {
 
   test('visiting district', async function(assert) {
     await visit('/CA-12');
+    await a11yAudit();
     await click('.header');
 
     assert.equal(currentURL(), '/', 'clicking header on district page transitions to index');

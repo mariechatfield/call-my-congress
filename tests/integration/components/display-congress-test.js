@@ -9,6 +9,7 @@ import {
 } from '../../fixtures/congress';
 import hbs from 'htmlbars-inline-precompile';
 import setupStubs from '../../helpers/setup-stubs';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 module('Integration | Component | display congress', function(hooks) {
   setupRenderingTest(hooks);
@@ -25,6 +26,7 @@ module('Integration | Component | display congress', function(hooks) {
   test('it renders', async function(assert) {
     this.set('congress', COMPLETE_CONGRESS);
     await render(hbs`{{display-congress congress=congress}}`);
+    await a11yAudit();
 
     assert.ok(find('[data-test-display-congress__state]').textContent.match('CA'), 'renders the state');
     assert.ok(find('[data-test-display-congress__district]').textContent.match('12'), 'renders the district number');
@@ -41,10 +43,12 @@ module('Integration | Component | display congress', function(hooks) {
     this.set('congress', COMPLETE_CONGRESS);
     this.set('router', this.stubs.objects.router);
     await render(hbs`{{display-congress congress=congress router=router}}`);
+    await a11yAudit();
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 0, 'router.transitionTo has not been called yet');
 
     await click('[data-test-display-congress__back]');
+    await a11yAudit();
 
     assert.equal(this.stubs.calls.router.transitionTo.length, 1, 'router.transitionTo was called once');
     assert.deepEqual(this.stubs.calls.router.transitionTo[0], ['index'], 'router.transitionTo was called with "index"');
