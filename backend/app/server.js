@@ -188,7 +188,7 @@ function getRepresentatives(districts) {
         next_election: representative.next_election
       };
 
-      if (representative.in_office === 'false') {
+      if (representative.in_office === false || representative.in_office === 'false') {
         data.vacant = true;
       }
 
@@ -222,7 +222,7 @@ function getSenators(districts) {
         next_election: senator.next_election
       };
 
-      if (senator.in_office === "false") {
+      if (senator.in_office === false || senator.in_office === "false") {
         data.vacant = true;
       }
 
