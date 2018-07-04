@@ -255,7 +255,7 @@ function buildCongress(district) {
 app.get('/api/district-from-address', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
-  if (req.query.zip === undefined || req.query.zip === null) {
+  if (!req.query.zip) {
     res.status(400).send({ translationKey: 'MISSING_ZIP' });
     return;
   }
