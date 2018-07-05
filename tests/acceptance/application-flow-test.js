@@ -42,6 +42,8 @@ module('Acceptance | application flow', function(hooks) {
     await visit('/');
     await a11yAudit();
 
+    assert.equal(document.documentElement.getAttribute('lang'), 'en', 'initializer sets lang code on document for screen readers');
+
     await triggerEvent('[data-test-lookup-congress]', 'submit');
     await a11yAudit();
 
