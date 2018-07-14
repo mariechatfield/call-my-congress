@@ -164,13 +164,13 @@ function getDistricts(geography) {
 
 function getRepresentatives(districts) {
   const district = districts.districts[0];
-  const districtIsAtLarge = Number(district.number) === AT_LARGE_DISTRICT_NUMBER;
+  const districtIsAtLarge = district.number === AT_LARGE_DISTRICT_NUMBER;
 
   return performGETRequest({ url: HOUSE_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
     const allMembers = result.results[0].members;
 
     const repsForDistrict = allMembers.filter(member => {
-      return member.state === district.state && (districtIsAtLarge || member.district === district.number);
+      return member.state === district.state && (districtIsAtLarge || Number(member.district) === district.number);
     });
 
     const representatives = repsForDistrict.map(representative => {
@@ -285,7 +285,7 @@ app.get('/api/congress-from-district', (req, res) => {
       return;
     }
 
-    const stateNumberPattern = /^([a-zA-z]{2})-([0-9]+)$/;
+    const stateNumberPattern = /^([a-zA-z]{2})-?([0-9]+)$/;
     const match = districtID.match(stateNumberPattern);
 
     if (match === null) {
@@ -293,10 +293,11 @@ app.get('/api/congress-from-district', (req, res) => {
       return;
     }
 
-    const [, state, number] = match;
+    const [, state, rawNumber] = match;
+    const number = Number(rawNumber);
     const district = {
       districts: [
-        { state, number, id: districtID }
+        { state, number, id: `${state}-${number}` }
       ]
     };
 

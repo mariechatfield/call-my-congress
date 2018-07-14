@@ -171,6 +171,24 @@ describe('server', function() {
           .expect(200, fixtures.CONGRESS_RESPONSE, done);
       });
 
+      it('handles district id without dash', function testSlash(done) {
+        stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
+        stubRequest(validSenatorURL, senateFixtures.SENATORS);
+
+        supertest(this.server)
+          .get('/api/congress-from-district?id=CA02')
+          .expect(200, fixtures.SINGLE_DIGIT_DISTRICT_CONGRESS_RESPONSE, done);
+      });
+
+      it('handles district id with leading zero', function testSlash(done) {
+        stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
+        stubRequest(validSenatorURL, senateFixtures.SENATORS);
+
+        supertest(this.server)
+          .get('/api/congress-from-district?id=CA-02')
+          .expect(200, fixtures.SINGLE_DIGIT_DISTRICT_CONGRESS_RESPONSE, done);
+      });
+
       it('with a state with an at-large district, returns correctly formatted response', function testSlash(done) {
         stubRequest(validRepresentativeURL, houseFixtures.REPRESENTATIVES);
         stubRequest(validSenatorURL, senateFixtures.SENATORS);

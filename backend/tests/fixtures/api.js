@@ -413,6 +413,60 @@ const CONGRESS_RESPONSE = {
   ]
 };
 
+const SINGLE_DIGIT_DISTRICT_CONGRESS_RESPONSE = {
+  district: {
+    districts: [
+      {
+        state: 'CA',
+        number: '2',
+        id: 'CA-2'
+      }
+    ]
+  },
+  representatives: [
+    {
+      person: {
+        firstname: 'Jared',
+        lastname: 'Huffman'
+      },
+      title: 'Rep.',
+      party: 'Democrat',
+      phone: '202-225-5161',
+      twitter: 'RepHuffman',
+      govtrack: '412511',
+      cspan: '622431',
+      next_election: '2018'
+    }
+  ],
+  senators: [
+    {
+      person: {
+        firstname: 'Dianne',
+        lastname: 'Feinstein'
+      },
+      title: 'Sen.',
+      party: 'Democrat',
+      phone: '202-224-3841',
+      twitter: 'SenFeinstein',
+      govtrack: '300043',
+      cspan: '13061',
+      next_election: '2018'
+    }, {
+      person: {
+        firstname: 'Kamala',
+        lastname: 'Harris'
+      },
+      title: 'Sen.',
+      party: 'Democrat',
+      phone: '202-224-3553',
+      twitter: 'SenKamalaHarris',
+      govtrack: '412678',
+      cspan: '1018696',
+      next_election: '2022'
+    }
+  ]
+};
+
 const AT_LARGE_CONGRESS_RESPONSE = {
   district: {
     districts: [
@@ -508,5 +562,6 @@ module.exports = {
   NON_VOTING_DISTRICT_RESPONSE,
   CONGRESS_RESPONSE,
   AT_LARGE_CONGRESS_RESPONSE,
-  NON_VOTING_AT_LARGE_CONGRESS_RESPONSE
+  NON_VOTING_AT_LARGE_CONGRESS_RESPONSE,
+  SINGLE_DIGIT_DISTRICT_CONGRESS_RESPONSE
 };
