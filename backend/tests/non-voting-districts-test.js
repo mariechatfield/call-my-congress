@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* global describe,it */
+
 const { zipCodeToNonVotingUSPSCode } = require('../app/non-voting-districts');
 const assert = require('assert');
 

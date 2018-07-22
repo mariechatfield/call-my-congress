@@ -67,6 +67,20 @@ This app is deployed to two separate dynos on Heroku. The first (`call-my-congre
 
 `call-my-congress` proxies all `/api/` requests to `call-my-congress-backend`, which is defined in [`static.json`](static.json).
 
+### Caching Strategy
+
+Call My Congress relies on third-party APIs to serve district and congressional data. When Call My Congress is experiencing a high volume of traffic, we want to ensure we don't overwhelm our third-party APIs with requests or hit their designated rate limits.
+
+Since most of the response data (congressional representatives, their contact information, and mapping zip codes to districts) does not change on a frequent basis, we can cache the responses and avoid making additional requests for the same data.
+
+Zip code to district data is cached by zip code lookup, and held for one week.
+
+Congressional representative data is cached by either House or Senate, and held for one day.
+
+The current cache implementation uses only app memory (which means each server starts with a completely empty cache when it refreshes, and multiple servers running the app cannot share a cache). We should consider adding a database (like Redis) to further enable Call My Congress to scale in the future if the app-memory cache hits the top of its constraints.
+
+__Note:__ We will _never_ cache or log district lookup by street address, as this is personally-identifiable information and unique to the point that there aren't any gains to be made. Zip code lookups are sufficiently de-anonymized and general to warrant caching.
+
 ### Contributing
 
 PRs and improvements are welcome! If you'd like to contribute but aren't sure where to start, here's a short wish list of small contributions:
