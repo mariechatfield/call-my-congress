@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 
 const DISTRICT_OBJECT = {
   result: {
@@ -550,6 +550,9 @@ const NON_VOTING_AT_LARGE_CONGRESS_RESPONSE = {
 };
 
 module.exports = {
+  SINGLE_DISTRICT_ZIP_CODE: 94102,
+  TWO_DISTRICT_ZIP_CODE: 77035,
+  NON_VOTING_ZIP_CODE: 20201,
   DISTRICT,
   AT_LARGE_DISTRICT,
   NON_VOTING_DISTRICT,

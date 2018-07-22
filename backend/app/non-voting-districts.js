@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 
 const AMERICAN_SAMOA_CODE = 'AS';
 const GUAM_CODE = 'GU';

@@ -1,7 +1,6 @@
-  /* jshint node: true */
+/* eslint-env node */
 
-  module.exports = {
-    REPRESENTATIVES: `{
+ const RAW_RESPONSE = `{
      "status":"OK",
      "copyright":" Copyright (c) 2017 Pro Publica Inc. All Rights Reserved.",
      "results":[
@@ -17730,5 +17729,9 @@
                ]
         }
      ]
-  }`
+  }`;
+
+module.exports = {
+  RAW_RESPONSE,
+  REPRESENTATIVES: JSON.parse(RAW_RESPONSE).results[0].members
 };
