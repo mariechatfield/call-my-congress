@@ -27,14 +27,14 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "2.7.0",
-    "ember-a11y": "^0.1.15",
-    "ember-a11y-testing": "^0.5.2",
+    "ember-a11y": "0.1.15",
+    "ember-a11y-testing": "0.5.2",
     "ember-ajax": "3.0.0",
     "ember-cli": "3.3.0",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-babel": "6.16.0",
     "ember-cli-dependency-checker": "3.0.0",
-    "ember-cli-eslint": "^4.2.3",
+    "ember-cli-eslint": "4.2.3",
     "ember-cli-htmlbars": "2.0.3",
     "ember-cli-htmlbars-inline-precompile": "1.0.3",
     "ember-cli-inject-live-reload": "1.8.1",
@@ -46,20 +46,20 @@
     "ember-export-application-global": "2.0.0",
     "ember-i18n": "5.2.1",
     "ember-load-initializers": "1.1.0",
-    "ember-qunit": "^3.3.2",
+    "ember-qunit": "3.3.2",
     "ember-resolver": "5.0.1",
-    "ember-test-selectors": "^1.0.0",
+    "ember-test-selectors": "1.0.0",
     "loader.js": "4.7.0",
     "mocha": "5.2.0",
     "nodemon": "1.18.3",
-    "proxyquire": "^2.0.1",
+    "proxyquire": "2.0.1",
     "sinon": "6.0.1",
     "supertest": "3.1.0"
   },
   "dependencies": {
     "ember-source": "3.3.1",
-    "express": "4.14.0",
-    "log": "^1.4.0",
+    "express": "4.16.3",
+    "log": "1.4.0",
     "request": "2.87.0"
   }
 }
