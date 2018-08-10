@@ -60,6 +60,6 @@
     "ember-source": "3.3.1",
     "express": "4.16.3",
     "log": "1.4.0",
-    "request": "2.87.0"
+    "request": "2.88.0"
   }
 }
