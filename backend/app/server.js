@@ -52,6 +52,8 @@ function getDistricts(geography) {
 
     if (state && number.match(AT_LARGE_DISTRICT_NAME)) {
       number = AT_LARGE_DISTRICT_NUMBER;
+    } else {
+      number = Number(number);
     }
 
     const id = `${state}-${number}`;
