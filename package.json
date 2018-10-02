@@ -26,7 +26,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "2.7.0",
+    "broccoli-asset-rev": "3.0.0",
     "ember-a11y": "0.1.15",
     "ember-a11y-testing": "0.5.2",
     "ember-ajax": "3.0.0",
@@ -60,6 +60,6 @@
     "ember-source": "3.4.4",
     "express": "4.16.3",
     "log": "1.4.0",
-    "request": "2.87.0"
+    "request": "2.88.0"
   }
 }
