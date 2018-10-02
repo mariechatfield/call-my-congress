@@ -16,7 +16,7 @@ const AT_LARGE_DISTRICT_NUMBER = 0;
 
 const GEOGRAPHY_BASE_URL = 'https://geocoding.geo.census.gov/geocoder/geographies/address';
 
-// Geography layer that includes information on the 115th Congressional Districts
+// Geography layer that includes information on the most recent congressional districts
 // as defined: https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/54
 const CONGRESSIONAL_DISTRICTS_LAYER = 54;
 
@@ -47,11 +47,19 @@ function getDistricts(geography) {
     }
 
     const address = result.result.addressMatches[0];
-    let number = address.geographies['115th Congressional Districts'][0].BASENAME;
+
+    const allCongressNames = Object.getOwnPropertyNames(address.geographies).sort();
+
+    const mostRecentCongressName = allCongressNames.slice(-1);
+    const mostRecentCongress = address.geographies[mostRecentCongressName];
+
+    let number = mostRecentCongress[0].BASENAME;
     const state = address.addressComponents.state;
 
     if (state && number.match(AT_LARGE_DISTRICT_NAME)) {
       number = AT_LARGE_DISTRICT_NUMBER;
+    } else {
+      number = Number(number);
     }
 
     const id = `${state}-${number}`;

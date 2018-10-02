@@ -326,7 +326,7 @@ const DISTRICT_RESPONSE = {
   districts: [
     {
       state: 'CA',
-      number: '12',
+      number: 12,
       id: 'CA-12'
     }
   ]
@@ -336,12 +336,12 @@ const TWO_DISTRICTS_RESPONSE = {
   districts: [
     {
       state: 'TX',
-      number: '7',
+      number: 7,
       id: 'TX-7'
     },
     {
       state: 'TX',
-      number: '9',
+      number: 9,
       id: 'TX-9'
     }
   ]
@@ -351,7 +351,7 @@ const AT_LARGE_DISTRICT_RESPONSE = {
   districts: [
     {
       state: 'MT',
-      number: '0',
+      number: 0,
       id: 'MT-0'
     }
   ]
@@ -361,7 +361,7 @@ const NON_VOTING_DISTRICT_RESPONSE = {
   districts: [
     {
       state: 'DC',
-      number: '0',
+      number: 0,
       id: 'DC-0'
     }
   ]
@@ -418,7 +418,7 @@ const SINGLE_DIGIT_DISTRICT_CONGRESS_RESPONSE = {
     districts: [
       {
         state: 'CA',
-        number: '2',
+        number: 2,
         id: 'CA-2'
       }
     ]
@@ -472,7 +472,7 @@ const AT_LARGE_CONGRESS_RESPONSE = {
     districts: [
       {
         state: 'AK',
-        number: '0',
+        number: 0,
         id: 'AK-0'
       }
     ]
@@ -526,7 +526,7 @@ const NON_VOTING_AT_LARGE_CONGRESS_RESPONSE = {
     districts: [
       {
         state: 'PR',
-        number: '0',
+        number: 0,
         id: 'PR-0'
       }
     ]
