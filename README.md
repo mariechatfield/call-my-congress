@@ -77,7 +77,7 @@ Zip code to district data is cached by zip code lookup, and held for one week.
 
 Congressional representative data is cached by either House or Senate, and held for one day.
 
-The current cache implementation uses only app memory (which means each server starts with a completely empty cache when it refreshes, and multiple servers running the app cannot share a cache). We should consider adding a database (like Redis) to further enable Call My Congress to scale in the future if the app-memory cache hits the top of its constraints.
+The cache is implemented using a Heroku Redis database.  When running in development mode locally, it will run on `127.0.0.1:6379` and create a `dump.rdb` file in the main directory. [Read more about the Node Redis implementation here](https://github.com/NodeRedis/node_redis).
 
 __Note:__ We will _never_ cache or log district lookup by street address, as this is personally-identifiable information and unique to the point that there aren't any gains to be made. Zip code lookups are sufficiently de-anonymized and general to warrant caching.
 

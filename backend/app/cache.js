@@ -1,6 +1,8 @@
 /* eslint-env node */
 
 const { getLogger } = require('./utils');
+const redis = require('redis');
+const { promisify } = require('util');
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
@@ -13,34 +15,29 @@ const MILLISECONDS_IN_DAY = MILLISECONDS_IN_HOUR * HOURS_IN_DAY;
 const MILLISECONDS_IN_WEEK = MILLISECONDS_IN_DAY * DAYS_IN_WEEK;
 
 const log = getLogger();
-const cache = {};
+const REDIS_URL = process.env.REDIS_URL || null;
+const client = redis.createClient(REDIS_URL);
+const getAsync = promisify(client.get).bind(client);
 
 function getValueFromCache(key) {
-  const cachedRecord = cache[key];
-
-  if (cachedRecord && cachedRecord.expiryTimestamp) {
-    if (Date.now() <= cachedRecord.expiryTimestamp) {
-      log.info(`[cache] hit for ${key}`);
-      return cachedRecord.value;
-    }
-
-    log.info(`[cache] hit for ${key}, but was expired (${new Date(cachedRecord.expiryTimestamp)})`);
-    delete cache[key];
-    return null;
-  }
-
-  log.info(`[cache] miss for ${key}`);
-  return null;
+  return getAsync(key)
+    .then(function(result) {
+      return JSON.parse(result);
+    });
 }
 
 function storeValueInCache(key, value, expiryMS = MILLISECONDS_IN_DAY) {
-  const expiryTimestamp = Date.now() + expiryMS;
-  log.info(`[cache] cached value for ${key}, expiryTimestamp=${new Date(expiryTimestamp)}`);
-  cache[key] = {
-    expiryTimestamp,
-    value
-  };
+  const value_as_string = JSON.stringify(value);
+  client.setex(key, expiryMS, value_as_string);
 }
+
+client
+  .on('connect', function() {
+    log.info('Redis client connected');
+  })
+  .on('error', function (err) {
+    log.info('Something went wrong ' + err);
+  });
 
 module.exports = {
   MILLISECONDS_IN_HOUR,

@@ -23,57 +23,62 @@ const REPRESNTATIVES_CACHE_KEY = 'HOUSE_OF_REPRESENTATIVES';
 const SENATORS_CACHE_KEY = 'SENATE';
 
 function fetchAllRepresentatives() {
-  const cachedRepresentatives = getValueFromCache(REPRESNTATIVES_CACHE_KEY);
+  return getValueFromCache(REPRESNTATIVES_CACHE_KEY)
+    .then(function(cachedRepresentatives) {
+      if (cachedRepresentatives) {
+        return cachedRepresentatives;
+      }
 
-  if (cachedRepresentatives) {
-    return new Promise((resolve) => resolve(cachedRepresentatives));
-  }
-
-  return performGETRequest({ url: HOUSE_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
-    const allMembers = result.results[0].members;
-
-    storeValueInCache(REPRESNTATIVES_CACHE_KEY, allMembers, MILLISECONDS_IN_DAY);
-
-    return allMembers;
-  });
+      return performGETRequest({ url: HOUSE_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
+        const allMembers = result.results[0].members;
+    
+        storeValueInCache(REPRESNTATIVES_CACHE_KEY, allMembers, MILLISECONDS_IN_DAY);
+    
+        return allMembers;
+      });
+    });
 }
 
 function fetchAllSenators() {
-  const cachedSenators = getValueFromCache(SENATORS_CACHE_KEY);
+  return getValueFromCache(SENATORS_CACHE_KEY)
+    .then(function(cachedSenators) {
+      if (cachedSenators) {
+        return cachedSenators;
+      }
 
-  if (cachedSenators) {
-    return new Promise((resolve) => resolve(cachedSenators));
-  }
-
-  return performGETRequest({ url: SENATOR_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
-    const allMembers = result.results[0].members;
-
-    storeValueInCache(SENATORS_CACHE_KEY, allMembers, MILLISECONDS_IN_DAY);
-
-    return allMembers;
-  });
+      return performGETRequest({ url: SENATOR_BASE_URL, headers: PROPUBLICA_HEADERS }, result => {
+        const allMembers = result.results[0].members;
+    
+        storeValueInCache(SENATORS_CACHE_KEY, allMembers, MILLISECONDS_IN_DAY);
+    
+        return allMembers;
+      });
+    });
 }
 
 function fetchDistrictsForZip(zip) {
   const zipCacheKey = `ZIP_${zip}`;
-  const cachedDistricts = getValueFromCache(zipCacheKey);
 
-  if (cachedDistricts) {
-    return new Promise((resolve) => resolve(cachedDistricts));
-  }
+  return getValueFromCache(zipCacheKey)
+    .then(function(cachedDistricts) {
+      if (cachedDistricts) {
+        return cachedDistricts;
+      }
 
-  const params = { output: 'json', zip };
+      const params = { output: 'json', zip };
 
-  return performGETRequest({ url: buildURL(ZIP_ONLY_BASE_URL, params) }, rawResult => {
-    const districts = transformZipResultToDistricts(rawResult, zip);
+      return performGETRequest({ url: buildURL(ZIP_ONLY_BASE_URL, params) }, rawResult => {
+        const districts = transformZipResultToDistricts(rawResult, zip);
+    
+        if (!districts) {
+          return null;
+        }
+    
+        storeValueInCache(zipCacheKey, districts, MILLISECONDS_IN_WEEK);
+        return districts;
+      });
 
-    if (!districts) {
-      return null;
-    }
-
-    storeValueInCache(zipCacheKey, districts, MILLISECONDS_IN_WEEK);
-    return districts;
-  });
+    });
 }
 
 function transformZipResultToDistricts(body, zip) {
