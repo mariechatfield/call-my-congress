@@ -3,7 +3,7 @@
   "https_only": true,
   "proxies": {
     "/api/": {
-      "origin": "https://call-my-congress-backend.herokuapp.com/api"
+      "origin": "https://call-my-congress-backend-stage.herokuapp.com/api"
     }
   }
 }
