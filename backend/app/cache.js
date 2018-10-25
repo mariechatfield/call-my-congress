@@ -22,6 +22,11 @@ const getAsync = promisify(client.get).bind(client);
 function getValueFromCache(key) {
   return getAsync(key)
     .then(function(result) {
+      if (result) {
+        log.info("[cache] HIT:", key);
+      } else {
+        log.info("[cache] MISS:", key);
+      }
       return JSON.parse(result);
     });
 }
