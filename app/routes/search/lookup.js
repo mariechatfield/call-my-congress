@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import $ from 'jquery';
+import { getJSON } from 'call-my-congress/utils/api';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
@@ -25,7 +25,7 @@ export default Route.extend({
       url = `/api/district-from-address?zip=${zip}`;
     }
 
-    return $.getJSON(url).catch(error => {
+    return getJSON(url).catch(error => {
       this.get('message').displayFromServer(error);
       this.replaceWith('search');
     });

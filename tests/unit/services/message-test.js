@@ -26,9 +26,7 @@ module('Unit | Service | message', function(hooks) {
     this.isKeyDefined = true;
 
     const error = {
-      responseJSON: {
-        translationKey: 'SOME_ERROR'
-      }
+      translationKey: 'SOME_ERROR'
     };
 
     this.service.displayFromServer(error);
@@ -46,10 +44,7 @@ module('Unit | Service | message', function(hooks) {
     this.service.displayFromServer({});
     assert.equal(this.service.get('messageKey'), 'errors.general');
 
-    this.service.displayFromServer({ responseJSON: {} });
-    assert.equal(this.service.get('messageKey'), 'errors.general');
-
-    this.service.displayFromServer({ responseJSON: { someOtherKey: 'hello' } });
+    this.service.displayFromServer({ someOtherKey: 'hello' });
     assert.equal(this.service.get('messageKey'), 'errors.general');
   });
 });

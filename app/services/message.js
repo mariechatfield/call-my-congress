@@ -28,8 +28,8 @@ export default Service.extend({
   },
 
   displayFromServer(error) {
-    if (error && error.responseJSON && error.responseJSON.translationKey) {
-      const partialKey = error.responseJSON.translationKey;
+    if (error && error.translationKey) {
+      const partialKey = error.translationKey;
       const fullKey = `errors.server.${partialKey}`;
 
       if (this.get('i18n').exists(fullKey)) {

@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { SINGLE_DISTRICT, MULTIPLE_DISTRICTS } from 'call-my-congress/tests/fixtures/districts';
 import setupStubs from 'call-my-congress/tests/helpers/setup-stubs';
-import $ from 'jquery';
+import apiUtils from 'call-my-congress/utils/api';
 
 const STREET = '1600 Pennsylvania Ave';
 const ENCODED_STREET = '1600%20Pennsylvania%20Ave';
@@ -21,7 +21,7 @@ module('Unit | Route | search/lookup', function(hooks) {
         name: 'routeMethods',
         methods: ['replaceWith', 'transitionTo']
       }, {
-        name: '$',
+        name: 'apiUtils',
         methodOverrides: [{
           name: 'getJSON',
           override: () => {
@@ -35,8 +35,8 @@ module('Unit | Route | search/lookup', function(hooks) {
       }
     ]);
 
-    this.orginalGetJSON = $.getJSON;
-    $.getJSON = this.stubs.objects.$.getJSON;
+    this.orginalGetJSON = apiUtils.getJSON;
+    apiUtils.getJSON = this.stubs.objects.apiUtils.getJSON;
 
     this.responseSuccessful = true;
     this.response = SINGLE_DISTRICT;
@@ -49,7 +49,7 @@ module('Unit | Route | search/lookup', function(hooks) {
   });
 
   hooks.afterEach(function() {
-    $.getJSON = this.orginalGetJSON;
+    apiUtils.getJSON = this.orginalGetJSON;
   });
 
   module('beforeModel', function() {
@@ -98,9 +98,9 @@ module('Unit | Route | search/lookup', function(hooks) {
 
       await route.model();
 
-      assert.equal(this.stubs.calls.$.getJSON.length, 1, 'makes a network request');
+      assert.equal(this.stubs.calls.apiUtils.getJSON.length, 1, 'makes a network request');
       assert.deepEqual(
-        this.stubs.calls.$.getJSON[0],
+        this.stubs.calls.apiUtils.getJSON[0],
         [`/api/district-from-address?street=${ENCODED_STREET}&zip=${ZIP}`],
         'formats request with street and zip'
       );
@@ -115,9 +115,9 @@ module('Unit | Route | search/lookup', function(hooks) {
 
       await route.model();
 
-      assert.equal(this.stubs.calls.$.getJSON.length, 1, 'makes a network request');
+      assert.equal(this.stubs.calls.apiUtils.getJSON.length, 1, 'makes a network request');
       assert.deepEqual(
-        this.stubs.calls.$.getJSON[0],
+        this.stubs.calls.apiUtils.getJSON[0],
         [`/api/district-from-address?zip=${ZIP}`],
         'formats request with just zip'
       );
@@ -130,7 +130,7 @@ module('Unit | Route | search/lookup', function(hooks) {
 
       await route.model();
 
-      assert.equal(this.stubs.calls.$.getJSON.length, 1, 'makes a network request');
+      assert.equal(this.stubs.calls.apiUtils.getJSON.length, 1, 'makes a network request');
       assert.equal(this.stubs.calls.message.displayFromServer.length, 1, 'displays error from server response');
       assert.equal(this.stubs.calls.routeMethods.replaceWith.length, 1, 'calls replaceWith');
       assert.deepEqual(this.stubs.calls.routeMethods.replaceWith[0], ['search'], 'transitions to search route');
