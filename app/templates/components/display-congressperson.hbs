@@ -1,7 +1,7 @@
 {{#if congressperson.vacant}}
   <table class="u-full-width minimal-table">
     <caption class="u-full-width left-align" data-test-display-congressperson__name>
-      <h5>{{t "congress.vacancy"}}</h5>
+      <h2>{{t "congress.vacancy"}}</h2>
     </caption>
     <tbody>
       <tr>
@@ -16,9 +16,9 @@
 {{else}}
   <table class="u-full-width">
     <caption class="u-full-width left-align" data-test-display-congressperson__name>
-      <h5>{{t "format.name" title=congressperson.title
+      <h2>{{t "format.name" title=congressperson.title
                           firstName=congressperson.person.firstname
-                          lastName=congressperson.person.lastname}}</h5>
+                          lastName=congressperson.person.lastname}}</h2>
     </caption>
 
     <tbody>
