@@ -6,7 +6,7 @@ import { MULTIPLE_DISTRICTS } from 'call-my-congress/tests/fixtures/districts';
 import { COMPLETE_CONGRESS } from 'call-my-congress/tests/fixtures/congress';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import setupStubs from 'call-my-congress/tests/helpers/setup-stubs';
-import $ from 'jquery';
+import apiUtils from 'call-my-congress/utils/api';
 
 module('Acceptance | application flow', function(hooks) {
   setupApplicationTest(hooks);
@@ -14,7 +14,7 @@ module('Acceptance | application flow', function(hooks) {
   hooks.beforeEach(function() {
     this.stubs = setupStubs([
       {
-        name: '$',
+        name: 'apiUtils',
         methodOverrides: [{
           name: 'getJSON',
           override: () => {
@@ -28,21 +28,21 @@ module('Acceptance | application flow', function(hooks) {
       }
     ]);
 
-    this.orginalGetJSON = $.getJSON;
-    $.getJSON = this.stubs.objects.$.getJSON;
+    this.orginalGetJSON = apiUtils.getJSON;
+    apiUtils.getJSON = this.stubs.objects.apiUtils.getJSON;
 
     this.responseSuccessful = true;
   });
 
   hooks.afterEach(function() {
-    $.getJSON = this.orginalGetJSON;
+    apiUtils.getJSON = this.orginalGetJSON;
   });
 
   test('picking from multiple districts', async function(assert) {
     await visit('/');
     await a11yAudit();
 
-    assert.equal(document.documentElement.getAttribute('lang'), 'en', 'initializer sets lang code on document for screen readers');
+    assert.equal(document.documentElement.getAttribute('lang'), 'en-us', 'initializer sets lang code on document for screen readers');
 
     await triggerEvent('[data-test-lookup-congress]', 'submit');
     await a11yAudit();

@@ -1,8 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, find, findAll } from '@ember/test-helpers';
+import { setupIntl } from 'ember-intl/test-support';
 import hbs from 'htmlbars-inline-precompile';
-import tHelper from 'ember-i18n/helper';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 const URL1 = 'http://www.callmycongress.com/';
@@ -10,16 +10,10 @@ const URL2 = 'http://www.callmycongress.com/CA-12/';
 
 module('Integration | Component | translate format link', function(hooks) {
   setupRenderingTest(hooks);
-
-  hooks.beforeEach(function() {
-    this.owner.lookup('service:i18n').set('locale', 'en');
-    this.owner.register('helper:t', tHelper);
-
-    this.owner.lookup('service:i18n').addTranslations('en', {
-      'noLinks': 'Hello world.',
-      'oneLink': '{{link-hello}}Hello world{{/link-hello}}?',
-      'twoLinks': '{{link-hello}}Hello{{/link-hello}} {{link-world}}world{{/link-world}}!'
-    });
+  setupIntl(hooks, 'en-us', {
+    noLinks: 'Hello world.',
+    oneLink: '{link-hello}Hello world{/link-hello}?',
+    twoLinks: '{link-hello}Hello{/link-hello} {link-world}world{/link-world}!'
   });
 
   test('it adds links to DOM', async function(assert) {
@@ -64,12 +58,12 @@ module('Integration | Component | translate format link', function(hooks) {
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world.', 'renders correct translation');
     assert.equal(findAll('[data-test-translate-link]').length, 0, 'did not add any links');
 
-    this.set('links', [{ 'notARealLink': 'http://www.callmycongress.com' }]);
+    this.set('links', { 'notARealLink': 'http://www.callmycongress.com' });
     assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world.', 'renders correct translation');
     assert.equal(findAll('[data-test-translate-link]').length, 0, 'did not add any links');
 
     this.set('key', 'oneLink');
-    assert.equal(find('[data-test-translation]').textContent.trim(), 'Hello world?', 'renders correct translation');
+    assert.equal(find('[data-test-translation]').textContent.trim(), `Error: The intl string context variable 'link-hello' was not provided to the string '{link-hello}Hello world{/link-hello}?'`, 'displays error message for missing variable');
     assert.equal(findAll('[data-test-translate-link]').length, 0, 'did not add any links');
   });
 

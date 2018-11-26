@@ -14,8 +14,7 @@ export function endPlaceholder(linkName) {
 export default Component.extend({
   key: null,
   links: null,
-
-  i18n: service(),
+  intl: service(),
 
   startLink(url) {
     return `<a href="${url}" target="_blank" data-test-translate-link>`;
@@ -38,20 +37,32 @@ export default Component.extend({
       return 'ERROR: Must provide links parameter to translate-format-link';
     }
 
-    for (let linkName in links) {
+    const linkNames = Object.keys(links);
+
+    linkNames.forEach(linkName => {
       context[`link-${linkName}`] = startPlaceholder(linkName);
       context[`/link-${linkName}`] = endPlaceholder(linkName);
+    })
+
+    if (!this.get('intl').exists(key)) {
+      return `Missing translation: ${key}`;
     }
 
-    let translatedText = this.get('i18n').t(key, context).toString();
+    let translatedText;
 
-    for (let linkName in links) {
+    try {
+      translatedText = this.get('intl').t(key, context).toString();
+    } catch (err) {
+      return err.toString();
+    }
+
+    linkNames.forEach(linkName => {
       const linkUrl = links[linkName];
 
       translatedText = translatedText
         .replace(startPlaceholder(linkName), this.startLink(linkUrl))
         .replace(endPlaceholder(linkName), this.endLink());
-    }
+    });
 
     return htmlSafe(translatedText);
   })

@@ -8,7 +8,7 @@ module('Unit | Service | message', function(hooks) {
   hooks.beforeEach(function() {
     this.stubs = setupStubs([
       {
-        name: 'i18n',
+        name: 'intl',
         methodOverrides: [
           {
             name: 'exists',
@@ -19,16 +19,14 @@ module('Unit | Service | message', function(hooks) {
     ]);
 
     this.service = this.owner.lookup('service:message');
-    this.service.set('i18n', this.stubs.objects.i18n);
+    this.service.set('intl', this.stubs.objects.intl);
   });
 
   test('returns fully qualified key if it exists', function(assert) {
     this.isKeyDefined = true;
 
     const error = {
-      responseJSON: {
-        translationKey: 'SOME_ERROR'
-      }
+      translationKey: 'SOME_ERROR'
     };
 
     this.service.displayFromServer(error);
@@ -46,10 +44,7 @@ module('Unit | Service | message', function(hooks) {
     this.service.displayFromServer({});
     assert.equal(this.service.get('messageKey'), 'errors.general');
 
-    this.service.displayFromServer({ responseJSON: {} });
-    assert.equal(this.service.get('messageKey'), 'errors.general');
-
-    this.service.displayFromServer({ responseJSON: { someOtherKey: 'hello' } });
+    this.service.displayFromServer({ someOtherKey: 'hello' });
     assert.equal(this.service.get('messageKey'), 'errors.general');
   });
 });

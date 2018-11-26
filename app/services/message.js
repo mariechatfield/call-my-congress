@@ -3,8 +3,7 @@ import Service, { inject as service } from '@ember/service';
 const MESSAGE_DURATION = 7000;
 
 export default Service.extend({
-  i18n: service(),
-
+  intl: service(),
   messageKey: null,
   isVisible: false,
 
@@ -28,11 +27,11 @@ export default Service.extend({
   },
 
   displayFromServer(error) {
-    if (error && error.responseJSON && error.responseJSON.translationKey) {
-      const partialKey = error.responseJSON.translationKey;
+    if (error && error.translationKey) {
+      const partialKey = error.translationKey;
       const fullKey = `errors.server.${partialKey}`;
 
-      if (this.get('i18n').exists(fullKey)) {
+      if (this.get('intl').exists(fullKey)) {
         this.display(fullKey);
         return;
       }

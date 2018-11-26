@@ -1,7 +1,7 @@
 import { resolve, reject } from 'rsvp';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import $ from 'jquery';
+import apiUtils from 'call-my-congress/utils/api';
 import setupStubs from '../../helpers/setup-stubs';
 
 const VALID_PARAMS = {
@@ -23,7 +23,7 @@ module('Unit | Route | district', function(hooks) {
         name: 'message',
         methods: ['displayFromServer']
       }, {
-        name: '$',
+        name: 'apiUtils',
         methodOverrides: [{
           name: 'getJSON',
           override: () => {
@@ -37,15 +37,15 @@ module('Unit | Route | district', function(hooks) {
       }
     ]);
 
-    this.orginalGetJSON = $.getJSON;
-    $.getJSON = this.stubs.objects.$.getJSON;
+    this.orginalGetJSON = apiUtils.getJSON;
+    apiUtils.getJSON = this.stubs.objects.apiUtils.getJSON;
 
     this.route = this.owner.lookup('route:district');
     this.route.set('message', this.stubs.objects.message);
   });
 
   hooks.afterEach(function() {
-    $.getJSON = this.orginalGetJSON;
+    apiUtils.getJSON = this.orginalGetJSON;
   });
 
   test('model > returns successful response', function(assert) {
