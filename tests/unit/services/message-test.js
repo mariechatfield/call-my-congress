@@ -8,7 +8,7 @@ module('Unit | Service | message', function(hooks) {
   hooks.beforeEach(function() {
     this.stubs = setupStubs([
       {
-        name: 'i18n',
+        name: 'intl',
         methodOverrides: [
           {
             name: 'exists',
@@ -19,7 +19,7 @@ module('Unit | Service | message', function(hooks) {
     ]);
 
     this.service = this.owner.lookup('service:message');
-    this.service.set('i18n', this.stubs.objects.i18n);
+    this.service.set('intl', this.stubs.objects.intl);
   });
 
   test('returns fully qualified key if it exists', function(assert) {

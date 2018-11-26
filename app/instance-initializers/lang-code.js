@@ -1,8 +1,8 @@
 export function initialize(appInstance) {
-  const i18nService = appInstance.lookup('service:i18n');
+  const intlService = appInstance.lookup('service:intl');
 
-  if (i18nService && i18nService.get('locale')) {
-    document.documentElement.setAttribute('lang', i18nService.get('locale'));
+  if (intlService && intlService.get('locale')) {
+    document.documentElement.setAttribute('lang', intlService.get('locale'));
   }
 }
 
