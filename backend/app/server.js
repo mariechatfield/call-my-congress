@@ -2,11 +2,11 @@
 /* global Promise */
 
 const express = require('express');
+const log = require('log');
 
-const { AppError, buildURL, getLogger, performGETRequest } = require('./utils');
+const { AppError, buildURL, performGETRequest } = require('./utils');
 const { fetchAllRepresentatives, fetchAllSenators, fetchDistrictsForZip } = require('./api-cache');
 
-const log = getLogger();
 const app = express();
 
 const DEFAULT_PORT = 3000;

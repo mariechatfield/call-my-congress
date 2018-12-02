@@ -3,7 +3,6 @@
 
 const request = require('request');
 const querystring = require('querystring');
-const Log = require('log');
 
 function AppError(message) {
   this.name = 'AppError';
@@ -38,19 +37,8 @@ function performGETRequest(options, processResult, attemptParse = true) {
   });
 }
 
-function getLogger() {
-  const loglevel = process.env.LOGLEVEL;
-
-  if (loglevel) {
-    return new Log(loglevel);
-  }
-
-  return new Log();
-}
-
 module.exports = {
   AppError,
   buildURL,
-  getLogger,
   performGETRequest
 };
