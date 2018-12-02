@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const { getLogger } = require('./utils');
+const log = require('log');
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
@@ -12,7 +12,6 @@ const MILLISECONDS_IN_HOUR = MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTE
 const MILLISECONDS_IN_DAY = MILLISECONDS_IN_HOUR * HOURS_IN_DAY;
 const MILLISECONDS_IN_WEEK = MILLISECONDS_IN_DAY * DAYS_IN_WEEK;
 
-const log = getLogger();
 const cache = {};
 
 function getValueFromCache(key) {
