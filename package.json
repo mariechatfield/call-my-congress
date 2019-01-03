@@ -40,7 +40,7 @@
     "ember-cli-inject-live-reload": "2.0.1",
     "ember-cli-release": "0.2.9",
     "ember-cli-shims": "1.1.0",
-    "ember-cli-sri": "2.1.0",
+    "ember-cli-sri": "2.1.1",
     "ember-cli-test-loader": "2.2.0",
     "ember-cli-uglify": "2.1.0",
     "ember-export-application-global": "2.0.0",
