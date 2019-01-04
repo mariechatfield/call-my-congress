@@ -5,7 +5,7 @@ const { zipCodeToNonVotingUSPSCode } = require('./non-voting-districts');
 const { getValueFromCache, storeValueInCache, MILLISECONDS_IN_DAY, MILLISECONDS_IN_WEEK } = require('./cache');
 const { buildURL, performGETRequest } = require('./utils');
 
-const CURRENT_CONGRESS = 115;
+const CURRENT_CONGRESS = 116;
 const HOUSE_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/house/members.json`;
 const SENATOR_BASE_URL = `https://api.propublica.org/congress/v1/${CURRENT_CONGRESS}/senate/members.json`;
 const ZIP_ONLY_BASE_URL = 'http://whoismyrepresentative.com/getall_mems.php';
