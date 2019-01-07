@@ -29,7 +29,7 @@
     "broccoli-asset-rev": "3.0.0",
     "ember-a11y": "0.1.17",
     "ember-a11y-testing": "0.5.5",
-    "ember-ajax": "4.0.1",
+    "ember-ajax": "4.0.2",
     "ember-cli": "3.6.1",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-babel": "7.2.0",
