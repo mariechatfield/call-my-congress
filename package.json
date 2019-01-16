@@ -54,7 +54,7 @@
     "nodemon": "1.18.8",
     "proxyquire": "2.0.1",
     "sinon": "6.0.1",
-    "supertest": "3.3.0"
+    "supertest": "3.4.0"
   },
   "dependencies": {
     "ember-source": "3.7.0",
