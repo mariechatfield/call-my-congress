@@ -30,7 +30,7 @@
     "ember-a11y": "0.1.17",
     "ember-a11y-testing": "0.5.5",
     "ember-ajax": "4.0.2",
-    "ember-cli": "3.7.0",
+    "ember-cli": "3.8.1",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-babel": "7.2.0",
     "ember-cli-dependency-checker": "3.1.0",
@@ -46,7 +46,7 @@
     "ember-export-application-global": "2.0.0",
     "ember-intl": "3.5.0",
     "ember-load-initializers": "2.0.0",
-    "ember-qunit": "4.2.0",
+    "ember-qunit": "4.4.1",
     "ember-resolver": "5.0.1",
     "ember-test-selectors": "2.0.0",
     "loader.js": "4.7.0",
@@ -54,10 +54,10 @@
     "nodemon": "1.18.10",
     "proxyquire": "2.0.1",
     "sinon": "6.0.1",
-    "supertest": "3.3.0"
+    "supertest": "4.0.2"
   },
   "dependencies": {
-    "ember-source": "3.7.0",
+    "ember-source": "3.8.0",
     "express": "4.16.3",
     "log": "3.2.0",
     "request": "2.88.0"
