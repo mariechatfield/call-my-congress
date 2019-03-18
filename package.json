@@ -59,7 +59,7 @@
   "dependencies": {
     "ember-source": "3.8.0",
     "express": "4.16.3",
-    "log": "3.2.0",
+    "log": "4.0.0",
     "request": "2.88.0"
   }
 }
