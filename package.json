@@ -30,7 +30,7 @@
     "ember-a11y": "0.1.17",
     "ember-a11y-testing": "0.5.7",
     "ember-ajax": "4.0.2",
-    "ember-cli": "3.7.0",
+    "ember-cli": "3.8.2",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-babel": "7.7.3",
     "ember-cli-dependency-checker": "3.1.0",
@@ -53,11 +53,11 @@
     "mocha": "6.0.2",
     "nodemon": "1.18.10",
     "proxyquire": "2.0.1",
-    "sinon": "7.3.0",
+    "sinon": "7.3.1",
     "supertest": "4.0.2"
   },
   "dependencies": {
-    "ember-source": "3.8.0",
+    "ember-source": "3.9.0",
     "express": "4.16.3",
     "log": "5.0.0",
     "request": "2.88.0"
