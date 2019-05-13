@@ -30,7 +30,7 @@
     "ember-a11y": "0.1.17",
     "ember-a11y-testing": "0.5.7",
     "ember-ajax": "4.0.2",
-    "ember-cli": "3.9.0",
+    "ember-cli": "3.10.0",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-babel": "7.7.3",
     "ember-cli-dependency-checker": "3.1.0",
