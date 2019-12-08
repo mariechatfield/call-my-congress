@@ -1,9 +1,5 @@
 {
-  "root": "dist/",
-  "https_only": true,
-  "proxies": {
-    "/api/": {
-      "origin": "https://call-my-congress-backend.herokuapp.com/api"
-    }
-  }
+  "root": "public/",
+  "error_page": "index.html",
+  "https_only": true
 }
